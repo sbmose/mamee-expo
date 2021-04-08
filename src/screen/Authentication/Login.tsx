@@ -122,11 +122,15 @@ export default class Login extends Component<{ navigation: any, onLogin: any }, 
         ) : (<View style={[ThemeStyles.applicationBackground, styles.container]}>
                 <ScrollView>
                     <View style={styles.insideScrollview}>
+                        <View style={{justifyContent: "flex-start", width: '100%'}}>
+                            <Text style={styles.title}>Prihlásiť</Text>
+                        </View>
                         <View                             style={[{
                             width: '100%',
                             marginBottom: 5,
                             marginTop: 5
                         }]}>
+
                         <FloatingLabelInput
                             style={[{marginBottom: 15,
                                 marginTop: 15}]}
