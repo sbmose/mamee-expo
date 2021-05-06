@@ -28,6 +28,8 @@ export default class Login extends Component<{ navigation: any, onLogin: any }, 
         this._storeData = this._storeData.bind(this);
 
         this._retrieveData();
+
+
     }
 
     _storeData = async () => {
@@ -66,8 +68,7 @@ export default class Login extends Component<{ navigation: any, onLogin: any }, 
         this.props.onLogin(succesfulLogin);
     }
 
-    async register() {
-    }
+
 
     async loginFacebook() {
     }
@@ -105,16 +106,21 @@ export default class Login extends Component<{ navigation: any, onLogin: any }, 
                             <Text style={styles.btnText}>Pokračovať</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={[styles.field, styles.btnGoog, ThemeStyles.ptb1]}
-                                          onPress={() => this.register()}>
+                                          onPress={() => {
+                                            this.props.navigation.navigate('Register')
+                                          }}>
                             <Text style={styles.btnTextBlack}>Nemám účet</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={[styles.field, styles.btnGoog, ThemeStyles.ptb1]}
                                           onPress={() => this.loginGoogle()}>
-                            <Text style={styles.btnTextBlack}>Prihlásiť sa cez Google účet</Text>
+                            <Image source={require('../../../assets/google.png')} resizeMode='contain' style={{flex:.4,top:15,left: 10,alignSelf:'flex-start' }}/>
+                            <Text style={[styles.btnTextBlack,{top: -5,flex: 0.6}]}>Prihlási sa cez Google</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={[styles.field, styles.btnFb, ThemeStyles.ptb1]}
                                           onPress={() => this.loginFacebook()}>
-                            <Text style={styles.btnText}>Prihlási sa cez Facebook</Text>
+                            <Image source={require('../../../assets/facebook.png')} resizeMode='contain' style={{flex:.4,top:15,left:10,alignSelf:'flex-start' }}/>
+                            <Text style={[styles.btnText,{top: -5,flex: 0.6}]}>Prihlási sa cez Facebook</Text>
+
                         </TouchableOpacity>
                     </View>
                 </ScrollView>
@@ -209,7 +215,9 @@ export default class Login extends Component<{ navigation: any, onLogin: any }, 
                             <Text style={styles.btnText}>Login</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={[styles.field, styles.btnGoog, ThemeStyles.ptb1]}
-                                          onPress={() => this.register()}>
+                                          onPress={() => {
+                                              console.log(this.props);
+                                          }}>
                             <Text style={styles.btnTextBlack}>Nemám účet</Text>
                         </TouchableOpacity>
                     </View>

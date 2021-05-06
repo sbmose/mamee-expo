@@ -7,7 +7,9 @@ const Theme = {
     textColor: 'black',
     blue: '#3B5998',
     black: '#000',
-    gray: '#aaa'
+    gray: '#aaa',
+    red: '#f00',
+    darkGray: '#666'
 };
 
 
@@ -15,14 +17,48 @@ class Layout {
 }
 
 const ThemeStyles = StyleSheet.create({
+    imageDashboard: {
+        height: 150,
+        margin: 5,
+        backgroundColor: Theme.white,
+        flex: 0.5,
+        borderRadius: 15
+    },
+    dashboardPhotos: {
+
+    },
+    statusBoard: {
+      backgroundColor: Theme.pink,
+      borderRadius: 25,
+        height: 200,
+        marginTop: 20
+    },
+    container: {
+        paddingTop: '10%',
+        paddingBottom: '8%',
+        paddingLeft: '6%',
+        paddingRight: '6%'
+    },
+    welcome: {
+        flexDirection: "row",
+    },
+    today: {
+        fontSize: 13,
+        color: Theme.gray
+    },
+
+    tabIconStyle: {
+        width: 24,
+        height: 24
+    },
     ptb1: {
-      paddingTop: 0,
-      paddingBottom: 0,
+        paddingTop: 0,
+        paddingBottom: 0,
         marginTop: 5,
         marginBottom: 5,
     },
     center: {
-        alignSelf:  'center'
+        alignSelf: 'center'
     },
     italic: {
         fontStyle: 'italic',
@@ -116,7 +152,7 @@ const ThemeStyles = StyleSheet.create({
         backgroundColor: '#F0F0F0'
     },
     tabLabelStyle: {
-        marginBottom: '10%'
+        marginBottom: '5%'
     },
     topNavigation: {
         height: 100,
@@ -124,8 +160,10 @@ const ThemeStyles = StyleSheet.create({
         backgroundColor: '#ffffff'
     },
     bottomNavigation: {
-        height: '10%',
-        backgroundColor: '#49606c'
+        height: '8%',
+        backgroundColor: Theme.white,
+        borderTopColor: Theme.gray,
+        borderTopWidth: 1
     },
 });
 

@@ -2,8 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec7f7fd4-08e7-4145-afac-000086d8df6f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/addphoto.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/babykruh.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/facebook.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fotodash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/google.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/info.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/register.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/GoBack.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/HistoryStatus.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/MeBar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/MenuButton.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Photos.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/StatusBoard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Today.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Welcome.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screen/Activities.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screen/Administration.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screen/Bag.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screen/BuyList.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screen/Calendar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screen/Child.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screen/ChildAdministration.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screen/ChildPhotos.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screen/Conditions.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screen/Dashboard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screen/Food.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screen/Gallery.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screen/Health.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screen/Hospitals.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screen/Loss.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screen/Me.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screen/Names.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screen/PSMCalendar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screen/Photos.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screen/Plan.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screen/Profile.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screen/Weight.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AppNavigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AppNavigation.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screen/Authentication/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Authentication/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Authentication/Register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Authentication/Register.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themes/default.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/themes/default.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +66,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1qsTn6GTcEoLP58VwFfOMMgAaZm" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -30,15 +77,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/screen" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/screen" />
+      <recent name="$PROJECT_DIR$/src/components" />
+      <recent name="$PROJECT_DIR$/assets" />
+      <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -49,7 +98,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1617867462112</updated>
-      <workItem from="1617867463239" duration="10069000" />
+      <workItem from="1617867463239" duration="10673000" />
+      <workItem from="1618065798980" duration="613000" />
+      <workItem from="1618278003557" duration="30519000" />
+      <workItem from="1619027516895" duration="5277000" />
+      <workItem from="1619105439253" duration="619000" />
+      <workItem from="1619187208005" duration="1080000" />
+      <workItem from="1619275512126" duration="17000" />
+      <workItem from="1619283876024" duration="599000" />
+      <workItem from="1619816490329" duration="407000" />
+      <workItem from="1620219367569" duration="7865000" />
     </task>
     <servers />
   </component>
@@ -66,5 +124,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
