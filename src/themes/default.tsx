@@ -28,11 +28,10 @@ const ThemeStyles = StyleSheet.create({
         flex: 1
     },
     innerContainer: {
-        backgroundColor: Theme.appBg,
+        backgroundColor: Theme.white,
         width: Metrics.WIDTH,
         height: Metrics.HEIGHT
     },
-
     // End
     imageDashboard: {
         height: 150,
