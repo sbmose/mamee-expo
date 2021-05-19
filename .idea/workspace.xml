@@ -2,51 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec7f7fd4-08e7-4145-afac-000086d8df6f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/addphoto.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/babykruh.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/facebook.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fotodash.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/google.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/info.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/register.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/GoBack.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/HistoryStatus.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/MeBar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/MenuButton.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Photos.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/StatusBoard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Today.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Welcome.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screen/Activities.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screen/Administration.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screen/Bag.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screen/BuyList.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screen/Calendar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screen/Child.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screen/ChildAdministration.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screen/ChildPhotos.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screen/Conditions.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screen/Dashboard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screen/Food.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screen/Gallery.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screen/Health.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screen/Hospitals.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screen/Loss.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screen/Me.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screen/Names.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screen/PSMCalendar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screen/Photos.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screen/Plan.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screen/Profile.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screen/Weight.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ContractionMonitor.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Name.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screen/DetailChildPhoto.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screen/DetailPhoto.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AppNavigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AppNavigation.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/Authentication/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Authentication/Login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/Authentication/Register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Authentication/Register.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/themes/default.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/themes/default.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Activities.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Activities.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Administration.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Administration.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Bag.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Bag.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/BuyList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/BuyList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Calendar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Calendar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/ChildAdministration.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/ChildAdministration.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/ChildPhotos.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/ChildPhotos.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Dashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Food.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Food.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Gallery.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Gallery.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Health.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Health.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Hospitals.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Hospitals.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Loss.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Loss.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Me.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Me.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Names.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Names.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/PSMCalendar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/PSMCalendar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Photos.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Photos.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Plan.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Plan.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Weight.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Weight.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,7 +90,11 @@
       <workItem from="1619275512126" duration="17000" />
       <workItem from="1619283876024" duration="599000" />
       <workItem from="1619816490329" duration="407000" />
-      <workItem from="1620219367569" duration="7865000" />
+      <workItem from="1620219367569" duration="8891000" />
+      <workItem from="1620312155214" duration="2891000" />
+      <workItem from="1620421021127" duration="13193000" />
+      <workItem from="1620504931267" duration="26000" />
+      <workItem from="1620819880888" duration="13797000" />
     </task>
     <servers />
   </component>

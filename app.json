@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "mamee",
+    "name": "Mamee",
     "slug": "mamee",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -18,12 +18,12 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.app.mamee",
+      "bundleIdentifier": "sk.mamee.application",
       "buildNumber": "1.0.0",
       "supportsTablet": true
     },
     "android": {
-      "package": "com.app.mamee",
+      "package": "sk.mamee.application",
       "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",

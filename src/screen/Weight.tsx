@@ -29,13 +29,8 @@ export default class Weight extends Component<{ navigation: any }> {
 
     render() {
         return (
-            <View style={ThemeStyles.applicationBackground}>
-                <ScrollView style={[ThemeStyles.container,]}>
-                    <GoBack onPress={() => this.props.navigation.navigate('MenuMe')}  label={'Váha'} style={{}} />
-                    <View style={{paddingBottom: 100}}>
-
-                    </View>
-                </ScrollView>
+            <View style={[ThemeStyles.applicationBackground, ThemeStyles.container]}>
+                <GoBack onPress={() => this.props.navigation.navigate('MenuMe')} label={'Váha'} style={{}}/>
             </View>
         );
     }

@@ -9,6 +9,7 @@ import Welcome from "../components/Welcome";
 import StatusBoard from "../components/StatusBoard";
 import Photos from "../components/Photos";
 import HistoryStatus from "../components/HistoryStatus";
+import ContractionMonitor from "../components/ContractionMonitor";
 
 
 
@@ -34,9 +35,9 @@ export default class Dashboard extends Component<{ navigation: any }> {
                         <Today day="Streda" date="2. októbra" style={ThemeStyles.today}/>
                         <Welcome navigation={this.props.navigation} name="Janka" photo={require('../../assets/profil.png')} style={ThemeStyles.welcome}/>
                         <StatusBoard navigation={this.props.navigation} message="Si v treťom trimestri tehotenstva" day="202" week="28" style={ThemeStyles.statusBoard}/>
+                        <ContractionMonitor navigation={this.props.navigation} style={ThemeStyles.statusBoard}/>
                         <Photos navigation={this.props.navigation} photos={[require('../../assets/fotodash.png')]} style={ThemeStyles.dashboardPhotos}/>
                         <HistoryStatus navigation={this.props.navigation} day="2" weight="64" message="Tvoje bábätko meria 36 centimetrov a váži 1200 gramov, čo je približne tretina odhadovanej pôrodnej hmotnosti. Týždenne narastie o 1 až 2 centimetre. Je shopné pocitovať bolesť a na podnety reaguje podobne ako narodené dieťa."/>
-
                     </View>
                 </ScrollView>
             </View>

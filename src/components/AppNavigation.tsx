@@ -28,6 +28,8 @@ import ChildAdministration from "../screen/ChildAdministration";
 import ChildPhotos from "../screen/ChildPhotos";
 import Food from "../screen/Food";
 import Weight from "../screen/Weight";
+import DetailPhoto from "../screen/DetailPhoto";
+import DetailChildPhoto from "../screen/DetailChildPhoto";
 
 
 interface AppNavigationState {
@@ -66,6 +68,10 @@ function MeStack(props: any) {
                 component= {() => {
             return (<Profile navigation={props.navigation}/>);
             }}
+            />
+            <Stack.Screen
+                name="DetailPhoto"
+                component= {DetailPhoto}
             />
             <Stack.Screen
                 name="Weight"
@@ -162,6 +168,10 @@ function ChildStack(props: any) {
                 component= {() => {
                     return (<ChildPhotos navigation={props.navigation}/>);
                 }}
+            />
+            <Stack.Screen
+                name="DetailChildPhoto"
+                component= {DetailChildPhoto}
             />
             <Stack.Screen
                 name="ChildAdministration"

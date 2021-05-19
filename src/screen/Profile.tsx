@@ -4,6 +4,7 @@ import {AsyncStorage, Dimensions, Image, SafeAreaView, TouchableOpacity, useColo
 import {StyleSheet, View, ScrollView, TextInput, Text} from 'react-native';
 
 import {Theme, ThemeStyles} from "../themes/default";
+import GoBack from "../components/GoBack";
 
 
 
@@ -24,11 +25,8 @@ export default class Profile extends Component<{ navigation: any }> {
 
     render() {
         return (
-            <View style={ThemeStyles.applicationBackground}>
-                <ScrollView>
-                    <View >
-                    </View>
-                </ScrollView>
+            <View style={[ThemeStyles.applicationBackground, ThemeStyles.container]}>
+                <GoBack onPress={() => this.props.navigation.navigate('MenuMe')} label={'Profil'} style={{}}/>
             </View>
         );
     }
