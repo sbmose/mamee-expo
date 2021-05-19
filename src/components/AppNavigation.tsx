@@ -1,11 +1,16 @@
-import React, {Component} from "react";
-import {Image} from 'react-native';
+import React, { Component } from "react";
+import { Image } from 'react-native';
 import Login from "../screen/Authentication/Login";
 import ResetPassword from "../screen/Authentication/ResetPassword";
 import Register from "../screen/Authentication/Register";
-import {createStackNavigator} from "@react-navigation/stack";
-import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
-import {Theme, ThemeStyles} from "../themes/default";
+import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Theme, ThemeStyles } from "../themes/default";
+// Screen names
+import { PROFILE_STACK } from '../navigation/ScreenNames';
+// Inner navigators
+import ProfileStack from "../navigation/navigators/Profile.stack";
+// Screens
 import Dashboard from "../screen/Dashboard";
 import Me from "../screen/Me";
 import Child from "../screen/Child";
@@ -60,89 +65,87 @@ function MeStack(props: any) {
             <Stack.Screen
                 name="MenuMe"
                 component={() => {
-                    return (<Me navigation={props.navigation}/>);
+                    return (<Me navigation={props.navigation} />);
                 }}
             />
             <Stack.Screen
-                name="Profile"
-                component= {() => {
-            return (<Profile navigation={props.navigation}/>);
-            }}
+                name={PROFILE_STACK}
+                component={ProfileStack}
             />
             <Stack.Screen
                 name="DetailPhoto"
-                component= {DetailPhoto}
+                component={DetailPhoto}
             />
             <Stack.Screen
                 name="Weight"
-                component= {() => {
-                    return (<Weight navigation={props.navigation}/>);
+                component={() => {
+                    return (<Weight navigation={props.navigation} />);
                 }}
             />
             <Stack.Screen
                 name="Health"
-                component= {() => {
-                    return (<Health navigation={props.navigation}/>);
+                component={() => {
+                    return (<Health navigation={props.navigation} />);
                 }}
             />
             <Stack.Screen
                 name="Calendar"
-                component= {() => {
-                    return (<Calendar navigation={props.navigation}/>);
+                component={() => {
+                    return (<Calendar navigation={props.navigation} />);
                 }}
             />
             <Stack.Screen
                 name="Photos"
-                component= {() => {
-                    return (<Photos navigation={props.navigation}/>);
+                component={() => {
+                    return (<Photos navigation={props.navigation} />);
                 }}
             />
             <Stack.Screen
                 name="PSMCalendar"
-                component= {() => {
-                    return (<PSMCalendar navigation={props.navigation}/>);
+                component={() => {
+                    return (<PSMCalendar navigation={props.navigation} />);
                 }}
             />
             <Stack.Screen
                 name="Plan"
-                component= {() => {
-                    return (<Plan navigation={props.navigation}/>);
+                component={() => {
+                    return (<Plan navigation={props.navigation} />);
                 }}
             />
             <Stack.Screen
                 name="Bag"
-                component= {() => {
-                    return (<Bag navigation={props.navigation}/>);
+                component={() => {
+                    return (<Bag navigation={props.navigation} />);
                 }}
             />
             <Stack.Screen
                 name="BuyList"
-                component= {() => {
-                    return (<BuyList navigation={props.navigation}/>);
+                component={() => {
+                    return (<BuyList navigation={props.navigation} />);
                 }}
             />
             <Stack.Screen
                 name="Names"
-                component= {() => {
-                    return (<Names navigation={props.navigation}/>);
+                component={() => {
+                    return (<Names navigation={props.navigation} />);
                 }}
             />
             <Stack.Screen
                 name="Hospitals"
-                component= {() => {
-                    return (<Hospitals navigation={props.navigation}/>);
+                component={() => {
+                    return (<Hospitals navigation={props.navigation} />);
                 }}
             />
             <Stack.Screen
                 name="Loss"
-                component= {() => {
-                    return (<Loss navigation={props.navigation}/>);
+                component={() => {
+                    return (<Loss navigation={props.navigation} />);
                 }}
             />
             <Stack.Screen
                 name="Administration"
-                component= {() => {
-                    return (<Administration navigation={props.navigation}/>);
+                component={() => {
+                    return (<Administration navigation={props.navigation} />);
                 }}
             />
         </Stack.Navigator>
@@ -159,30 +162,30 @@ function ChildStack(props: any) {
             />
             <Stack.Screen
                 name="Food"
-                component= {() => {
-                    return (<Food navigation={props.navigation}/>);
+                component={() => {
+                    return (<Food navigation={props.navigation} />);
                 }}
             />
             <Stack.Screen
                 name="ChildPhotos"
-                component= {() => {
-                    return (<ChildPhotos navigation={props.navigation}/>);
+                component={() => {
+                    return (<ChildPhotos navigation={props.navigation} />);
                 }}
             />
             <Stack.Screen
                 name="DetailChildPhoto"
-                component= {DetailChildPhoto}
+                component={DetailChildPhoto}
             />
             <Stack.Screen
                 name="ChildAdministration"
-                component= {() => {
-                    return (<ChildAdministration navigation={props.navigation}/>);
+                component={() => {
+                    return (<ChildAdministration navigation={props.navigation} />);
                 }}
             />
             <Stack.Screen
                 name="Activities"
-                component= {() => {
-                    return (<Activities navigation={props.navigation}/>);
+                component={() => {
+                    return (<Activities navigation={props.navigation} />);
                 }}
             />
         </Stack.Navigator>
@@ -192,7 +195,7 @@ function ChildStack(props: any) {
 export default class AppNavigation extends Component<{ navigation: any }, AppNavigationState> {
 
     handleLogin(status: boolean) {
-        this.setState({loggedIn: status});
+        this.setState({ loggedIn: status });
     }
 
 
@@ -209,17 +212,17 @@ export default class AppNavigation extends Component<{ navigation: any }, AppNav
         return !this.state.loggedIn ? (
             <Stack.Navigator headerMode="none">
                 <Stack.Screen name="Login" component={() => {
-                    return (<Login navigation={this.props.navigation} onLogin={this.handleLogin}/>)
-                }}/>
+                    return (<Login navigation={this.props.navigation} onLogin={this.handleLogin} />)
+                }} />
                 <Stack.Screen name="ResetPassword" component={() => {
-                    return (<ResetPassword navigation={this.props.navigation}/>)
-                }}/>
+                    return (<ResetPassword navigation={this.props.navigation} />)
+                }} />
                 <Stack.Screen name="Register" component={() => {
-                    return (<Register navigation={this.props.navigation}/>)
-                }}/>
+                    return (<Register navigation={this.props.navigation} />)
+                }} />
                 <Stack.Screen name="Conditions" component={() => {
-                    return (<Conditions navigation={this.props.navigation}/>)
-                }}/>
+                    return (<Conditions navigation={this.props.navigation} />)
+                }} />
             </Stack.Navigator>) : (
             <Tab.Navigator
                 lazy={false}
@@ -237,27 +240,27 @@ export default class AppNavigation extends Component<{ navigation: any }, AppNav
                     options={{
                         tabBarLabel: 'Domov',
                         tabBarIcon: ({ color, size }) => (
-                            <Image source={require('../../assets/domov.png')}  style={ThemeStyles.tabIconStyle} tintColor={color}/>
+                            <Image source={require('../../assets/domov.png')} style={ThemeStyles.tabIconStyle} tintColor={color} />
                         ),
-                    }}/>
+                    }} />
                 <Tab.Screen
                     name="Me"
                     component={MeStack}
                     options={{
                         tabBarLabel: 'Ja',
                         tabBarIcon: ({ color, size }) => (
-                            <Image source={require('../../assets/mother.png')}  style={ThemeStyles.tabIconStyle} tintColor={color}/>
+                            <Image source={require('../../assets/mother.png')} style={ThemeStyles.tabIconStyle} tintColor={color} />
                         ),
-                    }}/>
+                    }} />
                 <Tab.Screen
                     name="Child"
                     component={ChildStack}
                     options={{
                         tabBarLabel: 'Dieťa',
                         tabBarIcon: ({ color, size }) => (
-                            <Image source={require('../../assets/baby.png')}  style={ThemeStyles.tabIconStyle} tintColor={color}/>
+                            <Image source={require('../../assets/baby.png')} style={ThemeStyles.tabIconStyle} tintColor={color} />
                         ),
-                    }}/>
+                    }} />
             </Tab.Navigator>
         );
     }

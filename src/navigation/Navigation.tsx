@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as SplashScreen from 'expo-splash-screen';
+import { Root } from "native-base";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaProvider, initialWindowMetrics } from 'react-native-safe-area-context';
@@ -7,7 +8,6 @@ import AppNavigation from '../components/AppNavigation';
 
 export default function Navigation({ navigation }: any) {
     const [ready, setReady] = React.useState(false);
-    const navigationRef = React.useRef(null);
 
     if (ready) {
         try {
@@ -19,13 +19,15 @@ export default function Navigation({ navigation }: any) {
 
     // TODO: Root navigator and screens
     return (
-        <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-            <NavigationContainer onReady={() => {
-                setReady(true);
-            }}>
-                <AppNavigation navigation={navigationRef.current} />
-            </NavigationContainer>
-        </SafeAreaProvider>
+        <Root>
+            <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+                <NavigationContainer onReady={() => {
+                    setReady(true);
+                }}>
+                    <AppNavigation navigation={navigation} />
+                </NavigationContainer>
+            </SafeAreaProvider>
+        </Root>
     );
 }
 
