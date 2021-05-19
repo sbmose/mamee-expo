@@ -1,4 +1,5 @@
-import {StyleSheet} from "react-native";
+import { StyleSheet } from "react-native";
+import Metrics from './metrics';
 
 const Theme = {
     pink: '#F794A4',
@@ -9,7 +10,8 @@ const Theme = {
     black: '#000',
     gray: '#aaa',
     red: '#f00',
-    darkGray: '#666'
+    darkGray: '#666',
+    appBg: '#F0F0F0'
 };
 
 
@@ -17,6 +19,21 @@ class Layout {
 }
 
 const ThemeStyles = StyleSheet.create({
+    // Miloš - TODO sjednotit
+    safeAreaContainer: {
+        ...StyleSheet.absoluteFillObject,
+        backgroundColor: Theme.appBg
+    },
+    scrollContainer: {
+        flex: 1
+    },
+    innerContainer: {
+        backgroundColor: Theme.appBg,
+        width: Metrics.WIDTH,
+        height: Metrics.HEIGHT
+    },
+
+    // End
     imageDashboard: {
         height: 150,
         margin: 5,
@@ -28,8 +45,8 @@ const ThemeStyles = StyleSheet.create({
 
     },
     statusBoard: {
-      backgroundColor: Theme.pink,
-      borderRadius: 25,
+        backgroundColor: Theme.pink,
+        borderRadius: 25,
         height: 200,
         marginTop: 20
     },
@@ -64,7 +81,7 @@ const ThemeStyles = StyleSheet.create({
         fontStyle: 'italic',
     },
     alignTextCenter: {
-      textAlign: 'center'
+        textAlign: 'center'
     },
     pb5: {
         paddingBottom: 5,
@@ -73,7 +90,7 @@ const ThemeStyles = StyleSheet.create({
         flexDirection: "row",
     },
     w50: {
-      width: '50%'
+        width: '50%'
     },
     mb20: {
         marginBottom: 20
@@ -167,5 +184,5 @@ const ThemeStyles = StyleSheet.create({
     },
 });
 
-export {Theme, Layout, ThemeStyles};
+export { Theme, Layout, ThemeStyles };
 
