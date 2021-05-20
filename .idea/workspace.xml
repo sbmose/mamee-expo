@@ -2,18 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec7f7fd4-08e7-4145-afac-000086d8df6f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/jablka.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/kasa.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/keksiky.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/mlieko.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Widget.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/WidgetFood.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/WidgetSunar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/checked.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/foto.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/predieta.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/prematku.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/prepartnera.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/unchecked.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/GoBackPhoto.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/WidgetIcon.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screen/BagChild.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screen/BagMother.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screen/BagPartner.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AppNavigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AppNavigation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Bag.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Bag.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screen/Food.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Food.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Hospitals.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Hospitals.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Plan.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Plan.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Weight.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Weight.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,15 +52,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/screen" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/components" />
       <recent name="$PROJECT_DIR$/src/screen" />
+      <recent name="$PROJECT_DIR$/src/components" />
       <recent name="$PROJECT_DIR$/assets" />
       <recent name="$PROJECT_DIR$/src" />
     </key>

@@ -35,7 +35,9 @@ import Food from "../screen/Food";
 import Weight from "../screen/Weight";
 import DetailPhoto from "../screen/DetailPhoto";
 import DetailChildPhoto from "../screen/DetailChildPhoto";
-
+import BagPartner from "../screen/BagPartner";
+import BagMother from "../screen/BagMother";
+import BagChild from "../screen/BagChild";
 
 interface AppNavigationState {
     loggedIn: boolean
@@ -116,6 +118,24 @@ function MeStack(props: any) {
                 name="Bag"
                 component={() => {
                     return (<Bag navigation={props.navigation} />);
+                }}
+            />
+            <Stack.Screen
+                name="BagMother"
+                component={() => {
+                    return (<BagMother navigation={props.navigation} />);
+                }}
+            />
+            <Stack.Screen
+                name="BagChild"
+                component={() => {
+                    return (<BagChild navigation={props.navigation} />);
+                }}
+            />
+            <Stack.Screen
+                name="BagPartner"
+                component={() => {
+                    return (<BagPartner navigation={props.navigation} />);
                 }}
             />
             <Stack.Screen
