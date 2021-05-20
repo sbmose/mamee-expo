@@ -1,12 +1,10 @@
 // @ts-ignore
 import React, {Component, useState} from 'react';
-import {AsyncStorage, Dimensions, Image, SafeAreaView, TouchableOpacity, useColorScheme} from 'react-native';
-import {StyleSheet, View, ScrollView, TextInput, Text} from 'react-native';
+import {TouchableOpacity, View} from 'react-native';
 
-import {Theme, ThemeStyles} from "../themes/default";
+import {ThemeStyles} from "../themes/default";
 import GoBack from "../components/GoBack";
-
-
+import WidgetIcon from "../components/WidgetIcon";
 
 
 export default class Bag extends Component<{ navigation: any }> {
@@ -26,7 +24,20 @@ export default class Bag extends Component<{ navigation: any }> {
     render() {
         return (
             <View style={[ThemeStyles.applicationBackground, ThemeStyles.container]}>
-                <GoBack onPress={() => this.props.navigation.navigate('MenuMe')} label={'Taška do pôrodnice'} style={{}}/>
+                <GoBack onPress={() => this.props.navigation.navigate('MenuMe')} label={'Taška do pôrodnice'}
+                        style={{}}/>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('BagMother')}>
+                    <WidgetIcon navigation={this.props.navigation} text={"Pre matku"} style={{marginTop: 5}}
+                                icon={require("../../assets/prematku.png")}/>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('BagChild')}>
+                    <WidgetIcon navigation={this.props.navigation} text={"Pre dieťa"} style={{marginTop: 5}}
+                                icon={require("../../assets/predieta.png")}/>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('BagPartner')}>
+                    <WidgetIcon navigation={this.props.navigation} text={"Pre partnera"} style={{marginTop: 5}}
+                                icon={require("../../assets/prepartnera.png")}/>
+                </TouchableOpacity>
             </View>
         );
     }

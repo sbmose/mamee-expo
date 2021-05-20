@@ -30,7 +30,7 @@ class Feed extends Component<TabProps, any> {
     render() {
         return (
             <ScrollView>
-                <View>
+                <View style={{paddingBottom: 100}}>
                     <Widget navigation={this.props.navigation} text={"V tejto sekcii nájdeš informácie, ako kŕmiť" +
                     "svoje dieťa.\nSú tu odporúčané jedlá pre detičky v rôznych fázach vývoja."} style={{marginTop: 20, marginBottom: 20}}/>
                     <View>
@@ -63,7 +63,7 @@ class Sunar extends Component<TabProps, any> {
     render() {
         return (
             <ScrollView>
-                <View>
+                <View style={{paddingBottom: 100}}>
                     <Widget navigation={this.props.navigation} text={"Toto je tvoj záznamník dojčenia dieťatka.\nMôžeš si tu zaznamenávať jeho čas či priebeh."} style={{marginTop: 20, marginBottom: 20}}/>
                     <View>
                         <Text style={{color: Theme.gray, fontSize: 16,fontWeight: 'bold'}}>16. septembra 2019</Text>
