@@ -99,8 +99,6 @@ const data = {
     ],
     "out": [
         {
-
-
             "name": "Oblečenie",
             "items": [
                 {

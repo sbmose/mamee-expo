@@ -2,27 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec7f7fd4-08e7-4145-afac-000086d8df6f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/checked.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/foto.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/predieta.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/prematku.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/prepartnera.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/unchecked.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/GoBackPhoto.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/WidgetIcon.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screen/BagChild.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screen/BagMother.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screen/BagPartner.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AppNavigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AppNavigation.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/Bag.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Bag.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/Food.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Food.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/Hospitals.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Hospitals.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/Plan.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Plan.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/Weight.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Weight.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/BagMother.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/BagMother.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
