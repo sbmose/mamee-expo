@@ -1,37 +1,37 @@
 
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import { CheckBox, Text, Body } from 'native-base';
-import { SvgXml } from 'react-native-svg';
+import { ListItem, Text, Left, Body, Right, Switch } from 'native-base';
 import { Theme } from '../themes/default';
 import SvgIcon from './SvgIcons';
 
 
 export default function ListItemCheckBox(props: any) {
-    const { label } = props;
+    const { label, iconName, noBorder } = props;
 
     return (
-        <TouchableOpacity
-            style={[styles.container]}
-            onPress={() => console.log("Checkbox list item press")}>
-            <View style={styles.iconContainer}>
-                <SvgIcon iconName="pohlavia" />
-            </View>
-            <View style={styles.labelContainer}>
+        <ListItem icon noBorder={noBorder} style={styles.container}>
+            <Left style={{
+                paddingHorizontal: 0,
+                marginHorizontal: 0
+            }}>
+                <SvgIcon iconName={iconName} />
+            </Left>
+            <Body>
                 <Text style={styles.label}>{label}</Text>
-
-            </View>
-            <CheckBox />
-        </TouchableOpacity>
+            </Body>
+            <Right>
+                <Switch value={false} />
+            </Right>
+        </ListItem>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        flexDirection: "row",
-        justifyContent: "flex-start",
-        backgroundColor: Theme.appBg
+        borderBottomWidth: 0,
+        paddingHorizontal: 0,
+        marginHorizontal: 0
     },
     iconContainer: {
         flexDirection: "column",
@@ -43,6 +43,9 @@ const styles = StyleSheet.create({
         justifyContent: "flex-start",
     },
     label: {
-
+        fontSize: 16,
+        color: Theme.darkGray,
+        lineHeight: 24,
+        letterSpacing: 0.2
     }
 });

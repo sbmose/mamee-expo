@@ -36,9 +36,12 @@ export default function ProfileScreen({ navigation }: any) {
                         <Text style={styles.listHeader}>Tehotenstvo</Text>
                         <MainButton
                             label={"Zdravotné informácie"}
+                            style={styles.infoBtnStyle}
                             onPress={() => console.log("Zdravotné informacie")} />
                         <ListItemCheckBox
-                            label="Bábätko sa už narodilo" />
+                            label="Bábätko sa už narodilo"
+                            iconName="pohlavia"
+                            noBorder={true} />
                     </View>
                 </Container>
             </ScrollView>
@@ -94,10 +97,14 @@ const styles = StyleSheet.create({
         color: Theme.pink
     },
     listHeader: {
+        paddingHorizontal: 16,
         fontSize: 18,
         fontWeight: "600",
         lineHeight: 28,
         letterSpacing: 0.1,
         marginBottom: 16
+    },
+    infoBtnStyle: {
+        marginBottom: 24
     }
 });
