@@ -14,7 +14,8 @@ export const ListItemSeparator = () => {
 const styles = StyleSheet.create({
     separator: {
         height: 1,
-        width: '100%',
-        backgroundColor: Theme.darkGray
+        marginVertical: 20,
+        marginHorizontal: 16,
+        backgroundColor: "#E8E9EC"
     }
 });

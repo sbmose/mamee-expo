@@ -14,6 +14,7 @@ import {
 import { Theme, ThemeStyles } from '../../themes/default';
 import MainButton from '../../components/MainButton';
 import ListItemCheckBox from '../../components/ListItemCheckBox';
+import { ListItemSeparator } from '../../components/ListItemSeparator';
 // Screen Styles
 
 export default function ProfileScreen({ navigation }: any) {
@@ -40,8 +41,24 @@ export default function ProfileScreen({ navigation }: any) {
                             onPress={() => console.log("Zdravotné informacie")} />
                         <ListItemCheckBox
                             label="Bábätko sa už narodilo"
-                            iconName="pohlavia"
+                            iconName="baby"
                             noBorder={true} />
+                        <ListItemCheckBox
+                            label="Strata tehotenstva"
+                            iconName="stratatehotenstva"
+                            noBorder={true} />
+                        <ListItemSeparator />
+                        <Text style={styles.listHeader}>Nastavenia</Text>
+                        <ListItemCheckBox
+                            label="Notifikácie"
+                            iconName="notifikacie"
+                            noBorder={true} />
+                        <ListItemCheckBox
+                            label="Prihlásenie s Touch ID"
+                            iconName="otlacok"
+                            noBorder={true} />
+                        <ListItemSeparator />
+                        <Text style={styles.listHeader}>Účet</Text>
                     </View>
                 </Container>
             </ScrollView>
