@@ -28,6 +28,7 @@ const ThemeStyles = StyleSheet.create({
         flex: 1
     },
     innerContainer: {
+        padding: 16,
         backgroundColor: Theme.white,
         width: Metrics.WIDTH,
         height: Metrics.HEIGHT

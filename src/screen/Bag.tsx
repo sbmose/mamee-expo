@@ -1,8 +1,8 @@
 // @ts-ignore
-import React, {Component, useState} from 'react';
-import {TouchableOpacity, View} from 'react-native';
+import React, { Component, useState } from 'react';
+import { TouchableOpacity, View } from 'react-native';
 
-import {ThemeStyles} from "../themes/default";
+import { ThemeStyles } from "../themes/default";
 import GoBack from "../components/GoBack";
 import WidgetIcon from "../components/WidgetIcon";
 
@@ -14,7 +14,7 @@ export default class Bag extends Component<{ navigation: any }> {
 
     }
 
-    constructor(props:any) {
+    constructor(props: any) {
         super(props);
         this.state = {
 
@@ -25,18 +25,18 @@ export default class Bag extends Component<{ navigation: any }> {
         return (
             <View style={[ThemeStyles.applicationBackground, ThemeStyles.container]}>
                 <GoBack onPress={() => this.props.navigation.navigate('MenuMe')} label={'Taška do pôrodnice'}
-                        style={{}}/>
+                    style={{}} />
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('BagMother')}>
-                    <WidgetIcon navigation={this.props.navigation} text={"Pre matku"} style={{marginTop: 5}}
-                                icon={require("../../assets/prematku.png")}/>
+                    <WidgetIcon navigation={this.props.navigation} text={"Pre matku"} style={{ marginTop: 5 }}
+                        icon={require("../../assets/prematku.svg")} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('BagChild')}>
-                    <WidgetIcon navigation={this.props.navigation} text={"Pre dieťa"} style={{marginTop: 5}}
-                                icon={require("../../assets/predieta.png")}/>
+                    <WidgetIcon navigation={this.props.navigation} text={"Pre dieťa"} style={{ marginTop: 5 }}
+                        icon={require("../../assets/predieta.svg")} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('BagPartner')}>
-                    <WidgetIcon navigation={this.props.navigation} text={"Pre partnera"} style={{marginTop: 5}}
-                                icon={require("../../assets/prepartnera.png")}/>
+                    <WidgetIcon navigation={this.props.navigation} text={"Pre partnera"} style={{ marginTop: 5 }}
+                        icon={require("../../assets/prepartnera.svg")} />
                 </TouchableOpacity>
             </View>
         );

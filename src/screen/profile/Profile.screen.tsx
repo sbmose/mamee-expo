@@ -12,6 +12,7 @@ import {
     Button
 } from "native-base";
 import { Theme, ThemeStyles } from '../../themes/default';
+import MainButton from '../../components/MainButton';
 // Screen Styles
 
 export default function ProfileScreen({ navigation }: any) {
@@ -32,6 +33,9 @@ export default function ProfileScreen({ navigation }: any) {
                     </View>
                     <View style={styles.settingsContainer}>
                         <Text style={styles.listHeader}>Tehotenstvo</Text>
+                        <MainButton
+                            label={"Zdravotné informácie"}
+                            onPress={() => console.log("Zdravotné informacie")} />
                     </View>
                 </Container>
             </ScrollView>
