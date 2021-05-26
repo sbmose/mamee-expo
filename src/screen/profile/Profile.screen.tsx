@@ -13,6 +13,7 @@ import {
 } from "native-base";
 import { Theme, ThemeStyles } from '../../themes/default';
 import MainButton from '../../components/MainButton';
+import ListItemCheckBox from '../../components/ListItemCheckBox';
 // Screen Styles
 
 export default function ProfileScreen({ navigation }: any) {
@@ -36,6 +37,8 @@ export default function ProfileScreen({ navigation }: any) {
                         <MainButton
                             label={"Zdravotné informácie"}
                             onPress={() => console.log("Zdravotné informacie")} />
+                        <ListItemCheckBox
+                            label="Bábätko sa už narodilo" />
                     </View>
                 </Container>
             </ScrollView>
@@ -94,6 +97,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: "600",
         lineHeight: 28,
-        letterSpacing: 0.1
+        letterSpacing: 0.1,
+        marginBottom: 16
     }
 });
