@@ -16,6 +16,6 @@ const styles = StyleSheet.create({
         height: 1,
         marginVertical: 20,
         marginHorizontal: 16,
-        backgroundColor: "#E8E9EC"
+        backgroundColor: Theme.lightGrey
     }
 });

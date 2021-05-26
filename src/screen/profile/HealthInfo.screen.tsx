@@ -1,91 +1,159 @@
 import React from 'react';
 import {
     StyleSheet,
-    View,
     SafeAreaView,
     ScrollView,
     Text
 } from 'react-native';
-import {
-    Container,
-    Thumbnail,
-    Button
-} from "native-base";
+import { Card } from "native-base";
 import { Theme, ThemeStyles } from '../../themes/default';
-import MainButton from '../../components/MainButton';
-import ListItemCheckBox from '../../components/ListItemCheckBox';
-import { ListItemSeparator } from '../../components/ListItemSeparator';
-import ListItemText from '../../components/ListItemText';
-import ListItemSimple from '../../components/ListItemSimple';
+import CardItemInput from '../../components/CardItemInput';
+import CardItemButton from '../../components/CardItemButton';
 // Screen Styles
 
 export default function HealthInfo({ navigation }: any) {
+    const mockData = {
+        common: [
+            {
+                label: "Pojišťovňa",
+                value: "Dovera"
+            },
+            {
+                label: "Priezvisko za slobodna",
+                value: "Nováková"
+            },
+            {
+                label: "Bydlisko",
+                value: "Štefánikova 9, Trnava, Slovensko"
+            },
+            {
+                label: "Zamestnanie",
+                value: "Účtovníčka"
+            },
+            {
+                label: "Rodné číslo matky",
+                value: "123456/1234"
+            },
+            {
+                label: "Gynekológ",
+                value: "MUDr. Patrik Ondrejech"
+            },
+        ],
+        previousGravidity: [
+            {
+                label: "Rok",
+                value: "2015"
+            },
+            {
+                label: "Pohlavie",
+                value: "Dievča"
+            },
+            {
+                label: "Hmotnosť / dĺžka dieťaťa",
+                value: "3,9 kg / 45 cm"
+            },
+            {
+                label: "Komplikácie gravidity",
+                value: "Žiadne"
+            },
+            {
+                label: "Komplikácie pôrodu",
+                value: "Placenta previa"
+            },
+        ],
+        medicalRecords: [
+            {
+                label: "Potraty",
+            },
+            {
+                label: "Rodinná anamnéza",
+            },
+            {
+                label: "Osobná anamnéza",
+            },
+            {
+                label: "Alergie",
+            },
+            {
+                label: "Detské ochorenia",
+            },
+            {
+                label: "Poisťovňa",
+            }
+        ],
+        pregnancy: [
+            {
+                label: "Posledná menštruácia",
+                value: "16/05/2019"
+            },
+            {
+                label: "Termín pôrodu",
+                value: "19/12/2019"
+            },
+            {
+                label: "Nástup na materskú dov.",
+                value: "10/11/2019"
+            },
+            {
+                label: "Výška",
+                value: "170 cm"
+            },
+            {
+                label: "Hmotnosť",
+                value: "64 kg"
+            },
+        ]
+    }
+
 
     return (
         <SafeAreaView style={ThemeStyles.safeAreaContainer}>
-            <ScrollView style={ThemeStyles.scrollContainer}>
-
+            <ScrollView style={[ThemeStyles.scrollContainer, styles.container]}>
+                <Text style={styles.listHeader}>Všeobecné</Text>
+                <Card style={styles.card}>
+                    {mockData.common.map((item) => (
+                        <CardItemInput key={item.value} label={item.label} value={item.value} />
+                    )
+                    )}
+                </Card>
+                <Text style={styles.listHeader}>Predcházajůce gravidity</Text>
+                <Card style={styles.card}>
+                    {mockData.previousGravidity.map((item) => (
+                        <CardItemInput key={item.value} label={item.label} value={item.value} />
+                    ))}
+                </Card>
+                <Text style={styles.listHeader}>Lekárske záznamy</Text>
+                <Card style={styles.card}>
+                    {mockData.medicalRecords.map((item) => (
+                        <CardItemButton key={item.label} label={item.label} />
+                    ))}
+                </Card>
+                <Text style={styles.listHeader}>Tehotenstvo</Text>
+                <Card style={styles.card}>
+                    {mockData.pregnancy.map((item) => (
+                        <CardItemInput key={item.value} label={item.label} value={item.value} />
+                    ))}
+                </Card>
             </ScrollView>
         </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
-    headerContainer: {
-        alignItems: 'center',
-        justifyContent: 'flex-start'
-    },
-    settingsContainer: {
-
-    },
-    thumbnail: {
-        width: 150,
-        height: 150,
-        borderRadius: 150,
-        borderWidth: 2,
-        borderColor: "#ffffff",
-        marginVertical: 10,
-    },
-    profileName: {
-        fontSize: 32,
-        fontWeight: '600',
-        letterSpacing: 0.5,
-        lineHeight: 42,
-        color: Theme.black
-    },
-    profileInfo: {
-        fontSize: 12,
-        fontWeight: "500",
-        letterSpacing: 0.2,
-        lineHeight: 18,
-        color: Theme.darkGray,
-        marginBottom: 30
-    },
-    profileEmailandPass: {
-        fontSize: 16,
-        fontWeight: "400",
-        letterSpacing: 0.2,
-        lineHeight: 24,
-        color: Theme.black,
-        marginVertical: 5
-    },
-    changePassBtn: {
-        alignSelf: "center",
-    },
-    changePassBtnText: {
-        fontSize: 12,
-        fontWeight: "500",
-        color: Theme.pink
+    container: {
+        paddingHorizontal: 16
     },
     listHeader: {
-        paddingHorizontal: 16,
-        fontSize: 18,
-        fontWeight: "600",
-        lineHeight: 28,
+        fontSize: 12,
+        fontWeight: "500",
+        lineHeight: 18,
         letterSpacing: 0.1,
-        marginBottom: 16
+        marginTop: 30,
+        marginBottom: 10,
+        color: Theme.darkGray
     },
-    infoBtnStyle: {
-        marginBottom: 24
+    card: {
+        borderRadius: 6,
+        borderWidth: 0
     }
 });
