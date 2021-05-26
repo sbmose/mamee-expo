@@ -25,10 +25,10 @@ const ThemeStyles = StyleSheet.create({
         backgroundColor: Theme.appBg
     },
     scrollContainer: {
-        flex: 1
+        backgroundColor: Theme.white,
     },
     innerContainer: {
-        //padding: 16,
+        flex: 1,
         backgroundColor: Theme.white,
         width: Metrics.WIDTH,
         height: Metrics.HEIGHT
