@@ -17,7 +17,7 @@ export default function CardItemButton({ label }: any) {
             </Left>
             <Body>
                 <Button style={styles.detailButton} transparent
-                    onPress={() => navigation.navigate(HEALTH_INFO_DETAIL_SCREEN, { data: null })}>
+                    onPress={() => navigation.navigate(HEALTH_INFO_DETAIL_SCREEN, { label: label, data: null })}>
                     <Text style={styles.buttonText}>Detail</Text>
                 </Button>
             </Body>
