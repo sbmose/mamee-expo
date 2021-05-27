@@ -11,7 +11,8 @@ const Theme = {
     gray: '#aaa',
     red: '#f00',
     darkGray: '#666',
-    appBg: '#F0F0F0'
+    appBg: '#F0F0F0',
+    lightGrey: "#e8e8e8"
 };
 
 
@@ -25,9 +26,10 @@ const ThemeStyles = StyleSheet.create({
         backgroundColor: Theme.appBg
     },
     scrollContainer: {
-        flex: 1
+        backgroundColor: Theme.appBg,
     },
     innerContainer: {
+        flex: 1,
         backgroundColor: Theme.white,
         width: Metrics.WIDTH,
         height: Metrics.HEIGHT

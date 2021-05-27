@@ -12,6 +12,15 @@ import {
     Button
 } from "native-base";
 import { Theme, ThemeStyles } from '../../themes/default';
+import MainButton from '../../components/MainButton';
+import ListItemCheckBox from '../../components/ListItemCheckBox';
+import { ListItemSeparator } from '../../components/ListItemSeparator';
+import ListItemText from '../../components/ListItemText';
+import ListItemSimple from '../../components/ListItemSimple';
+import {
+    HEALTH_INFO_SCREEN,
+    CHANGE_PASSWORD_SCREEN
+} from '../../navigation/ScreenNames';
 // Screen Styles
 
 export default function ProfileScreen({ navigation }: any) {
@@ -19,21 +28,92 @@ export default function ProfileScreen({ navigation }: any) {
     return (
         <SafeAreaView style={ThemeStyles.safeAreaContainer}>
             <ScrollView style={ThemeStyles.scrollContainer}>
-                <Container style={ThemeStyles.innerContainer}>
-                    <View style={styles.headerContainer}>
-                        <Thumbnail style={styles.thumbnail} source={require('../../../assets/profil.png')} />
-                        <Text style={styles.profileName}>Janka</Text>
-                        <Text style={styles.profileInfo}>Tehotná, 3. trimester</Text>
-                        <Text style={styles.profileEmailandPass}>janka.novakove@email.com</Text>
-                        <Text style={styles.profileEmailandPass}>***********</Text>
-                        <Button style={styles.changePassBtn} transparent>
-                            <Text style={styles.changePassBtnText}>Zmeniť heslo</Text>
-                        </Button>
-                    </View>
-                    <View style={styles.settingsContainer}>
-                        <Text style={styles.listHeader}>Tehotenstvo</Text>
-                    </View>
-                </Container>
+                <View style={styles.headerContainer}>
+                    <Thumbnail style={styles.thumbnail} source={require('../../../assets/profil.png')} />
+                    <Text style={styles.profileName}>Janka</Text>
+                    <Text style={styles.profileInfo}>Tehotná, 3. trimester</Text>
+                    <Text style={styles.profileEmailandPass}>janka.novakove@email.com</Text>
+                    <Text style={styles.profileEmailandPass}>***********</Text>
+                    <Button style={styles.changePassBtn} transparent
+                        onPress={() => navigation.navigate(CHANGE_PASSWORD_SCREEN)}>
+                        <Text style={styles.changePassBtnText}>Zmeniť heslo</Text>
+                    </Button>
+                </View>
+                <View style={styles.settingsContainer}>
+                    <Text style={styles.listHeader}>Tehotenstvo</Text>
+                    <MainButton
+                        label={"Zdravotné informácie"}
+                        style={styles.infoBtnStyle}
+                        onPress={() => navigation.navigate(HEALTH_INFO_SCREEN)} />
+                    <ListItemText
+                        label="Pohlavie bábätka"
+                        value="Dievča"
+                        iconName="sex"
+                        noBorder={true} />
+                    <ListItemText
+                        label="Termín porodu"
+                        value="19/12/2019"
+                        iconName="calendar"
+                        noBorder={true} />
+                    <ListItemCheckBox
+                        label="Bábätko sa už narodilo"
+                        iconName="baby"
+                        noBorder={true} />
+
+                    <ListItemCheckBox
+                        label="Strata tehotenstva"
+                        iconName="stratatehotenstva"
+                        noBorder={true} />
+                    <ListItemSeparator />
+                    <Text style={styles.listHeader}>Nastavenia</Text>
+                    <ListItemCheckBox
+                        label="Notifikácie"
+                        iconName="notifikacie"
+                        noBorder={true} />
+                    <ListItemCheckBox
+                        label="Prihlásenie s Touch ID"
+                        iconName="otlacok"
+                        noBorder={true} />
+                    {<ListItemSimple
+                        label="Resetovať aplikáciu"
+                        iconName="reset_app"
+                        noBorder={true} />}
+                    <ListItemSimple
+                        label="Exportovať všetky dáta"
+                        iconName="share"
+                        noBorder={true} />
+                    <ListItemSimple
+                        label="Zdielať dáta"
+                        iconName="share"
+                        noBorder={true} />
+                    <ListItemSeparator />
+                    <Text style={styles.listHeader}>Účet</Text>
+                    <ListItemText
+                        label="Meno:"
+                        value="Janka"
+                        iconName="mother"
+                        noBorder={true} />
+                    <ListItemText
+                        label="Priezvisko:"
+                        value="Nováková"
+                        iconName="mother"
+                        noBorder={true} />
+                    <ListItemText
+                        label="E-mail:"
+                        value="jana.novakova@email.com"
+                        iconName="mother"
+                        noBorder={true} />
+                    <ListItemText
+                        label="Dátum narodenia:"
+                        value="27/02/1992"
+                        iconName="calendar"
+                        noBorder={true} />
+                    <ListItemText
+                        label="Lokácia:"
+                        value="Bratislava, Slovensko"
+                        iconName="mother"
+                        noBorder={true} />
+                </View>
             </ScrollView>
         </SafeAreaView>
     );
@@ -87,9 +167,14 @@ const styles = StyleSheet.create({
         color: Theme.pink
     },
     listHeader: {
+        paddingHorizontal: 16,
         fontSize: 18,
         fontWeight: "600",
         lineHeight: 28,
-        letterSpacing: 0.1
+        letterSpacing: 0.1,
+        marginBottom: 16
+    },
+    infoBtnStyle: {
+        marginBottom: 24
     }
 });
