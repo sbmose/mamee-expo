@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import { Image } from 'react-native';
+import React, {Component} from "react";
+import {Image} from 'react-native';
 import Login from "../screen/Authentication/Login";
 import ResetPassword from "../screen/Authentication/ResetPassword";
 import Register from "../screen/Authentication/Register";
-import { createStackNavigator } from "@react-navigation/stack";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Theme, ThemeStyles } from "../themes/default";
+import {createStackNavigator} from "@react-navigation/stack";
+import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
+import {Theme, ThemeStyles} from "../themes/default";
 // Screen names
-import { PROFILE_STACK } from '../navigation/ScreenNames';
+import {PROFILE_STACK} from '../navigation/ScreenNames';
 // Inner navigators
 import ProfileStack from "../navigation/navigators/Profile.stack";
 // Screens
@@ -16,15 +16,12 @@ import Me from "../screen/Me";
 import Child from "../screen/Child";
 import Gallery from "../screen/Gallery";
 import Conditions from "../screen/Conditions";
-import Profile from "../screen/Profile";
 import Administration from "../screen/Administration";
-import Loss from "../screen/Loss";
 import Hospitals from "../screen/Hospitals";
 import Names from "../screen/Names";
 import BuyList from "../screen/BuyList";
 import Bag from "../screen/Bag";
 import Plan from "../screen/Plan";
-import PSMCalendar from "../screen/PSMCalendar";
 import Photos from "../screen/Photos";
 import Calendar from "../screen/Calendar";
 import Health from "../screen/Health";
@@ -38,6 +35,8 @@ import DetailChildPhoto from "../screen/DetailChildPhoto";
 import BagPartner from "../screen/BagPartner";
 import BagMother from "../screen/BagMother";
 import BagChild from "../screen/BagChild";
+import WeightAdd from "../screen/WeightAdd";
+import AdministrationDetail from "../screen/AdministrationDetail";
 
 interface AppNavigationState {
     loggedIn: boolean
@@ -85,6 +84,12 @@ function MeStack(props: any) {
                 }}
             />
             <Stack.Screen
+                name="WeightAdd"
+                component={() => {
+                    return (<WeightAdd navigation={props.navigation} />);
+                }}
+            />
+            <Stack.Screen
                 name="Health"
                 component={() => {
                     return (<Health navigation={props.navigation} />);
@@ -92,20 +97,12 @@ function MeStack(props: any) {
             />
             <Stack.Screen
                 name="Calendar"
-                component={() => {
-                    return (<Calendar navigation={props.navigation} />);
-                }}
+                component={Calendar}
             />
             <Stack.Screen
                 name="Photos"
                 component={() => {
                     return (<Photos navigation={props.navigation} />);
-                }}
-            />
-            <Stack.Screen
-                name="PSMCalendar"
-                component={() => {
-                    return (<PSMCalendar navigation={props.navigation} />);
                 }}
             />
             <Stack.Screen
@@ -157,16 +154,14 @@ function MeStack(props: any) {
                 }}
             />
             <Stack.Screen
-                name="Loss"
-                component={() => {
-                    return (<Loss navigation={props.navigation} />);
-                }}
-            />
-            <Stack.Screen
                 name="Administration"
                 component={() => {
                     return (<Administration navigation={props.navigation} />);
                 }}
+            />
+            <Stack.Screen
+                name="AdministrationDetail"
+                component={AdministrationDetail}
             />
         </Stack.Navigator>
     )
@@ -195,12 +190,6 @@ function ChildStack(props: any) {
             <Stack.Screen
                 name="DetailChildPhoto"
                 component={DetailChildPhoto}
-            />
-            <Stack.Screen
-                name="ChildAdministration"
-                component={() => {
-                    return (<ChildAdministration navigation={props.navigation} />);
-                }}
             />
             <Stack.Screen
                 name="Activities"

@@ -40,13 +40,13 @@ export default class Me extends Component<{ navigation: any }> {
                         <MenuButton icon={require('../../assets/kalendarkruh.png')} label={'Kalendár'} style={{}} onPress={() => { this.props.navigation.navigate('Calendar') }} />
                         <MenuButton icon={require('../../assets/fotkykruh.png')} label={'Fotky'} style={{}} onPress={() => { this.props.navigation.navigate('Photos') }} />
                         <MenuButton icon={require('../../assets/vahakruh.png')} label={'Váha'} style={{}} onPress={() => { this.props.navigation.navigate('Weight') }} />
-                        <MenuButton icon={require('../../assets/kalendarkruh.png')} label={'PSM kalendár'} style={{}} onPress={() => { this.props.navigation.navigate('PSMCalendar') }} />
+                        <MenuButton icon={require('../../assets/kalendarkruh.png')} label={'PSM kalendár'} style={{}} onPress={() => { this.props.navigation.navigate('Calendar',{tab: 'period'}) }} />
                         <MenuButton icon={require('../../assets/porodnyplankruh.png')} label={'Pôrodný plán'} style={{}} onPress={() => { this.props.navigation.navigate('Plan') }} />
                         <MenuButton icon={require('../../assets/kalendarkruh.png')} label={'Taška do pôrodnice'} style={{}} onPress={() => { this.props.navigation.navigate('Bag') }} />
                         <MenuButton icon={require('../../assets/nakupnyzoznamkruh.png')} label={'Nákupný zoznam'} style={{}} onPress={() => { this.props.navigation.navigate('BuyList') }} />
                         <MenuButton icon={require('../../assets/zoznammienkruh.png')} label={'Zoznam mien'} style={{}} onPress={() => { this.props.navigation.navigate('Names') }} />
                         <MenuButton icon={require('../../assets/zoznamporodnickruh.png')} label={'Zoznam pôrodníc'} style={{}} onPress={() => { this.props.navigation.navigate('Hospitals') }} />
-                        <MenuButton icon={require('../../assets/stratatehkruh.png')} label={'Strata tehotenstva'} style={{}} onPress={() => { this.props.navigation.navigate('Loss') }} />
+                        <MenuButton icon={require('../../assets/stratatehkruh.png')} label={'Strata tehotenstva'} style={{}} onPress={() => { this.props.navigation.navigate(PROFILE_STACK) }} />
                         <MenuButton icon={require('../../assets/administrativakruh.png')} label={'Administratíva'} style={{}} onPress={() => { this.props.navigation.navigate('Administration') }} />
                     </View>
                 </ScrollView>

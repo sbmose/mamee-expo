@@ -1,6 +1,6 @@
 // @ts-ignore
 import React, {Component, useState} from 'react';
-import {Dimensions, ScrollView, Text, View} from 'react-native';
+import {Dimensions, ScrollView, Text, TouchableOpacity, View} from 'react-native';
 
 import {Theme, ThemeStyles} from "../themes/default";
 import GoBack from "../components/GoBack";
@@ -40,16 +40,20 @@ export default class Weight extends Component<{ navigation: any }, any> {
 
     constructor(props: any) {
         super(props);
+        let dates = data.map((e) => {
+            return e.date
+        });
+        let weights = data.map((e) => {
+            return e.weight
+        });
+        let labels = data.map((e) => {
+            return e.label
+        });
+
         this.state = {
-            dates: data.map((e) => {
-                return e.date
-            }),
-            weights: data.map((e) => {
-                return e.weight
-            }),
-            labels: data.map((e) => {
-                return e.label
-            })
+            dates: dates,
+            weights: weights,
+            labels: labels
         };
     }
 
@@ -58,6 +62,7 @@ export default class Weight extends Component<{ navigation: any }, any> {
         return (
             <View style={[ThemeStyles.applicationBackground, ThemeStyles.container]}>
                 <GoBack onPress={() => this.props.navigation.navigate('MenuMe')} label={'Váha'} style={{}}/>
+
                 <ScrollView style={{}}>
                     <View style={{paddingBottom: 50}}>
                         <Text style={{fontSize: 22, fontWeight: 'bold', marginBottom: 20}}>Vývoj váhy</Text>
@@ -96,8 +101,10 @@ export default class Weight extends Component<{ navigation: any }, any> {
                                 borderRadius: 16,
                             }}
                         />
-
                         <View>
+                            <View style={{paddingTop: 10}}>
+                                <TouchableOpacity onPress={()=> {this.props.navigation.navigate('WeightAdd')}} style={{flexDirection: 'row'}}><Text style={{color: Theme.lightgreen, textAlign: "right",flex: 1}}>Pridať záznam</Text></TouchableOpacity>
+                            </View>
                             {data.map((item: any) => {
                                 return (<View style={{marginBottom: 20}}>
                                     <Text style={{

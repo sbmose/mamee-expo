@@ -41,7 +41,7 @@ export default class Child extends Component<{ navigation: any }> {
                         alignItems: 'flex-start' }}>
                         <MenuButton icon={require('../../assets/stravakruh.png')} label={'Strava'}  style={{}} onPress={() => {this.props.navigation.navigate('Food')}}/>
                         <MenuButton icon={require('../../assets/fotkykruh.png')} label={'Fotky'}  style={{}} onPress={() => {this.props.navigation.navigate('ChildPhotos')}}/>
-                        <MenuButton icon={require('../../assets/administrativakruh.png')} label={'Administratíva'}  style={{}} onPress={() => {this.props.navigation.navigate('ChildAdministration')}}/>
+                        <MenuButton icon={require('../../assets/administrativakruh.png')} label={'Administratíva'}  style={{}} onPress={() => {this.props.navigation.navigate('Administration')}}/>
                         <MenuButton icon={require('../../assets/fotkykruh.png')} label={'Aktivity'}  style={{}} onPress={() => {this.props.navigation.navigate('Activities')}}/>
                     </View>
                 </ScrollView>

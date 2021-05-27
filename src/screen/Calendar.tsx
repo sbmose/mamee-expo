@@ -59,7 +59,7 @@ interface CalendarState {
 
 }
 
-export default class Calendar extends Component<{ navigation: any }, CalendarState> {
+export default class Calendar extends Component<{ route: any,navigation: any }, CalendarState> {
 
 
     componentDidMount(): void {
@@ -70,7 +70,7 @@ export default class Calendar extends Component<{ navigation: any }, CalendarSta
         super(props);
         this.state = {
 
-            index: 0,
+            index: typeof props.route.params.tab !== 'undefined' && props.route.params.tab == 'period' ? 1 : 0,
 
             routes: [
                 {key: 'events', title: 'Udalosti'},
