@@ -7,7 +7,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Theme, ThemeStyles } from "../themes/default";
 // Screen names
-import { PROFILE_STACK } from '../navigation/ScreenNames';
+import { AUTH_STACK, PROFILE_STACK } from '../navigation/ScreenNames';
 // Inner navigators
 import ProfileStack from "../navigation/navigators/Profile.stack";
 // Screens
@@ -38,6 +38,7 @@ import DetailChildPhoto from "../screen/DetailChildPhoto";
 import BagPartner from "../screen/BagPartner";
 import BagMother from "../screen/BagMother";
 import BagChild from "../screen/BagChild";
+import AuthStack from '../navigation/navigators/Auth.stack';
 
 interface AppNavigationState {
     loggedIn: boolean
@@ -231,9 +232,13 @@ export default class AppNavigation extends Component<{ navigation: any }, AppNav
     render() {
         return !this.state.loggedIn ? (
             <Stack.Navigator headerMode="none">
-                <Stack.Screen name="Login" component={() => {
+                {/* <Stack.Screen name="Login" component={() => {
                     return (<Login navigation={this.props.navigation} onLogin={this.handleLogin} />)
-                }} />
+                }} /> */}
+                <Stack.Screen
+                    name={AUTH_STACK}
+                    component={AuthStack}
+                />
                 <Stack.Screen name="ResetPassword" component={() => {
                     return (<ResetPassword navigation={this.props.navigation} />)
                 }} />
