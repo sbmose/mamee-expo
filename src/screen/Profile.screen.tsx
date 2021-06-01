@@ -7,20 +7,19 @@ import {
     Text
 } from 'react-native';
 import {
-    Container,
     Thumbnail,
     Button
 } from "native-base";
-import { Theme, ThemeStyles } from '../../themes/default';
-import MainButton from '../../components/MainButton';
-import ListItemCheckBox from '../../components/ListItemCheckBox';
-import { ListItemSeparator } from '../../components/ListItemSeparator';
-import ListItemText from '../../components/ListItemText';
-import ListItemSimple from '../../components/ListItemSimple';
+import { Theme, ThemeStyles } from '../themes/default';
+import MainButton from '../components/MainButton';
+import ListItemCheckBox from '../components/ListItemCheckBox';
+import { ListItemSeparator } from '../components/ListItemSeparator';
+import ListItemText from '../components/ListItemText';
+import ListItemSimple from '../components/ListItemSimple';
 import {
     HEALTH_INFO_SCREEN,
     CHANGE_PASSWORD_SCREEN
-} from '../../navigation/ScreenNames';
+} from '../navigation/ScreenNames';
 
 export default function ProfileScreen({ navigation }: any) {
 
@@ -28,7 +27,7 @@ export default function ProfileScreen({ navigation }: any) {
         <SafeAreaView style={ThemeStyles.safeAreaContainer}>
             <ScrollView style={ThemeStyles.scrollContainer}>
                 <View style={styles.headerContainer}>
-                    <Thumbnail style={styles.thumbnail} source={require('../../../assets/profil.png')} />
+                    <Thumbnail style={styles.thumbnail} source={require('../../assets/profil.png')} />
                     <Text style={styles.profileName}>Janka</Text>
                     <Text style={styles.profileInfo}>Tehotná, 3. trimester</Text>
                     <Text style={styles.profileEmailandPass}>janka.novakove@email.com</Text>

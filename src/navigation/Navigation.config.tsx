@@ -9,16 +9,15 @@ import Plan from "../screen/Plan";
 import PSMCalendar from "../screen/PSMCalendar";
 import Photos from "../screen/Photos";
 import Calendar from "../screen/Calendar";
-import Health from "../screen/Health";
 import Weight from "../screen/Weight";
 import DetailPhoto from "../screen/DetailPhoto";
 import BagPartner from "../screen/BagPartner";
 import BagMother from "../screen/BagMother";
 import BagChild from "../screen/BagChild";
-import ProfileScreen from '../screen/me/Profile.screen';
-import HealthInfoDetail from '../screen/me/HealthInfoDetail.screen';
-import ChangePassword from "../screen/me/ChangePassword.screen";
-import HealthInfo from '../screen/me/HealthInfo.screen';
+import ProfileScreen from '../screen/Profile.screen';
+import HealthInfoDetail from '../screen/HealthInfoDetail.screen';
+import ChangePassword from "../screen/ChangePassword.screen";
+import HealthInfo from '../screen/HealthInfo.screen';
 
 export const MeStackConfig = {
     PROFILE_SCREEN: {

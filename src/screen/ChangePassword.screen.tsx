@@ -9,10 +9,10 @@ import {
 import {
 
 } from "native-base";
-import { Theme, ThemeStyles } from '../../themes/default';
-import SvgIcon from '../../components/SvgIcons';
-import { Container, Header, Content, Form, Item, Input, Label } from 'native-base';
-import MainButton from '../../components/MainButton';
+import { Theme, ThemeStyles } from '../themes/default';
+import SvgIcon from '../components/SvgIcons';
+import { Form, Item, Input } from 'native-base';
+import MainButton from '../components/MainButton';
 
 export default function ChangePassword({ navigation }: any) {
 

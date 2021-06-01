@@ -27,7 +27,6 @@ export default class Activities extends Component<{ navigation: any }> {
     render() {
         return (
             <View style={[ThemeStyles.applicationBackground, ThemeStyles.container]}>
-                <GoBack onPress={() => this.props.navigation.navigate(CHILD_MENU_SCREEN)} label={'Aktivity'} style={{}} />
             </View>
         );
     }
