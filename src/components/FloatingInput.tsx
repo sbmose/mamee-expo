@@ -28,9 +28,9 @@ export default function FloatingInput(props: any) {
                 onFocus={() => setFocused(!isFocused)}
                 onBlur={() => setFocused(!isFocused)}
                 customShowPasswordComponent={<TouchableOpacity onPress={(e) => togglePassword(e)}><Text>Ukázať</Text></TouchableOpacity>}
-                customHidePasswordComponent={<Text>Skryť</Text>}
+                customHidePasswordComponent={<TouchableOpacity onPress={(e) => togglePassword(e)}><Text>Skryť</Text></TouchableOpacity>}
                 containerStyles={{
-                    borderWidth: isFocused ? 2 : 1,
+                    borderWidth: 1,
                     backgroundColor: bgColor || Theme.appBg,
                     borderColor: isFocused ? Theme.pink : Theme.gray,
                     borderRadius: 6,

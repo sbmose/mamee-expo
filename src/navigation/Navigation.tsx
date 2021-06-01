@@ -4,7 +4,10 @@ import { Root } from "native-base";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaProvider, initialWindowMetrics } from 'react-native-safe-area-context';
-import AppNavigation from '../components/AppNavigation';
+import { useSelector } from 'react-redux';
+import { APP_STACK, AUTH_STACK } from './ScreenNames';
+import AuthStack from './navigators/Auth.stack';
+import AppStack from './navigators/App.stack';
 
 export default function Navigation({ navigation }: any) {
     const [ready, setReady] = React.useState(false);
@@ -24,7 +27,7 @@ export default function Navigation({ navigation }: any) {
                 <NavigationContainer onReady={() => {
                     setReady(true);
                 }}>
-                    <AppNavigation navigation={navigation} />
+                    <RootNavigator />
                 </NavigationContainer>
             </SafeAreaProvider>
         </Root>
@@ -34,10 +37,19 @@ export default function Navigation({ navigation }: any) {
 const RootStack = createStackNavigator();
 
 function RootNavigator() {
+    const { auth } = useSelector((state: any) => state.profile);
 
     return (
-        <RootStack.Navigator>
-
+        <RootStack.Navigator headerMode="none">
+            {auth.loggedIn ?
+                <RootStack.Screen
+                    name={APP_STACK}
+                    component={AppStack} />
+                :
+                <RootStack.Screen
+                    name={AUTH_STACK}
+                    component={AuthStack} />
+            }
         </RootStack.Navigator>
     );
 

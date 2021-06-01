@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
     StyleSheet,
     SafeAreaView,
@@ -6,18 +6,21 @@ import {
     Text,
     View
 } from 'react-native';
-import { Card } from "native-base";
 import { Theme, ThemeStyles } from '../../themes/default';
 import FloatingInput from '../../components/FloatingInput';
 import MainButton from '../../components/MainButton';
 import TransparentButton from '../../components/TransparentButton';
+import { useSelector, useDispatch } from 'react-redux';
+import { loginByEmail } from '../../store/actions/ProfileActions';
 
 // Screen Styles
 
 export default function LoginScreen({ navigation }: any) {
+    const dispatch = useDispatch();
 
-    const handleEmailLogin = () => {
+    const handleEmailLogin = async () => {
         console.log("handleEmailLogin");
+        await dispatch(loginByEmail("mail@mail.com", "heslo"));
     }
 
     const handleFacebookLogin = () => {

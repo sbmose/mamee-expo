@@ -5,52 +5,49 @@ import { ScrollView, View } from 'react-native';
 import { ThemeStyles } from "../themes/default";
 import MenuButton from "../components/MenuButton";
 import MeBar from "../components/MeBar";
-import { PROFILE_SCREEN, PROFILE_STACK } from '../navigation/ScreenNames';
+import { MeStackConfig } from '../navigation/Navigation.config';
 
 
-export default class Me extends Component<{ navigation: any }> {
+export default function ProfileScreen({ navigation }: any) {
 
+    return (
+        <View style={ThemeStyles.applicationBackground}>
+            <ScrollView style={[ThemeStyles.container,]}>
+                <MeBar navigation={navigation} name="Ja" photo={require('../../assets/profil.png')} style={[ThemeStyles.welcome, { padding: 10, marginTop: 15 }]} />
+                <View style={{
+                    paddingBottom: 100, flex: 1,
+                    flexDirection: 'row',
+                    flexWrap: 'wrap',
+                    alignItems: 'flex-start'
+                }}>
+                    {Object.entries(MeStackConfig).map(([key, screen]: any) => {
+                        if (screen.menu) {
+                            console.log("Menu", key, screen);
+                            return (
+                                <MenuButton
+                                    key={screen.name}
+                                    icon={screen.icon}
+                                    label={screen.title}
+                                    style={{}}
+                                    onPress={() => { navigation.navigate(screen.name) }} />
+                            )
+                        }
+                    })}
 
-    componentDidMount(): void {
-
-    }
-
-    constructor(props: any) {
-        super(props);
-        this.state = {
-
-        };
-    }
-
-    render() {
-        let navigation = this.props.navigation;
-
-        return (
-            <View style={ThemeStyles.applicationBackground}>
-                <ScrollView style={[ThemeStyles.container,]}>
-                    <MeBar navigation={navigation} name="Ja" photo={require('../../assets/profil.png')} style={[ThemeStyles.welcome, { padding: 10, marginTop: 15 }]} />
-                    <View style={{
-                        paddingBottom: 100, flex: 1,
-                        flexDirection: 'row',
-                        flexWrap: 'wrap',
-                        alignItems: 'flex-start'
-                    }}>
-                        <MenuButton icon={require('../../assets/kruh_profil.png')} label={'Môj Profil'} style={{}} onPress={() => { this.props.navigation.navigate(PROFILE_STACK) }} />
-                        <MenuButton icon={require('../../assets/zdrav_info-kruh.png')} label={'Zdravotné informácie'} style={{}} onPress={() => { this.props.navigation.navigate('Health') }} />
-                        <MenuButton icon={require('../../assets/kalendarkruh.png')} label={'Kalendár'} style={{}} onPress={() => { this.props.navigation.navigate('Calendar') }} />
-                        <MenuButton icon={require('../../assets/fotkykruh.png')} label={'Fotky'} style={{}} onPress={() => { this.props.navigation.navigate('Photos') }} />
-                        <MenuButton icon={require('../../assets/vahakruh.png')} label={'Váha'} style={{}} onPress={() => { this.props.navigation.navigate('Weight') }} />
-                        <MenuButton icon={require('../../assets/kalendarkruh.png')} label={'PSM kalendár'} style={{}} onPress={() => { this.props.navigation.navigate('PSMCalendar') }} />
-                        <MenuButton icon={require('../../assets/porodnyplankruh.png')} label={'Pôrodný plán'} style={{}} onPress={() => { this.props.navigation.navigate('Plan') }} />
-                        <MenuButton icon={require('../../assets/kalendarkruh.png')} label={'Taška do pôrodnice'} style={{}} onPress={() => { this.props.navigation.navigate('Bag') }} />
-                        <MenuButton icon={require('../../assets/nakupnyzoznamkruh.png')} label={'Nákupný zoznam'} style={{}} onPress={() => { this.props.navigation.navigate('BuyList') }} />
-                        <MenuButton icon={require('../../assets/zoznammienkruh.png')} label={'Zoznam mien'} style={{}} onPress={() => { this.props.navigation.navigate('Names') }} />
-                        <MenuButton icon={require('../../assets/zoznamporodnickruh.png')} label={'Zoznam pôrodníc'} style={{}} onPress={() => { this.props.navigation.navigate('Hospitals') }} />
-                        <MenuButton icon={require('../../assets/stratatehkruh.png')} label={'Strata tehotenstva'} style={{}} onPress={() => { this.props.navigation.navigate('Loss') }} />
-                        <MenuButton icon={require('../../assets/administrativakruh.png')} label={'Administratíva'} style={{}} onPress={() => { this.props.navigation.navigate('Administration') }} />
-                    </View>
-                </ScrollView>
-            </View>
-        );
-    }
+                    {/* <MenuButton icon={require('../../assets/zdrav_info-kruh.png')} label={'Zdravotné informácie'} style={{}} onPress={() => { navigation.navigate(HEALTH_SCREEN) }} />
+                    <MenuButton icon={require('../../assets/kalendarkruh.png')} label={'Kalendár'} style={{}} onPress={() => { navigation.navigate(CALENDAR_SCREEN) }} />
+                    <MenuButton icon={require('../../assets/fotkykruh.png')} label={'Fotky'} style={{}} onPress={() => { navigation.navigate(PHOTOS_SCREEN) }} />
+                    <MenuButton icon={require('../../assets/vahakruh.png')} label={'Váha'} style={{}} onPress={() => { navigation.navigate(WEIGHT_SCREEN) }} />
+                    <MenuButton icon={require('../../assets/kalendarkruh.png')} label={'PSM kalendár'} style={{}} onPress={() => { navigation.navigate('PSMCalendar') }} />
+                    <MenuButton icon={require('../../assets/porodnyplankruh.png')} label={'Pôrodný plán'} style={{}} onPress={() => { navigation.navigate('Plan') }} />
+                    <MenuButton icon={require('../../assets/kalendarkruh.png')} label={'Taška do pôrodnice'} style={{}} onPress={() => { navigation.navigate('Bag') }} />
+                    <MenuButton icon={require('../../assets/nakupnyzoznamkruh.png')} label={'Nákupný zoznam'} style={{}} onPress={() => { navigation.navigate('BuyList') }} />
+                    <MenuButton icon={require('../../assets/zoznammienkruh.png')} label={'Zoznam mien'} style={{}} onPress={() => { navigation.navigate('Names') }} />
+                    <MenuButton icon={require('../../assets/zoznamporodnickruh.png')} label={'Zoznam pôrodníc'} style={{}} onPress={() => { navigation.navigate('Hospitals') }} />
+                    <MenuButton icon={require('../../assets/stratatehkruh.png')} label={'Strata tehotenstva'} style={{}} onPress={() => { navigation.navigate('Loss') }} />
+                    <MenuButton icon={require('../../assets/administrativakruh.png')} label={'Administratíva'} style={{}} onPress={() => { navigation.navigate('Administration') }} /> */}
+                </View>
+            </ScrollView>
+        </View>
+    );
 }
