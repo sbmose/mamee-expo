@@ -5,6 +5,9 @@ import { MeStackConfig } from '../Navigation.config';
 import { GlobalNavigationOptions } from '../GlobalNavigationOptions';
 import { Theme } from "../../themes/default";
 import { HeaderButton } from '../../components/HeaderButton';
+import { HeaderBigTitle } from '../../components/HeaderBigTitle';
+import { HeaderProfileImage } from '../../components/HeaderProfileImage';
+
 
 const Stack = createStackNavigator();
 
@@ -15,7 +18,12 @@ export default function MeStack() {
             <Stack.Screen
                 name={MeStackConfig.ME_MENU_SCREEN.name}
                 component={MeStackConfig.ME_MENU_SCREEN.component}
-                options={({ route, navigation }: any) => getHeaderOptions(MeStackConfig.ME_MENU_SCREEN.title)}
+                options={{
+                    ...GlobalNavigationOptions,
+                    headerLeft: () => (<HeaderBigTitle title="Ja" />),
+                    headerTitle: "",
+                    headerRight: () => (<HeaderProfileImage photo={null} />)
+                }}
             />
             <Stack.Screen
                 name={MeStackConfig.HEALTH_SCREEN.name}

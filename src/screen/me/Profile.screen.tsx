@@ -174,6 +174,7 @@ const styles = StyleSheet.create({
         marginBottom: 16
     },
     infoBtnStyle: {
-        marginBottom: 24
+        marginBottom: 24,
+        marginHorizontal: 16
     }
 });
