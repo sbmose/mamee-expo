@@ -9,11 +9,27 @@ import {
 import { Card } from "native-base";
 import { Theme, ThemeStyles } from '../../themes/default';
 import FloatingInput from '../../components/FloatingInput';
+import MainButton from '../../components/MainButton';
 
 // Screen Styles
 
 export default function LoginScreen({ navigation }: any) {
 
+    const handleEmailLogin = () => {
+        console.log("handleEmailLogin");
+    }
+
+    const handleFacebookLogin = () => {
+        console.log("handleFacebookLogin");
+    }
+
+    const handleGoogleLogin = () => {
+        console.log("handleGoogleLogin");
+    }
+
+    const handleCreateAccount = () => {
+        console.log("handleCreateAccount");
+    }
 
     return (
         <SafeAreaView style={ThemeStyles.safeAreaContainer}>
@@ -28,6 +44,24 @@ export default function LoginScreen({ navigation }: any) {
                             label="Heslo"
                             style={styles.input}
                             isPassword />
+                        <MainButton
+                            label="Pokračovať"
+                            style={styles.buttonContainer}
+                            onPress={() => handleEmailLogin()} />
+                        <MainButton
+                            label="Prihlásiť sa cez Google účet"
+                            style={styles.buttonContainer}
+                            bgColor={Theme.white}
+                            textColor={Theme.black}
+                            image={require('../../../assets/google.png')}
+                            onPress={() => handleGoogleLogin()} />
+                        <MainButton
+                            label="Prihlásiť sa cez Facebook"
+                            style={styles.buttonContainer}
+                            bgColor={Theme.blue}
+                            textColor={Theme.white}
+                            image={require('../../../assets/facebook.png')}
+                            onPress={() => handleFacebookLogin()} />
                     </View>
                 </View>
             </ScrollView>
@@ -52,6 +86,9 @@ const styles = StyleSheet.create({
         marginBottom: 30
     },
     input: {
+        marginBottom: 16
+    },
+    buttonContainer: {
         marginBottom: 16
     }
 });
