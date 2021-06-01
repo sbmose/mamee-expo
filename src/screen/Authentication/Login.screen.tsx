@@ -10,6 +10,7 @@ import { Card } from "native-base";
 import { Theme, ThemeStyles } from '../../themes/default';
 import FloatingInput from '../../components/FloatingInput';
 import MainButton from '../../components/MainButton';
+import TransparentButton from '../../components/TransparentButton';
 
 // Screen Styles
 
@@ -48,6 +49,11 @@ export default function LoginScreen({ navigation }: any) {
                             label="Pokračovať"
                             style={styles.buttonContainer}
                             onPress={() => handleEmailLogin()} />
+                        <TransparentButton
+                            label="Nemám účet"
+                            textColor={Theme.darkGray}
+                            style={styles.buttonContainer}
+                            onPress={() => handleCreateAccount()} />
                         <MainButton
                             label="Prihlásiť sa cez Google účet"
                             style={styles.buttonContainer}

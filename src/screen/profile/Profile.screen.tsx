@@ -21,7 +21,6 @@ import {
     HEALTH_INFO_SCREEN,
     CHANGE_PASSWORD_SCREEN
 } from '../../navigation/ScreenNames';
-// Screen Styles
 
 export default function ProfileScreen({ navigation }: any) {
 
