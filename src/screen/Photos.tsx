@@ -3,7 +3,6 @@ import React, { Component, useState } from 'react';
 import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
 import { Theme, ThemeStyles } from "../themes/default";
-import GoBack from "../components/GoBack";
 
 interface PhotosState {
     photos: any[]

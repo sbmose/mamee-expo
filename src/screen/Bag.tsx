@@ -3,7 +3,6 @@ import React, { Component, useState } from 'react';
 import { TouchableOpacity, View } from 'react-native';
 
 import { ThemeStyles } from "../themes/default";
-import GoBack from "../components/GoBack";
 import WidgetIcon from "../components/WidgetIcon";
 
 
@@ -24,8 +23,6 @@ export default class Bag extends Component<{ navigation: any }> {
     render() {
         return (
             <View style={[ThemeStyles.applicationBackground, ThemeStyles.container]}>
-                <GoBack onPress={() => this.props.navigation.navigate('MenuMe')} label={'Taška do pôrodnice'}
-                    style={{}} />
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('BagMother')}>
                     <WidgetIcon navigation={this.props.navigation} text={"Pre matku"} style={{ marginTop: 5 }}
                         icon={require("../../assets/prematku.svg")} />

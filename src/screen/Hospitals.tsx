@@ -1,11 +1,10 @@
 // @ts-ignore
 import * as React from 'react';
-import {Component} from 'react';
-import {Animated, Image, Route, ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import { Component } from 'react';
+import { Animated, Image, Route, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Constants from 'expo-constants';
-import {Theme, ThemeStyles} from "../themes/default";
-import GoBack from "../components/GoBack";
-import {SceneMap, TabView} from "react-native-tab-view";
+import { Theme, ThemeStyles } from "../themes/default";
+import { SceneMap, TabView } from "react-native-tab-view";
 
 const hospitals = [
     {
@@ -133,30 +132,30 @@ class Tab extends Component<TabProps, any> {
             let favorites = this.state.favorites.filter((i: number) => {
                 return i != index
             })
-            this.setState({favorites: favorites});
+            this.setState({ favorites: favorites });
         } else {
             let favorites = this.state.favorites;
             favorites.push(index);
-            this.setState({favorites: favorites});
+            this.setState({ favorites: favorites });
         }
     }
 
     render() {
         return (
             <ScrollView>
-                <View style={{paddingBottom: 150}}>
-                {this.props.items.map((group: any) => {
-                    return (
-                        <View key={group.region}>
-                            <Text style={{
-                                fontSize: 18,
-                                color: Theme.gray,
-                                fontWeight: 'bold',
-                                padding: 10
-                            }}>{group.region}</Text>
-                            <View style={{backgroundColor: Theme.white, borderRadius: 10}}>
-                                {group.hospitals.map((hospital: any, index: any) => {
-                                    return (<TouchableOpacity onPress={() => {
+                <View style={{ paddingBottom: 150 }}>
+                    {this.props.items.map((group: any) => {
+                        return (
+                            <View key={group.region}>
+                                <Text style={{
+                                    fontSize: 18,
+                                    color: Theme.gray,
+                                    fontWeight: 'bold',
+                                    padding: 10
+                                }}>{group.region}</Text>
+                                <View style={{ backgroundColor: Theme.white, borderRadius: 10 }}>
+                                    {group.hospitals.map((hospital: any, index: any) => {
+                                        return (<TouchableOpacity onPress={() => {
                                             this.toggleFavorite(group.region + index)
                                         }}>
                                             <View style={{
@@ -177,14 +176,14 @@ class Tab extends Component<TabProps, any> {
                                                     height: 18,
                                                     resizeMode: 'stretch',
                                                 }}
-                                                       source={this.state.favorites.includes(group.region + index) ? require('../../assets/srdcefarebne.png') : require('../../assets/srdcesive.png')}/>
+                                                    source={this.state.favorites.includes(group.region + index) ? require('../../assets/srdcefarebne.png') : require('../../assets/srdcesive.png')} />
                                             </View>
                                         </TouchableOpacity>
-                                    );
-                                })}
-                            </View>
-                        </View>)
-                })}
+                                        );
+                                    })}
+                                </View>
+                            </View>)
+                    })}
                 </View>
             </ScrollView>
         );
@@ -224,9 +223,9 @@ export default class Hospitals extends Component<{ navigation: any }, HospitalsS
             index: 0,
             favorites: [],
             routes: [
-                {key: 'regions', title: 'Kraje'},
-                {key: 'nearest', title: 'Najbližšie'},
-                {key: 'favorites', title: 'Obľúbené'},
+                { key: 'regions', title: 'Kraje' },
+                { key: 'nearest', title: 'Najbližšie' },
+                { key: 'favorites', title: 'Obľúbené' },
             ],
         };
     }
@@ -241,13 +240,13 @@ export default class Hospitals extends Component<{ navigation: any }, HospitalsS
         let lastRegion = '';
         names.forEach((item) => {
             if (lastRegion == item.region) {
-                groups[index].hospitals.push({name: item.name, address: item.address, region: item.region, primar: item.primar, telephone: item.telephone, email: item.email});
+                groups[index].hospitals.push({ name: item.name, address: item.address, region: item.region, primar: item.primar, telephone: item.telephone, email: item.email });
             } else {
                 index++;
                 lastRegion = item.region;
                 groups[index] = {
                     region: item.region,
-                    hospitals: [{name: item.name, address: item.address, region: item.region, primar: item.primar, telephone: item.telephone, email: item.email}]
+                    hospitals: [{ name: item.name, address: item.address, region: item.region, primar: item.primar, telephone: item.telephone, email: item.email }]
                 };
 
             }
@@ -263,7 +262,7 @@ export default class Hospitals extends Component<{ navigation: any }, HospitalsS
         return this.prepareGroups(hospitals);
     }
 
-    _handleIndexChange = (index: number) => this.setState({index});
+    _handleIndexChange = (index: number) => this.setState({ index });
 
     _renderTabBar = (props: any) => {
         const inputRange = props.navigationState.routes.map((x: Route, i: number) => i);
@@ -285,8 +284,8 @@ export default class Hospitals extends Component<{ navigation: any }, HospitalsS
                                 borderBottomWidth: 1,
                                 borderBottomColor: this.state.index == i ? Theme.pink : Theme.gray
                             }]}
-                            onPress={() => this.setState({index: i})}>
-                            <Animated.Text style={{opacity}}>{route.title}</Animated.Text>
+                            onPress={() => this.setState({ index: i })}>
+                            <Animated.Text style={{ opacity }}>{route.title}</Animated.Text>
                         </TouchableOpacity>
                     );
                 })}
@@ -296,13 +295,13 @@ export default class Hospitals extends Component<{ navigation: any }, HospitalsS
 
     _renderScene = SceneMap({
         regions: () => {
-            return (<Tab key={'regions'} items={this.state.regions}/>);
+            return (<Tab key={'regions'} items={this.state.regions} />);
         },
         nearest: () => {
-            return (<Tab key={'nearest'} items={this.state.nearest}/>);
+            return (<Tab key={'nearest'} items={this.state.nearest} />);
         },
         favorites: () => {
-            return (<Tab key={'favorites'} items={this.state.favs}/>);
+            return (<Tab key={'favorites'} items={this.state.favs} />);
         },
     });
 
@@ -310,7 +309,6 @@ export default class Hospitals extends Component<{ navigation: any }, HospitalsS
 
         return (
             <View style={[ThemeStyles.applicationBackground, ThemeStyles.container]}>
-                <GoBack onPress={() => this.props.navigation.navigate('MenuMe')} label={'Zoznam nemocníc'} style={{}}/>
                 <View style={styles.container}>
                     <TabView
                         navigationState={this.state}

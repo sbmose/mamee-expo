@@ -4,7 +4,6 @@ import { AsyncStorage, Dimensions, Image, SafeAreaView, TouchableOpacity, useCol
 import { StyleSheet, View, ScrollView, TextInput, Text } from 'react-native';
 
 import { Theme, ThemeStyles } from "../themes/default";
-import GoBack from "../components/GoBack";
 import { CHILD_MENU_SCREEN } from '../navigation/ScreenNames';
 
 

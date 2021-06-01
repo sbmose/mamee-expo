@@ -4,7 +4,6 @@ import { Component } from 'react';
 import { Animated, Image, Route, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Constants from 'expo-constants';
 import { Theme, ThemeStyles } from "../themes/default";
-import GoBack from "../components/GoBack";
 import { SceneMap, TabView } from "react-native-tab-view";
 import CalendarPicker from 'react-native-calendar-picker';
 import { ME_MENU_SCREEN } from '../navigation/ScreenNames';

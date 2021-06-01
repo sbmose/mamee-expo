@@ -3,7 +3,6 @@ import React, { Component, useState } from 'react';
 import { Dimensions, ScrollView, Text, View } from 'react-native';
 
 import { Theme, ThemeStyles } from "../themes/default";
-import GoBack from "../components/GoBack";
 
 import { LineChart } from "react-native-chart-kit";
 import WidgetIcon from "../components/WidgetIcon";
