@@ -9,7 +9,7 @@ import {
 import {
 
 } from "native-base";
-import { Theme, ThemeStyles } from '../../themes/default';
+import { Theme, ThemeStyles } from '../themes/default';
 // Screen Styles
 
 export default function HealthInfoDetail({ navigation }: any) {

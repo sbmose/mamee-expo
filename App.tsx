@@ -4,6 +4,7 @@ import { enableScreens } from 'react-native-screens';
 import { LogBox } from 'react-native';
 import useCachedResources from './src/hooks/useCachedResources';
 import Navigation from './src/navigation/Navigation';
+import StoreProvider from './src/store/StoreProvider';
 
 enableScreens();
 
@@ -14,7 +15,9 @@ export default function App() {
 
   if (resourcesLoadingComplete) {
     return (
-      <Navigation />
+      <StoreProvider>
+        <Navigation />
+      </StoreProvider>
     );
   } else {
     SplashScreen.preventAutoHideAsync();

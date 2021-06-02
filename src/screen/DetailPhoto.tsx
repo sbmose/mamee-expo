@@ -1,9 +1,8 @@
 // @ts-ignore
-import React, {Component, useState} from 'react';
-import {Image, ScrollView, Text, TouchableOpacity, View} from 'react-native';
+import React, { Component, useState } from 'react';
+import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
-import {Theme, ThemeStyles} from "../themes/default";
-import GoBack from "../components/GoBack";
+import { Theme, ThemeStyles } from "../themes/default";
 
 interface DetailPhotoProps {
     route: any,
@@ -25,12 +24,13 @@ export default class DetailPhoto extends Component<DetailPhotoProps> {
 
     render() {
         return (
-            <View style={[ThemeStyles.applicationBackground,ThemeStyles.container]}>
-                <GoBack onPress={() => this.props.navigation.navigate('Photos')} label={this.props.route.params.title} style={{}}/>
-                    <Image source={this.props.route.params.image} style={{ flex: 1,
-                        flexDirection: 'column',
-                        width: '100%',
-                        alignItems: 'flex-start' }} />
+            <View style={[ThemeStyles.applicationBackground, ThemeStyles.container]}>
+                <Image source={this.props.route.params.image} style={{
+                    flex: 1,
+                    flexDirection: 'column',
+                    width: '100%',
+                    alignItems: 'flex-start'
+                }} />
             </View>
         );
     }

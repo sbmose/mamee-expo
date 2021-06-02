@@ -1,11 +1,10 @@
 // @ts-ignore
-import React, {Component, useState} from 'react';
-import {Dimensions, ScrollView, Text, View} from 'react-native';
+import React, { Component, useState } from 'react';
+import { Dimensions, ScrollView, Text, View } from 'react-native';
 
-import {Theme, ThemeStyles} from "../themes/default";
-import GoBack from "../components/GoBack";
+import { Theme, ThemeStyles } from "../themes/default";
 
-import {LineChart} from "react-native-chart-kit";
+import { LineChart } from "react-native-chart-kit";
 import WidgetIcon from "../components/WidgetIcon";
 
 const data = [
@@ -57,10 +56,9 @@ export default class Weight extends Component<{ navigation: any }, any> {
     render() {
         return (
             <View style={[ThemeStyles.applicationBackground, ThemeStyles.container]}>
-                <GoBack onPress={() => this.props.navigation.navigate('MenuMe')} label={'Váha'} style={{}}/>
                 <ScrollView style={{}}>
-                    <View style={{paddingBottom: 50}}>
-                        <Text style={{fontSize: 22, fontWeight: 'bold', marginBottom: 20}}>Vývoj váhy</Text>
+                    <View style={{ paddingBottom: 50 }}>
+                        <Text style={{ fontSize: 22, fontWeight: 'bold', marginBottom: 20 }}>Vývoj váhy</Text>
                         <LineChart
                             data={{
                                 labels: this.state.dates,
@@ -99,15 +97,15 @@ export default class Weight extends Component<{ navigation: any }, any> {
 
                         <View>
                             {data.map((item: any) => {
-                                return (<View style={{marginBottom: 20}}>
+                                return (<View style={{ marginBottom: 20 }}>
                                     <Text style={{
                                         color: Theme.gray,
                                         fontWeight: 'bold',
                                         fontSize: 16
                                     }}>{item.label}</Text>
                                     <WidgetIcon icon={require('../../assets/kalendarkruh.png')}
-                                                navigation={this.props.navigation} text={item.weight + " kg"}
-                                                style={{}}/>
+                                        navigation={this.props.navigation} text={item.weight + " kg"}
+                                        style={{}} />
                                 </View>);
                             })}
                         </View>

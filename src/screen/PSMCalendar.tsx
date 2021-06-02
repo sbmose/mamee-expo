@@ -1,11 +1,10 @@
 // @ts-ignore
 import * as React from 'react';
-import {Component} from 'react';
-import {Animated, Image, Route, ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import { Component } from 'react';
+import { Animated, Image, Route, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Constants from 'expo-constants';
-import {Theme, ThemeStyles} from "../themes/default";
-import GoBack from "../components/GoBack";
-import {SceneMap, TabView} from "react-native-tab-view";
+import { Theme, ThemeStyles } from "../themes/default";
+import { SceneMap, TabView } from "react-native-tab-view";
 import CalendarPicker from 'react-native-calendar-picker';
 
 
@@ -30,20 +29,20 @@ class Tab extends Component<any, any> {
     }
 
     render() {
-        const {selectedStartDate} = this.state;
+        const { selectedStartDate } = this.state;
         const startDate = selectedStartDate ? selectedStartDate.toString() : '';
         return (
             <View style={styles.container}>
                 <View style={styles.calendar}>
-                <CalendarPicker
-                    onDateChange={this.onDateChange}
-                    selectedDayColor={Theme.pink}
-                    selectedDayTextColor={Theme.white}
-                    weekdays={['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom']}
-                    months={['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']}
-                    previousTitle="Anterior"
-                    nextTitle="Próximo"
-                />
+                    <CalendarPicker
+                        onDateChange={this.onDateChange}
+                        selectedDayColor={Theme.pink}
+                        selectedDayTextColor={Theme.white}
+                        weekdays={['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom']}
+                        months={['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']}
+                        previousTitle="Anterior"
+                        nextTitle="Próximo"
+                    />
                 </View>
                 <View>
                     <Text>SELECTED DATE:{startDate}</Text>
@@ -73,14 +72,14 @@ export default class PSMCalendar extends Component<{ navigation: any }, Calendar
             index: 0,
 
             routes: [
-                {key: 'events', title: 'Udalosti'},
-                {key: 'period', title: 'Menštruácia'},
+                { key: 'events', title: 'Udalosti' },
+                { key: 'period', title: 'Menštruácia' },
             ],
         };
     }
 
 
-    _handleIndexChange = (index: number) => this.setState({index});
+    _handleIndexChange = (index: number) => this.setState({ index });
 
     _renderTabBar = (props: any) => {
         const inputRange = props.navigationState.routes.map((x: Route, i: number) => i);
@@ -102,8 +101,8 @@ export default class PSMCalendar extends Component<{ navigation: any }, Calendar
                                 borderBottomWidth: 1,
                                 borderBottomColor: this.state.index == i ? Theme.pink : Theme.gray
                             }]}
-                            onPress={() => this.setState({index: i})}>
-                            <Animated.Text style={{opacity}}>{route.title}</Animated.Text>
+                            onPress={() => this.setState({ index: i })}>
+                            <Animated.Text style={{ opacity }}>{route.title}</Animated.Text>
                         </TouchableOpacity>
                     );
                 })}
@@ -124,7 +123,6 @@ export default class PSMCalendar extends Component<{ navigation: any }, Calendar
 
         return (
             <View style={[ThemeStyles.applicationBackground, ThemeStyles.container]}>
-                <GoBack onPress={() => this.props.navigation.navigate('MenuMe')} label={'PSM Kalendár'} style={{}}/>
                 <View style={styles.container}>
                     <TabView
                         navigationState={this.state}
