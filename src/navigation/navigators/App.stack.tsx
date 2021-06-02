@@ -1,11 +1,5 @@
 import * as React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Theme, ThemeStyles } from '../../themes/default';
-import { CHILD_STACK, DASHBOARD_STACK, ME_STACK } from '../ScreenNames';
-import { Image } from 'react-native';
-import DashboardStack from './Dashboard.stack';
-import MeStack from './Me.stack';
-import ChildStack from './Child.stack';
 import TabBarIcons from '../../components/TabBarIcons';
 import { GlobalNavigationOptions } from '../GlobalNavigationOptions';
 import { AppTabsConfig } from '../Navigation.config';

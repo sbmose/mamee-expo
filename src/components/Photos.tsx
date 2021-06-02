@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { Theme, ThemeStyles } from "../themes/default";
-import { GALLERY_SCREEN } from '../navigation/ScreenNames';
-
+import { DashboardStackConfig } from "../navigation/Navigation.config";
 
 export default class Photos extends Component<{ navigation: any, photos: any[], style: any }> {
 
@@ -18,7 +17,7 @@ export default class Photos extends Component<{ navigation: any, photos: any[], 
     }
 
     go2Gallery() {
-        this.props.navigation.navigate(GALLERY_SCREEN);
+        this.props.navigation.navigate(DashboardStackConfig.GALLERY_SCREEN.name);
     }
 
     render() {

@@ -1,4 +1,6 @@
 // Stacks
+import AppStack from './navigators/App.stack';
+import AuthStack from './navigators/Auth.stack';
 import DashboardStack from './navigators/Dashboard.stack';
 import MeStack from './navigators/Me.stack';
 import ChildStack from './navigators/Child.stack';
@@ -31,6 +33,17 @@ import ChildPhotos from '../screen/ChildPhotos';
 import DetailChildPhoto from '../screen/DetailChildPhoto';
 import Dashboard from '../screen/Dashboard';
 import Gallery from '../screen/Gallery';
+
+export const RootStackConfig = {
+    APP_STACK: {
+        name: "AppStack",
+        component: AppStack
+    },
+    AUTH_STACK: {
+        name: "AuthStack",
+        component: AuthStack
+    }
+}
 
 export const AppTabsConfig = {
     DASHBOARD_STACK: {
