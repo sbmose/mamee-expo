@@ -6,12 +6,6 @@ import Constants from 'expo-constants';
 import { Theme, ThemeStyles } from "../themes/default";
 import { SceneMap, TabView } from "react-native-tab-view";
 import CalendarPicker from 'react-native-calendar-picker';
-import { ME_MENU_SCREEN } from '../navigation/ScreenNames';
-
-
-
-
-
 
 class Tab extends Component<any, any> {
 

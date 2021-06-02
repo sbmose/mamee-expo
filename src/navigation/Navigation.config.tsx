@@ -33,6 +33,7 @@ import ChildPhotos from '../screen/ChildPhotos';
 import DetailChildPhoto from '../screen/DetailChildPhoto';
 import Dashboard from '../screen/Dashboard';
 import Gallery from '../screen/Gallery';
+import LoginScreen from '../screen/Authentication/Login.screen';
 
 export const RootStackConfig = {
     APP_STACK: {
@@ -63,6 +64,13 @@ export const AppTabsConfig = {
         title: "Dieťa",
         icon: "child",
         component: ChildStack
+    }
+}
+
+export const AuthStackConfig = {
+    LOGIN_SCREEN: {
+        name: "LoginScreen",
+        component: LoginScreen
     }
 }
 

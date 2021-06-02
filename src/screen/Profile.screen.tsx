@@ -16,10 +16,7 @@ import ListItemCheckBox from '../components/ListItemCheckBox';
 import { ListItemSeparator } from '../components/ListItemSeparator';
 import ListItemText from '../components/ListItemText';
 import ListItemSimple from '../components/ListItemSimple';
-import {
-    HEALTH_INFO_SCREEN,
-    CHANGE_PASSWORD_SCREEN
-} from '../navigation/ScreenNames';
+import { MeStackConfig } from '../navigation/Navigation.config';
 
 export default function ProfileScreen({ navigation }: any) {
 
@@ -33,7 +30,7 @@ export default function ProfileScreen({ navigation }: any) {
                     <Text style={styles.profileEmailandPass}>janka.novakove@email.com</Text>
                     <Text style={styles.profileEmailandPass}>***********</Text>
                     <Button style={styles.changePassBtn} transparent
-                        onPress={() => navigation.navigate(CHANGE_PASSWORD_SCREEN)}>
+                        onPress={() => navigation.navigate(MeStackConfig.CHANGE_PASSWORD_SCREEN.name)}>
                         <Text style={styles.changePassBtnText}>Zmeniť heslo</Text>
                     </Button>
                 </View>
@@ -42,7 +39,7 @@ export default function ProfileScreen({ navigation }: any) {
                     <MainButton
                         label={"Zdravotné informácie"}
                         style={styles.infoBtnStyle}
-                        onPress={() => navigation.navigate(HEALTH_INFO_SCREEN)} />
+                        onPress={() => navigation.navigate(MeStackConfig.HEALTH_INFO_SCREEN.name)} />
                     <ListItemText
                         label="Pohlavie bábätka"
                         value="Dievča"

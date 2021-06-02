@@ -1,26 +1,17 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import {
-    LOGIN_SCREEN
-} from "../ScreenNames";
-import { GlobalNavigationOptions } from '../GlobalNavigationOptions';
-import LoginScreen from '../../screen/Authentication/Login.screen';
+import { AuthStackConfig } from '../Navigation.config';
 
 const Profile = createStackNavigator();
 
 export default function AuthStack() {
     return (
         <Profile.Navigator
-            initialRouteName={LOGIN_SCREEN}>
+            headerMode="none"
+            initialRouteName={AuthStackConfig.LOGIN_SCREEN.name}>
             <Profile.Screen
-                name={LOGIN_SCREEN}
-                component={LoginScreen}
-                options={{
-                    ...GlobalNavigationOptions,
-                    headerLeft: null,
-                    headerTitle: "",
-                    headerRight: null
-                }}
+                name={AuthStackConfig.LOGIN_SCREEN.name}
+                component={AuthStackConfig.LOGIN_SCREEN.component}
             />
             {/* <Profile.Screen
                 name={HEALTH_INFO_SCREEN}
