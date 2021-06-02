@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec7f7fd4-08e7-4145-afac-000086d8df6f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/screen/BagMother.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/BagMother.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/WidgetIconTextAction.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screen/ActivityAdd.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AppNavigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AppNavigation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Activities.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Activities.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Calendar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Calendar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Health.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,15 +38,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/screen" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../java/ecestovko-frontend" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/screen" />
       <recent name="$PROJECT_DIR$/src/components" />
+      <recent name="$PROJECT_DIR$/src/screen" />
       <recent name="$PROJECT_DIR$/assets" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
@@ -67,6 +73,9 @@
       <workItem from="1620421021127" duration="13193000" />
       <workItem from="1620504931267" duration="26000" />
       <workItem from="1620819880888" duration="13797000" />
+      <workItem from="1621776431134" duration="606000" />
+      <workItem from="1622053173382" duration="17823000" />
+      <workItem from="1622472799764" duration="1261000" />
     </task>
     <servers />
   </component>

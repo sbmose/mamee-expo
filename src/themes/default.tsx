@@ -12,7 +12,12 @@ const Theme = {
     red: '#f00',
     darkGray: '#666',
     appBg: '#F0F0F0',
+
+    lightgray: '#ddd',
+    lightgreen: '#4f4',
+
     lightGrey: "#e8e8e8"
+
 };
 
 
