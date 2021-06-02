@@ -10,7 +10,7 @@ const Stack = createStackNavigator();
 
 export default function DashboardStack() {
     return (
-        <Stack.Navigator>
+        <Stack.Navigator initialRouteName={DashboardStackConfig.DASHBOARD_SCREEN.name}>
             <Stack.Screen
                 name={DashboardStackConfig.DASHBOARD_SCREEN.name}
                 component={DashboardStackConfig.DASHBOARD_SCREEN.component}

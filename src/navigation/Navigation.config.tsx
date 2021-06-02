@@ -1,3 +1,8 @@
+// Stacks
+import DashboardStack from './navigators/Dashboard.stack';
+import MeStack from './navigators/Me.stack';
+import ChildStack from './navigators/Child.stack';
+// Screens
 import Me from "../screen/Me";
 import Child from "../screen/Child";
 import Administration from "../screen/Administration";
@@ -26,6 +31,27 @@ import ChildPhotos from '../screen/ChildPhotos';
 import DetailChildPhoto from '../screen/DetailChildPhoto';
 import Dashboard from '../screen/Dashboard';
 import Gallery from '../screen/Gallery';
+
+export const AppTabsConfig = {
+    DASHBOARD_STACK: {
+        name: "DashboardStack",
+        title: "Domov",
+        icon: "dashboard",
+        component: DashboardStack
+    },
+    ME_STACK: {
+        name: "MeStack",
+        title: "Ja",
+        icon: "me",
+        component: MeStack
+    },
+    CHILD_STACK: {
+        name: "ChildStack",
+        title: "Dieťa",
+        icon: "child",
+        component: ChildStack
+    }
+}
 
 export const MeStackConfig = {
     PROFILE_SCREEN: {
@@ -221,7 +247,6 @@ export const ChildStackConfig = {
         menu: false
     },
 }
-
 
 export const DashboardStackConfig = {
     DASHBOARD_SCREEN: {

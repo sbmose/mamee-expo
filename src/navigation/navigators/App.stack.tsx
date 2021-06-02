@@ -6,6 +6,9 @@ import { Image } from 'react-native';
 import DashboardStack from './Dashboard.stack';
 import MeStack from './Me.stack';
 import ChildStack from './Child.stack';
+import TabBarIcons from '../../components/TabBarIcons';
+import { GlobalNavigationOptions } from '../GlobalNavigationOptions';
+import { AppTabsConfig } from '../Navigation.config';
 
 const BottomTab = createBottomTabNavigator();
 
@@ -14,40 +17,31 @@ export default function AppStack() {
     return (
         <BottomTab.Navigator
             lazy={false}
-            initialRouteName={DASHBOARD_STACK}
+            initialRouteName={AppTabsConfig.DASHBOARD_STACK.name}
             tabBarOptions={{
-                activeTintColor: Theme.pink,
-                showLabel: true,
-                style: ThemeStyles.bottomNavigation,
-                labelStyle: ThemeStyles.tabLabelStyle,
-                labelPosition: 'below-icon'
+
+                ...GlobalNavigationOptions
             }}>
             <BottomTab.Screen
-                name={DASHBOARD_STACK}
-                component={DashboardStack}
+                name={AppTabsConfig.DASHBOARD_STACK.name}
+                component={AppTabsConfig.DASHBOARD_STACK.component}
                 options={{
-                    tabBarLabel: 'Domov',
-                    tabBarIcon: ({ color, size }) => (
-                        <Image source={require('../../../assets/domov.png')} style={ThemeStyles.tabIconStyle} tintColor={color} />
-                    ),
+                    title: AppTabsConfig.DASHBOARD_STACK.title,
+                    tabBarIcon: ({ color }) => (<TabBarIcons name={AppTabsConfig.DASHBOARD_STACK.icon} color={color} width={25} height={25} />)
                 }} />
             <BottomTab.Screen
-                name={ME_STACK}
-                component={MeStack}
+                name={AppTabsConfig.ME_STACK.name}
+                component={AppTabsConfig.ME_STACK.component}
                 options={{
-                    tabBarLabel: 'Ja',
-                    tabBarIcon: ({ color, size }) => (
-                        <Image source={require('../../../assets/mother.png')} style={ThemeStyles.tabIconStyle} tintColor={color} />
-                    ),
+                    title: AppTabsConfig.ME_STACK.title,
+                    tabBarIcon: ({ color }) => (<TabBarIcons name={AppTabsConfig.ME_STACK.icon} color={color} width={25} height={25} />)
                 }} />
             <BottomTab.Screen
-                name={CHILD_STACK}
-                component={ChildStack}
+                name={AppTabsConfig.CHILD_STACK.name}
+                component={AppTabsConfig.CHILD_STACK.component}
                 options={{
-                    tabBarLabel: 'Dieťa',
-                    tabBarIcon: ({ color, size }) => (
-                        <Image source={require('../../../assets/baby.png')} style={ThemeStyles.tabIconStyle} tintColor={color} />
-                    ),
+                    title: AppTabsConfig.CHILD_STACK.title,
+                    tabBarIcon: ({ color }) => (<TabBarIcons name={AppTabsConfig.CHILD_STACK.icon} color={color} width={25} height={25} />)
                 }} />
         </BottomTab.Navigator>
     );
