@@ -2,23 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec7f7fd4-08e7-4145-afac-000086d8df6f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/kruhchecked.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ConfirmCancelNavigation.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/GoBackStyled.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/WidgetLink.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/WidgetIconTextAction.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screen/ActivityAdd.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AppNavigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AppNavigation.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/WidgetIcon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/WidgetIcon.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/Administration.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Administration.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/BuyList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/BuyList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Activities.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Activities.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screen/Calendar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Calendar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/Child.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Child.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/ChildAdministration.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/WeightAdd.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/Loss.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/AdministrationDetail.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/Me.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Me.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/PSMCalendar.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/Weight.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Weight.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/themes/default.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/themes/default.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Health.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +38,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../java/ecestovko-frontend" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -84,7 +74,8 @@
       <workItem from="1620504931267" duration="26000" />
       <workItem from="1620819880888" duration="13797000" />
       <workItem from="1621776431134" duration="606000" />
-      <workItem from="1622053173382" duration="13357000" />
+      <workItem from="1622053173382" duration="17823000" />
+      <workItem from="1622472799764" duration="1261000" />
     </task>
     <servers />
   </component>

@@ -24,9 +24,7 @@ import Bag from "../screen/Bag";
 import Plan from "../screen/Plan";
 import Photos from "../screen/Photos";
 import Calendar from "../screen/Calendar";
-import Health from "../screen/Health";
 import Activities from "../screen/Activities";
-import ChildAdministration from "../screen/ChildAdministration";
 import ChildPhotos from "../screen/ChildPhotos";
 import Food from "../screen/Food";
 import Weight from "../screen/Weight";
@@ -37,6 +35,8 @@ import BagMother from "../screen/BagMother";
 import BagChild from "../screen/BagChild";
 import WeightAdd from "../screen/WeightAdd";
 import AdministrationDetail from "../screen/AdministrationDetail";
+import ActivityAdd from "../screen/ActivityAdd";
+import HealthInfo from "../screen/profile/HealthInfo.screen";
 
 interface AppNavigationState {
     loggedIn: boolean
@@ -92,7 +92,7 @@ function MeStack(props: any) {
             <Stack.Screen
                 name="Health"
                 component={() => {
-                    return (<Health navigation={props.navigation} />);
+                    return (<HealthInfo navigation={props.navigation} />);
                 }}
             />
             <Stack.Screen
@@ -162,6 +162,10 @@ function MeStack(props: any) {
             <Stack.Screen
                 name="AdministrationDetail"
                 component={AdministrationDetail}
+            />
+            <Stack.Screen
+                name="ActivityAdd"
+                component={ActivityAdd}
             />
         </Stack.Navigator>
     )

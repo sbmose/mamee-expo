@@ -70,7 +70,7 @@ export default class Calendar extends Component<{ route: any,navigation: any }, 
         super(props);
         this.state = {
 
-            index: typeof props.route.params.tab !== 'undefined' && props.route.params.tab == 'period' ? 1 : 0,
+            index: typeof props.route.params !== 'undefined' && props.route.params.tab == 'period' ? 1 : 0,
 
             routes: [
                 {key: 'events', title: 'Udalosti'},
