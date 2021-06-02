@@ -3,8 +3,8 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { CardItem, Text, Left, Body, Button } from 'native-base';
 import { Theme } from '../themes/default';
-import { HEALTH_INFO_DETAIL_SCREEN } from '../navigation/ScreenNames';
 import { useNavigation } from '@react-navigation/native';
+import { MeStackConfig } from '../navigation/Navigation.config';
 
 
 export default function CardItemButton({ label }: any) {
@@ -17,7 +17,7 @@ export default function CardItemButton({ label }: any) {
             </Left>
             <Body>
                 <Button style={styles.detailButton} transparent
-                    onPress={() => navigation.navigate(HEALTH_INFO_DETAIL_SCREEN, { label: label, data: null })}>
+                    onPress={() => navigation.navigate(MeStackConfig.HEALTH_INFO_SCREEN.name, { label: label, data: null })}>
                     <Text style={styles.buttonText}>Detail</Text>
                 </Button>
             </Body>

@@ -1,4 +1,5 @@
 import Me from "../screen/Me";
+import Child from "../screen/Child";
 import Administration from "../screen/Administration";
 import Loss from "../screen/Loss";
 import Hospitals from "../screen/Hospitals";
@@ -18,6 +19,11 @@ import ProfileScreen from '../screen/Profile.screen';
 import HealthInfoDetail from '../screen/HealthInfoDetail.screen';
 import ChangePassword from "../screen/ChangePassword.screen";
 import HealthInfo from '../screen/HealthInfo.screen';
+import Food from "../screen/Food";
+import Activities from '../screen/Activities';
+import ChildAdministration from '../screen/ChildAdministration';
+import ChildPhotos from '../screen/ChildPhotos';
+import DetailChildPhoto from '../screen/DetailChildPhoto';
 
 export const MeStackConfig = {
     PROFILE_SCREEN: {
@@ -165,6 +171,51 @@ export const MeStackConfig = {
         title: "",
         icon: null,
         component: BagPartner,
+        menu: false
+    },
+}
+
+export const ChildStackConfig = {
+    CHILD_MENU_SCREEN: {
+        name: "ChildMenuScreen",
+        title: "Dieťa",
+        icon: null,
+        component: Child,
+        menu: false
+    },
+    FOOD_SCREEN: {
+        name: "FoodScreen",
+        title: "Strava",
+        icon: require('../../assets/stravakruh.png'),
+        component: Food,
+        menu: true
+    },
+    CHILD_PHOTOS_SCREEN: {
+        name: "PhotoScreen",
+        title: "Fotky",
+        icon: require('../../assets/fotkykruh.png'),
+        component: ChildPhotos,
+        menu: true
+    },
+    CHILD_ADMINISTRATION_SCREEN: {
+        name: "ChildAdministrationScreen",
+        title: "Administratíva",
+        icon: require('../../assets/administrativakruh.png'),
+        component: ChildAdministration,
+        menu: true
+    },
+    ACTIVITIES_SCREEN: {
+        name: "ActivitiesScreen",
+        title: "Aktivity",
+        icon: require('../../assets/fotkykruh.png'),
+        component: Activities,
+        menu: true
+    },
+    DETAIL_CHILD_PHOTOS_SCREEN: {
+        name: "DetailChildPhotoScreen",
+        title: "",
+        icon: null,
+        component: DetailChildPhoto,
         menu: false
     },
 }
