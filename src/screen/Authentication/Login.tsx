@@ -1,9 +1,9 @@
 // @ts-ignore
-import React, {Component, createRef} from 'react';
-import {AsyncStorage, Image, ScrollView, Text, TextInput, TouchableOpacity, View} from 'react-native';
-import {Theme, ThemeStyles} from "../../themes/default";
+import React, { Component, createRef } from 'react';
+import { AsyncStorage, Image, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Theme, ThemeStyles } from "../../themes/default";
 import styles from "../../styles/authForm";
-import {FloatingLabelInput} from 'react-native-floating-label-input';
+import { FloatingLabelInput } from 'react-native-floating-label-input';
 
 
 interface LoginState {
@@ -51,7 +51,7 @@ export default class Login extends Component<{ navigation: any, onLogin: any }, 
             const email = await AsyncStorage.getItem('@App:email');
             const password = await AsyncStorage.getItem('@App:password');
             if (email !== null && password !== null) {
-                this.setState({email: email, password: password});
+                this.setState({ email: email, password: password });
             }
         } catch (error) {
             // Error retrieving data
@@ -64,7 +64,7 @@ export default class Login extends Component<{ navigation: any, onLogin: any }, 
             await this._storeData();
         }
 
-        this.setState(() => ({errorLogin: !succesfulLogin, email: "", password: ""}));
+        this.setState(() => ({ errorLogin: !succesfulLogin, email: "", password: "" }));
         this.props.onLogin(succesfulLogin);
     }
 
@@ -82,8 +82,8 @@ export default class Login extends Component<{ navigation: any, onLogin: any }, 
             <View style={[ThemeStyles.applicationBackground, styles.container]}>
                 <ScrollView>
                     <View style={styles.insideScrollview}>
-                        <Image source={require('../../../assets/icon.png')} style={{width: 200, height: 200}}/>
-                        <View style={{justifyContent: "flex-start", width: '100%'}}>
+                        <Image source={require('../../../assets/icon.png')} style={{ width: 200, height: 200 }} />
+                        <View style={{ justifyContent: "flex-start", width: '100%' }}>
                             <Text style={styles.title}>Prihlásiť</Text>
                         </View>
                         <TextInput
@@ -91,55 +91,57 @@ export default class Login extends Component<{ navigation: any, onLogin: any }, 
                             placeholder="E-mail"
                             placeholderTextColor="#666666"
                             value={this.state.email}
-                            onChangeText={text => this.setState({email: text})}/>
+                            onChangeText={text => this.setState({ email: text })} />
                         <TextInput
                             secureTextEntry
                             style={[styles.field, styles.input]}
                             placeholder="Heslo"
                             placeholderTextColor="#666666"
                             value={this.state.password}
-                            onChangeText={text => this.setState({password: text})}/>
+                            onChangeText={text => this.setState({ password: text })} />
                         <TouchableOpacity style={[styles.field, styles.btn, ThemeStyles.ptb1]}
-                                          onPress={() => {
-                                              this.setState({continue: true})
-                                          }}>
+                            onPress={() => {
+                                this.setState({ continue: true })
+                            }}>
                             <Text style={styles.btnText}>Pokračovať</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={[styles.field, styles.btnGoog, ThemeStyles.ptb1]}
-                                          onPress={() => {
-                                            this.props.navigation.navigate('Register')
-                                          }}>
+                            onPress={() => {
+                                this.props.navigation.navigate('Register')
+                            }}>
                             <Text style={styles.btnTextBlack}>Nemám účet</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={[styles.field, styles.btnGoog, ThemeStyles.ptb1]}
-                                          onPress={() => this.loginGoogle()}>
-                            <Image source={require('../../../assets/google.png')} resizeMode='contain' style={{flex:.4,top:15,left: 10,alignSelf:'flex-start' }}/>
-                            <Text style={[styles.btnTextBlack,{top: -5,flex: 0.6}]}>Prihlási sa cez Google</Text>
+                            onPress={() => this.loginGoogle()}>
+                            <Image source={require('../../../assets/google.png')} resizeMode='contain' style={{ flex: .4, top: 15, left: 10, alignSelf: 'flex-start' }} />
+                            <Text style={[styles.btnTextBlack, { top: -5, flex: 0.6 }]}>Prihlási sa cez Google</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={[styles.field, styles.btnFb, ThemeStyles.ptb1]}
-                                          onPress={() => this.loginFacebook()}>
-                            <Image source={require('../../../assets/facebook.png')} resizeMode='contain' style={{flex:.4,top:15,left:10,alignSelf:'flex-start' }}/>
-                            <Text style={[styles.btnText,{top: -5,flex: 0.6}]}>Prihlási sa cez Facebook</Text>
+                            onPress={() => this.loginFacebook()}>
+                            <Image source={require('../../../assets/facebook.png')} resizeMode='contain' style={{ flex: .4, top: 15, left: 10, alignSelf: 'flex-start' }} />
+                            <Text style={[styles.btnText, { top: -5, flex: 0.6 }]}>Prihlási sa cez Facebook</Text>
 
                         </TouchableOpacity>
                     </View>
                 </ScrollView>
             </View>
         ) : (<View style={[ThemeStyles.applicationBackground, styles.container]}>
-                <ScrollView>
-                    <View style={styles.insideScrollview}>
-                        <View style={{justifyContent: "flex-start", width: '100%'}}>
-                            <Text style={styles.title}>Prihlásiť</Text>
-                        </View>
-                        <View                             style={[{
-                            width: '100%',
-                            marginBottom: 5,
-                            marginTop: 5
-                        }]}>
+            <ScrollView>
+                <View style={styles.insideScrollview}>
+                    <View style={{ justifyContent: "flex-start", width: '100%' }}>
+                        <Text style={styles.title}>Prihlásiť</Text>
+                    </View>
+                    <View style={[{
+                        width: '100%',
+                        marginBottom: 5,
+                        marginTop: 5
+                    }]}>
 
                         <FloatingLabelInput
-                            style={[{marginBottom: 15,
-                                marginTop: 15}]}
+                            style={[{
+                                marginBottom: 15,
+                                marginTop: 15
+                            }]}
                             label="E-mail"
                             value={this.state.email}
                             staticLabel
@@ -168,15 +170,15 @@ export default class Login extends Component<{ navigation: any, onLogin: any }, 
                                 paddingHorizontal: 10,
                             }}
                             onChangeText={(value: any) => {
-                                this.setState({email: value})
+                                this.setState({ email: value })
                             }}
                         />
-                        </View>
-                        <View                             style={[{
-                            width: '100%',
-                            marginBottom: 5,
-                            marginTop: 5
-                        }]}>
+                    </View>
+                    <View style={[{
+                        width: '100%',
+                        marginBottom: 5,
+                        marginTop: 5
+                    }]}>
                         <FloatingLabelInput
 
                             label="Heslo"
@@ -206,23 +208,23 @@ export default class Login extends Component<{ navigation: any, onLogin: any }, 
                                 paddingHorizontal: 10,
                             }}
                             onChangeText={(value: any) => {
-                                this.setState({password: value})
+                                this.setState({ password: value })
                             }}
                         />
-                        </View>
-                        <TouchableOpacity style={[styles.field, styles.btn, ThemeStyles.ptb1]}
-                                          onPress={() => this.login()}>
-                            <Text style={styles.btnText}>Login</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={[styles.field, styles.btnGoog, ThemeStyles.ptb1]}
-                                          onPress={() => {
-                                              console.log(this.props);
-                                          }}>
-                            <Text style={styles.btnTextBlack}>Nemám účet</Text>
-                        </TouchableOpacity>
                     </View>
-                </ScrollView>
-            </View>
+                    <TouchableOpacity style={[styles.field, styles.btn, ThemeStyles.ptb1]}
+                        onPress={() => this.login()}>
+                        <Text style={styles.btnText}>Login</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={[styles.field, styles.btnGoog, ThemeStyles.ptb1]}
+                        onPress={() => {
+                            console.log(this.props);
+                        }}>
+                        <Text style={styles.btnTextBlack}>Nemám účet</Text>
+                    </TouchableOpacity>
+                </View>
+            </ScrollView>
+        </View>
         );
 
     }

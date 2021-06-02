@@ -1,11 +1,12 @@
 // @ts-ignore
-import React, { Component, useState } from 'react';
+import React,{Component} from 'react';
 import { ScrollView, View } from 'react-native';
 
 import { ThemeStyles } from "../themes/default";
 import MenuButton from "../components/MenuButton";
 import MeBar from "../components/MeBar";
-import { PROFILE_SCREEN, PROFILE_STACK } from '../navigation/ScreenNames';
+
+
 
 
 export default class Me extends Component<{ navigation: any }> {

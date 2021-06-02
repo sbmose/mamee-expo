@@ -1,11 +1,16 @@
 // @ts-ignore
+
 import React, {Component, useState} from 'react';
 import {ScrollView, View} from 'react-native';
 
-import {ThemeStyles} from "../themes/default";
-import GoBack from "../components/GoBack";
+
+
 import WidgetIcon from "../components/WidgetIcon";
 import WidgetIconTextAction from "../components/WidgetIconTextAction";
+import { Theme, ThemeStyles } from "../themes/default";
+import GoBack from "../components/GoBack";
+
+
 
 
 export default class Activities extends Component<{ navigation: any }> {
@@ -25,7 +30,7 @@ export default class Activities extends Component<{ navigation: any }> {
     render() {
         return (
             <View style={[ThemeStyles.applicationBackground, ThemeStyles.container]}>
-                <GoBack onPress={() => this.props.navigation.navigate('MenuChild')} label={'Aktivity'} style={{}}/>
+                <GoBack onPress={() => this.props.navigation.navigate('MenuChild')} label={'Aktivity'} style={{}} />
                 <ScrollView>
                     <View style={{paddingTop: 20, paddingBottom: 150}}>
                         <WidgetIconTextAction navigation={this.props.navigation}

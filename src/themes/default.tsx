@@ -57,10 +57,8 @@ const ThemeStyles = StyleSheet.create({
         marginTop: 20
     },
     container: {
-        paddingTop: '10%',
-        paddingBottom: '8%',
-        paddingLeft: '6%',
-        paddingRight: '6%'
+        paddingTop: 23,
+        paddingHorizontal: 16
     },
     welcome: {
         flexDirection: "row",

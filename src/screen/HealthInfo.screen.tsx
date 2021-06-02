@@ -6,9 +6,9 @@ import {
     Text
 } from 'react-native';
 import { Card } from "native-base";
-import { Theme, ThemeStyles } from '../../themes/default';
-import CardItemInput from '../../components/CardItemInput';
-import CardItemButton from '../../components/CardItemButton';
+import { Theme, ThemeStyles } from '../themes/default';
+import CardItemInput from '../components/CardItemInput';
+import CardItemButton from '../components/CardItemButton';
 // Screen Styles
 
 export default function HealthInfo({ navigation }: any) {

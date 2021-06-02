@@ -7,21 +7,16 @@ import {
     Text
 } from 'react-native';
 import {
-    Container,
     Thumbnail,
     Button
 } from "native-base";
-import { Theme, ThemeStyles } from '../../themes/default';
-import MainButton from '../../components/MainButton';
-import ListItemCheckBox from '../../components/ListItemCheckBox';
-import { ListItemSeparator } from '../../components/ListItemSeparator';
-import ListItemText from '../../components/ListItemText';
-import ListItemSimple from '../../components/ListItemSimple';
-import {
-    HEALTH_INFO_SCREEN,
-    CHANGE_PASSWORD_SCREEN
-} from '../../navigation/ScreenNames';
-// Screen Styles
+import { Theme, ThemeStyles } from '../themes/default';
+import MainButton from '../components/MainButton';
+import ListItemCheckBox from '../components/ListItemCheckBox';
+import { ListItemSeparator } from '../components/ListItemSeparator';
+import ListItemText from '../components/ListItemText';
+import ListItemSimple from '../components/ListItemSimple';
+import { MeStackConfig } from '../navigation/Navigation.config';
 
 export default function ProfileScreen({ navigation }: any) {
 
@@ -29,13 +24,13 @@ export default function ProfileScreen({ navigation }: any) {
         <SafeAreaView style={ThemeStyles.safeAreaContainer}>
             <ScrollView style={ThemeStyles.scrollContainer}>
                 <View style={styles.headerContainer}>
-                    <Thumbnail style={styles.thumbnail} source={require('../../../assets/profil.png')} />
+                    <Thumbnail style={styles.thumbnail} source={require('../../assets/profil.png')} />
                     <Text style={styles.profileName}>Janka</Text>
                     <Text style={styles.profileInfo}>Tehotná, 3. trimester</Text>
                     <Text style={styles.profileEmailandPass}>janka.novakove@email.com</Text>
                     <Text style={styles.profileEmailandPass}>***********</Text>
                     <Button style={styles.changePassBtn} transparent
-                        onPress={() => navigation.navigate(CHANGE_PASSWORD_SCREEN)}>
+                        onPress={() => navigation.navigate(MeStackConfig.CHANGE_PASSWORD_SCREEN.name)}>
                         <Text style={styles.changePassBtnText}>Zmeniť heslo</Text>
                     </Button>
                 </View>
@@ -44,7 +39,7 @@ export default function ProfileScreen({ navigation }: any) {
                     <MainButton
                         label={"Zdravotné informácie"}
                         style={styles.infoBtnStyle}
-                        onPress={() => navigation.navigate(HEALTH_INFO_SCREEN)} />
+                        onPress={() => navigation.navigate(MeStackConfig.HEALTH_INFO_SCREEN.name)} />
                     <ListItemText
                         label="Pohlavie bábätka"
                         value="Dievča"
@@ -175,6 +170,7 @@ const styles = StyleSheet.create({
         marginBottom: 16
     },
     infoBtnStyle: {
-        marginBottom: 24
+        marginBottom: 24,
+        marginHorizontal: 16
     }
 });

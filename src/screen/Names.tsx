@@ -1,11 +1,10 @@
 // @ts-ignore
 import * as React from 'react';
-import {Component} from 'react';
-import {Animated, Image, Route, ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import { Component } from 'react';
+import { Animated, Image, Route, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Constants from 'expo-constants';
-import {Theme, ThemeStyles} from "../themes/default";
-import GoBack from "../components/GoBack";
-import {SceneMap, TabView} from "react-native-tab-view";
+import { Theme, ThemeStyles } from "../themes/default";
+import { SceneMap, TabView } from "react-native-tab-view";
 
 const vocals = ['a', 'e', 'i', 'o', 'u'];
 
@@ -2213,11 +2212,11 @@ class Tab extends Component<TabProps, any> {
             let favorites = this.state.favorites.filter((i: number) => {
                 return i != index
             })
-            this.setState({favorites: favorites});
+            this.setState({ favorites: favorites });
         } else {
             let favorites = this.state.favorites;
             favorites.push(index);
-            this.setState({favorites: favorites});
+            this.setState({ favorites: favorites });
         }
     }
 
@@ -2233,25 +2232,25 @@ class Tab extends Component<TabProps, any> {
                                 fontWeight: 'bold',
                                 padding: 10
                             }}>{group.letter}</Text>
-                            <View style={{backgroundColor: Theme.white, borderRadius: 10}}>
+                            <View style={{ backgroundColor: Theme.white, borderRadius: 10 }}>
                                 {group.names.map((name: any, index: any) => {
-                                    return (<TouchableOpacity  onPress={() => {
-                                            this.toggleFavorite(group.letter + index)
+                                    return (<TouchableOpacity onPress={() => {
+                                        this.toggleFavorite(group.letter + index)
+                                    }}>
+                                        <View style={{
+                                            height: 40,
+                                            margin: 10,
+                                            flexDirection: 'row',
+                                            borderBottomWidth: 1,
+                                            borderBottomColor: Theme.gray
                                         }}>
-                                            <View style={{
-                                                height: 40,
-                                                margin: 10,
-                                                flexDirection: 'row',
-                                                borderBottomWidth: 1,
-                                                borderBottomColor: Theme.gray
-                                            }}>
                                             <Text style={{
-                                            marginTop: 5,
-                                            marginBottom: 5,
-                                            color: Theme.black,
-                                            flex: 0.6
-                                        }}>{name.name}</Text><Text
-                                            style={{marginTop: 5, marginBottom: 5, flex: 0.3}}>{name.date}</Text>
+                                                marginTop: 5,
+                                                marginBottom: 5,
+                                                color: Theme.black,
+                                                flex: 0.6
+                                            }}>{name.name}</Text><Text
+                                                style={{ marginTop: 5, marginBottom: 5, flex: 0.3 }}>{name.date}</Text>
 
                                             <Image style={{
                                                 marginTop: 5, marginBottom: 5,
@@ -2260,43 +2259,43 @@ class Tab extends Component<TabProps, any> {
                                                 height: 18,
                                                 resizeMode: 'stretch',
                                             }}
-                                                   source={this.state.favorites.includes(group.letter + index) ? require('../../assets/srdcefarebne.png') : require('../../assets/srdcesive.png')}/>
-                                            </View>
-                                        </TouchableOpacity>
+                                                source={this.state.favorites.includes(group.letter + index) ? require('../../assets/srdcefarebne.png') : require('../../assets/srdcesive.png')} />
+                                        </View>
+                                    </TouchableOpacity>
                                     );
                                 })}
-                                    </View>
-                                    </View>)
-                                })}
-                    </ScrollView>
-                    );
-                }
-                }
+                            </View>
+                        </View>)
+                })}
+            </ScrollView>
+        );
+    }
+}
 
-    let
+let
     favorites = [];
 
-    function
+function
 
     sortByNameAZ() {
-        return names.sort((a, b) => (a.name > b.name ? 1 : -1));
-    }
+    return names.sort((a, b) => (a.name > b.name ? 1 : -1));
+}
 
-    function
+function
 
     sortByNameZA() {
-        return names.sort((a, b) => (a.name < b.name ? 1 : -1));
-    }
+    return names.sort((a, b) => (a.name < b.name ? 1 : -1));
+}
 
-    class
+class
     NamesFilter
     extends
 
     Component<any, any> {
 
-    }
+}
 
-    interface NamesState {
+interface NamesState {
     girls: any;
     boys: any;
     index: number;
@@ -2319,8 +2318,8 @@ export default class Names extends Component<{ navigation: any }, NamesState> {
             index: 0,
             favorites: [],
             routes: [
-                {key: 'girls', title: 'Dievčatá'},
-                {key: 'boys', title: 'Chlapci'},
+                { key: 'girls', title: 'Dievčatá' },
+                { key: 'boys', title: 'Chlapci' },
             ],
         };
     }
@@ -2338,13 +2337,13 @@ export default class Names extends Component<{ navigation: any }, NamesState> {
         let lastLetter = '';
         names.forEach((item) => {
             if (lastLetter == item.name[0]) {
-                groups[index].names.push({name: item.name, date: item.date});
+                groups[index].names.push({ name: item.name, date: item.date });
             } else {
                 index++;
                 lastLetter = item.name[0];
                 groups[index] = {
                     letter: item.name[0],
-                    names: [{name: item.name, date: item.date}]
+                    names: [{ name: item.name, date: item.date }]
                 };
 
             }
@@ -2359,7 +2358,7 @@ export default class Names extends Component<{ navigation: any }, NamesState> {
         return this.prepareGroups(names);
     }
 
-    _handleIndexChange = (index: number) => this.setState({index});
+    _handleIndexChange = (index: number) => this.setState({ index });
 
     _renderTabBar = (props: any) => {
         const inputRange = props.navigationState.routes.map((x: Route, i: number) => i);
@@ -2381,8 +2380,8 @@ export default class Names extends Component<{ navigation: any }, NamesState> {
                                 borderBottomWidth: 1,
                                 borderBottomColor: this.state.index == i ? Theme.pink : Theme.gray
                             }]}
-                            onPress={() => this.setState({index: i})}>
-                            <Animated.Text style={{opacity}}>{route.title}</Animated.Text>
+                            onPress={() => this.setState({ index: i })}>
+                            <Animated.Text style={{ opacity }}>{route.title}</Animated.Text>
                         </TouchableOpacity>
                     );
                 })}
@@ -2392,10 +2391,10 @@ export default class Names extends Component<{ navigation: any }, NamesState> {
 
     _renderScene = SceneMap({
         girls: () => {
-            return (<Tab gender={'girls'} key={'girls'} items={this.state.girls}/>);
+            return (<Tab gender={'girls'} key={'girls'} items={this.state.girls} />);
         },
         boys: () => {
-            return (<Tab gender={'boys'} key={'boys'} items={this.state.boys}/>);
+            return (<Tab gender={'boys'} key={'boys'} items={this.state.boys} />);
         },
     });
 
@@ -2403,7 +2402,6 @@ export default class Names extends Component<{ navigation: any }, NamesState> {
 
         return (
             <View style={[ThemeStyles.applicationBackground, ThemeStyles.container]}>
-                <GoBack onPress={() => this.props.navigation.navigate('MenuMe')} label={'Zoznam mien'} style={{}}/>
                 <View style={styles.container}>
                     <TabView
                         navigationState={this.state}

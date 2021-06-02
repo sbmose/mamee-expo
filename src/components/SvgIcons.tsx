@@ -117,5 +117,4 @@ const SvgXmlIcons: any = {
         </defs>
         </svg>
         `
-
 }

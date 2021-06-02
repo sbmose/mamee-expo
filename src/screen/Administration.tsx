@@ -1,11 +1,13 @@
 // @ts-ignore
-import React, {Component, useState} from 'react';
-import {AsyncStorage, Dimensions, Image, SafeAreaView, TouchableOpacity, useColorScheme} from 'react-native';
-import {StyleSheet, View, ScrollView, TextInput, Text} from 'react-native';
+import React, { Component, useState } from 'react';
+import { AsyncStorage, Dimensions, Image, SafeAreaView, TouchableOpacity, useColorScheme } from 'react-native';
+import { StyleSheet, View, ScrollView, TextInput, Text } from 'react-native';
+
 
 import {Theme, ThemeStyles} from "../themes/default";
-import GoBack from "../components/GoBack";
 import WidgetLink from "../components/WidgetLink";
+import GoBack from "../components/GoBack";
+
 
 const data = [
     {
@@ -78,7 +80,7 @@ export default class Administration extends Component<{ navigation: any }, any> 
 
     }
 
-    constructor(props:any) {
+    constructor(props: any) {
         super(props);
         this.state = {
             items: data

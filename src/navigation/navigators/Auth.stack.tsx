@@ -1,36 +1,19 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import {
-    PROFILE_SCREEN,
-    HEALTH_INFO_SCREEN,
-    HEALTH_INFO_DETAIL_SCREEN,
-    CHANGE_PASSWORD_SCREEN
-} from "../ScreenNames";
-import ProfileScreen from '../../screen/profile/Profile.screen';
-import { HeaderButton } from "../../components/HeaderButton";
-import HealthInfo from '../../screen/profile/HealthInfo.screen';
-import { Theme } from "../../themes/default";
-import ChangePassword from '../../screen/profile/ChangePassword.screen';
-import HealthInfoDetail from '../../screen/profile/HealthInfoDetail.screen';
-import { GlobalNavigationOptions } from '../GlobalNavigationOptions';
+import { AuthStackConfig } from '../Navigation.config';
 
 const Profile = createStackNavigator();
 
-export default function ProfileStack() {
+export default function AuthStack() {
     return (
         <Profile.Navigator
-            initialRouteName={PROFILE_SCREEN}>
+            headerMode="none"
+            initialRouteName={AuthStackConfig.LOGIN_SCREEN.name}>
             <Profile.Screen
-                name={PROFILE_SCREEN}
-                component={ProfileScreen}
-                options={{
-                    ...GlobalNavigationOptions,
-                    headerLeft: null,
-                    headerTitle: "",
-                    headerRight: () => (<HeaderButton iconName="close-circle" color={Theme.gray} />)
-                }}
+                name={AuthStackConfig.LOGIN_SCREEN.name}
+                component={AuthStackConfig.LOGIN_SCREEN.component}
             />
-            <Profile.Screen
+            {/* <Profile.Screen
                 name={HEALTH_INFO_SCREEN}
                 component={HealthInfo}
                 options={{
@@ -57,7 +40,7 @@ export default function ProfileStack() {
                     headerLeft: () => (<HeaderButton iconName="chevron-back" color={Theme.pink} />),
                     headerTitle: "",
                 }}
-            />
+            /> */}
         </Profile.Navigator>
     )
 }

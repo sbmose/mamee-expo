@@ -36,7 +36,8 @@ import BagChild from "../screen/BagChild";
 import WeightAdd from "../screen/WeightAdd";
 import AdministrationDetail from "../screen/AdministrationDetail";
 import ActivityAdd from "../screen/ActivityAdd";
-import HealthInfo from "../screen/profile/HealthInfo.screen";
+import HealthInfo from "../screen/HealthInfo.screen";
+
 
 interface AppNavigationState {
     loggedIn: boolean

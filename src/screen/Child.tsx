@@ -1,16 +1,12 @@
 // @ts-ignore
-import React, {Component, useState} from 'react';
-import {AsyncStorage, Dimensions, Image, SafeAreaView, TouchableOpacity, useColorScheme} from 'react-native';
-import {StyleSheet, View, ScrollView, TextInput, Text} from 'react-native';
+import React, { Component, useState } from 'react';
+import { AsyncStorage, Dimensions, Image, SafeAreaView, TouchableOpacity, useColorScheme } from 'react-native';
+import { StyleSheet, View, ScrollView, TextInput, Text } from 'react-native';
 
-import {Theme, ThemeStyles} from "../themes/default";
-import Today from "../components/Today";
-import Welcome from "../components/Welcome";
-import StatusBoard from "../components/StatusBoard";
-import Photos from "../components/Photos";
-import HistoryStatus from "../components/HistoryStatus";
+import { Theme, ThemeStyles } from "../themes/default";
 import MenuButton from "../components/MenuButton";
 import MeBar from "../components/MeBar";
+
 
 
 

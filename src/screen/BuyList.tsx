@@ -1,4 +1,5 @@
 // @ts-ignore
+<<<<<<< HEAD
 import React, {Component, useState} from 'react';
 import {
     Animated,
@@ -16,6 +17,13 @@ import {Theme, ThemeStyles} from "../themes/default";
 import GoBack from "../components/GoBack";
 import {SceneMap, TabView} from "react-native-tab-view";
 import Constants from "expo-constants";
+=======
+import React, { Component, useState } from 'react';
+import { AsyncStorage, Dimensions, Image, SafeAreaView, TouchableOpacity, useColorScheme } from 'react-native';
+import { StyleSheet, View, ScrollView, TextInput, Text } from 'react-native';
+
+import { Theme, ThemeStyles } from "../themes/default";
+>>>>>>> e940fca4de51f66a5cb1c33595649ee8cbbac24e
 
 const data = {
     'mother': [
@@ -233,6 +241,7 @@ export default class BuyList extends Component<{ navigation: any }, NamesState> 
 
         return (
             <View style={[ThemeStyles.applicationBackground, ThemeStyles.container]}>
+<<<<<<< HEAD
                 <GoBack onPress={() => this.props.navigation.navigate('MenuMe')} label={'Nákupný zoznam'} style={{}}/>
                 <View style={styles.container}>
                     <TabView
@@ -242,6 +251,8 @@ export default class BuyList extends Component<{ navigation: any }, NamesState> 
                         onIndexChange={this._handleIndexChange}
                     />
                 </View>
+=======
+>>>>>>> e940fca4de51f66a5cb1c33595649ee8cbbac24e
             </View>
         );
     }

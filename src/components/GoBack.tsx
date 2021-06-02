@@ -24,13 +24,13 @@ export default class GoBack extends Component <GoBackProps> {
             <TouchableOpacity style={this.props.style} onPress={this.props.onPress}>
                 <Image style={{alignSelf: 'flex-start', resizeMode: 'stretch', width: 24, height: 24, padding: 8}}
                        source={require('../../assets/Back.png')}/>
-                <Text style={{
+                <Text style={[{
                     fontSize: 32,
                     fontWeight: 'bold',
                     color: Theme.black,
                     textAlign: 'center',
                     top: -36
-                }}>{this.props.label}</Text>
+                }]}>{this.props.label}</Text>
             </TouchableOpacity>
         );
     }

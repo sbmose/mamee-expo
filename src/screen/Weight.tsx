@@ -1,11 +1,15 @@
 // @ts-ignore
+<<<<<<< HEAD
 import React, {Component, useState} from 'react';
 import {Dimensions, ScrollView, Text, TouchableOpacity, View} from 'react-native';
+=======
+import React, { Component, useState } from 'react';
+import { Dimensions, ScrollView, Text, View } from 'react-native';
+>>>>>>> e940fca4de51f66a5cb1c33595649ee8cbbac24e
 
-import {Theme, ThemeStyles} from "../themes/default";
-import GoBack from "../components/GoBack";
+import { Theme, ThemeStyles } from "../themes/default";
 
-import {LineChart} from "react-native-chart-kit";
+import { LineChart } from "react-native-chart-kit";
 import WidgetIcon from "../components/WidgetIcon";
 
 const data = [
@@ -61,11 +65,14 @@ export default class Weight extends Component<{ navigation: any }, any> {
     render() {
         return (
             <View style={[ThemeStyles.applicationBackground, ThemeStyles.container]}>
+<<<<<<< HEAD
                 <GoBack onPress={() => this.props.navigation.navigate('MenuMe')} label={'Váha'} style={{}}/>
 
+=======
+>>>>>>> e940fca4de51f66a5cb1c33595649ee8cbbac24e
                 <ScrollView style={{}}>
-                    <View style={{paddingBottom: 50}}>
-                        <Text style={{fontSize: 22, fontWeight: 'bold', marginBottom: 20}}>Vývoj váhy</Text>
+                    <View style={{ paddingBottom: 50 }}>
+                        <Text style={{ fontSize: 22, fontWeight: 'bold', marginBottom: 20 }}>Vývoj váhy</Text>
                         <LineChart
                             data={{
                                 labels: this.state.dates,
@@ -106,15 +113,15 @@ export default class Weight extends Component<{ navigation: any }, any> {
                                 <TouchableOpacity onPress={()=> {this.props.navigation.navigate('WeightAdd')}} style={{flexDirection: 'row'}}><Text style={{color: Theme.lightgreen, textAlign: "right",flex: 1}}>Pridať záznam</Text></TouchableOpacity>
                             </View>
                             {data.map((item: any) => {
-                                return (<View style={{marginBottom: 20}}>
+                                return (<View style={{ marginBottom: 20 }}>
                                     <Text style={{
                                         color: Theme.gray,
                                         fontWeight: 'bold',
                                         fontSize: 16
                                     }}>{item.label}</Text>
                                     <WidgetIcon icon={require('../../assets/kalendarkruh.png')}
-                                                navigation={this.props.navigation} text={item.weight + " kg"}
-                                                style={{}}/>
+                                        navigation={this.props.navigation} text={item.weight + " kg"}
+                                        style={{}} />
                                 </View>);
                             })}
                         </View>
