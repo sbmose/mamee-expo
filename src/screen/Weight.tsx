@@ -1,16 +1,14 @@
 // @ts-ignore
-<<<<<<< HEAD
+
 import React, {Component, useState} from 'react';
 import {Dimensions, ScrollView, Text, TouchableOpacity, View} from 'react-native';
-=======
-import React, { Component, useState } from 'react';
-import { Dimensions, ScrollView, Text, View } from 'react-native';
->>>>>>> e940fca4de51f66a5cb1c33595649ee8cbbac24e
+
 
 import { Theme, ThemeStyles } from "../themes/default";
 
 import { LineChart } from "react-native-chart-kit";
 import WidgetIcon from "../components/WidgetIcon";
+import GoBack from "../components/GoBack";
 
 const data = [
     {
@@ -65,11 +63,9 @@ export default class Weight extends Component<{ navigation: any }, any> {
     render() {
         return (
             <View style={[ThemeStyles.applicationBackground, ThemeStyles.container]}>
-<<<<<<< HEAD
                 <GoBack onPress={() => this.props.navigation.navigate('MenuMe')} label={'Váha'} style={{}}/>
 
-=======
->>>>>>> e940fca4de51f66a5cb1c33595649ee8cbbac24e
+
                 <ScrollView style={{}}>
                     <View style={{ paddingBottom: 50 }}>
                         <Text style={{ fontSize: 22, fontWeight: 'bold', marginBottom: 20 }}>Vývoj váhy</Text>
