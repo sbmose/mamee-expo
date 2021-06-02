@@ -1,25 +1,30 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import {
-    DASHBOARD_SCREEN,
-    GALLERY_SCREEN
-} from "../ScreenNames";
 import { GlobalNavigationOptions } from '../GlobalNavigationOptions';
-import Dashboard from "../../screen/Dashboard";
-import Gallery from "../../screen/Gallery";
+import { HeaderBigTitle } from '../../components/HeaderBigTitle';
+import { DashboardStackConfig } from '../Navigation.config';
+import { HeaderProfileImage } from '../../components/HeaderProfileImage';
+import { getHeaderOptions } from '../headerOptions';
 
 const Stack = createStackNavigator();
 
 export default function DashboardStack() {
     return (
-        <Stack.Navigator headerMode="none">
+        <Stack.Navigator>
             <Stack.Screen
-                name={DASHBOARD_SCREEN}
-                component={Dashboard}
+                name={DashboardStackConfig.DASHBOARD_SCREEN.name}
+                component={DashboardStackConfig.DASHBOARD_SCREEN.component}
+                options={{
+                    ...GlobalNavigationOptions,
+                    headerLeft: () => (<HeaderBigTitle title="Ahoj, Janka" />),
+                    headerTitle: "",
+                    headerRight: () => (<HeaderProfileImage photo={null} />)
+                }}
             />
             <Stack.Screen
-                name={GALLERY_SCREEN}
-                component={Gallery}
+                name={DashboardStackConfig.GALLERY_SCREEN.name}
+                component={DashboardStackConfig.GALLERY_SCREEN.component}
+                options={({ route, navigation }: any) => getHeaderOptions(DashboardStackConfig.GALLERY_SCREEN.title)}
             />
         </Stack.Navigator>
     )

@@ -24,6 +24,8 @@ import Activities from '../screen/Activities';
 import ChildAdministration from '../screen/ChildAdministration';
 import ChildPhotos from '../screen/ChildPhotos';
 import DetailChildPhoto from '../screen/DetailChildPhoto';
+import Dashboard from '../screen/Dashboard';
+import Gallery from '../screen/Gallery';
 
 export const MeStackConfig = {
     PROFILE_SCREEN: {
@@ -218,4 +220,18 @@ export const ChildStackConfig = {
         component: DetailChildPhoto,
         menu: false
     },
+}
+
+
+export const DashboardStackConfig = {
+    DASHBOARD_SCREEN: {
+        name: "DashboardScreen",
+        title: "",
+        component: Dashboard
+    },
+    GALLERY_SCREEN: {
+        name: "GalleryScreen",
+        title: "Fotky",
+        component: Gallery
+    }
 }
