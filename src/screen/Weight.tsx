@@ -1,14 +1,13 @@
 // @ts-ignore
 
-import React, {Component, useState} from 'react';
-import {Dimensions, ScrollView, Text, TouchableOpacity, View} from 'react-native';
+import React, { Component, useState } from 'react';
+import { Dimensions, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
 
 import { Theme, ThemeStyles } from "../themes/default";
 
 import { LineChart } from "react-native-chart-kit";
 import WidgetIcon from "../components/WidgetIcon";
-import GoBack from "../components/GoBack";
 
 const data = [
     {
@@ -63,8 +62,6 @@ export default class Weight extends Component<{ navigation: any }, any> {
     render() {
         return (
             <View style={[ThemeStyles.applicationBackground, ThemeStyles.container]}>
-                <GoBack onPress={() => this.props.navigation.navigate('MenuMe')} label={'Váha'} style={{}}/>
-
 
                 <ScrollView style={{}}>
                     <View style={{ paddingBottom: 50 }}>
@@ -105,8 +102,8 @@ export default class Weight extends Component<{ navigation: any }, any> {
                             }}
                         />
                         <View>
-                            <View style={{paddingTop: 10}}>
-                                <TouchableOpacity onPress={()=> {this.props.navigation.navigate('WeightAdd')}} style={{flexDirection: 'row'}}><Text style={{color: Theme.lightgreen, textAlign: "right",flex: 1}}>Pridať záznam</Text></TouchableOpacity>
+                            <View style={{ paddingTop: 10 }}>
+                                <TouchableOpacity onPress={() => { this.props.navigation.navigate('WeightAdd') }} style={{ flexDirection: 'row' }}><Text style={{ color: Theme.lightgreen, textAlign: "right", flex: 1 }}>Pridať záznam</Text></TouchableOpacity>
                             </View>
                             {data.map((item: any) => {
                                 return (<View style={{ marginBottom: 20 }}>

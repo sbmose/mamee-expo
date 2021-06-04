@@ -1,6 +1,6 @@
 // @ts-ignore
 
-import React, {Component, useState} from 'react';
+import React, { Component, useState } from 'react';
 import {
     Animated,
     AsyncStorage,
@@ -11,13 +11,12 @@ import {
     TouchableOpacity,
     useColorScheme
 } from 'react-native';
-import {StyleSheet, View, ScrollView, TextInput, Text} from 'react-native';
+import { StyleSheet, View, ScrollView, TextInput, Text } from 'react-native';
 
-import {Theme, ThemeStyles} from "../themes/default";
+import { Theme, ThemeStyles } from "../themes/default";
 
-import {SceneMap, TabView} from "react-native-tab-view";
+import { SceneMap, TabView } from "react-native-tab-view";
 import Constants from "expo-constants";
-import GoBack from "../components/GoBack";
 
 const data = {
     'mother': [
@@ -102,37 +101,37 @@ class Tab extends Component<TabProps, any> {
             let favorites = this.state.favorites.filter((i: string) => {
                 return i != index
             })
-            this.setState({favorites: favorites});
+            this.setState({ favorites: favorites });
         } else {
             let favorites = this.state.favorites;
             favorites.push(index);
-            this.setState({favorites: favorites});
+            this.setState({ favorites: favorites });
         }
     }
 
     render() {
         return (
             <ScrollView>
-                <View style={{paddingBottom: 150,paddingTop: 20}}>
-                {this.props.items.map((group: any) => {
-                    return (
-                        <View key={group.name}>
-                            <Text style={{
-                                fontSize: 18,
-                                color: Theme.gray,
-                                fontWeight: 'bold',
-                                padding: 10
-                            }}>{group.name}</Text>
-                            <View style={{backgroundColor: Theme.white, borderRadius: 10}}>
-                                {group.items.map((item: any, index: any) => {
-                                    return (<TouchableOpacity  onPress={() => {
+                <View style={{ paddingBottom: 150, paddingTop: 20 }}>
+                    {this.props.items.map((group: any) => {
+                        return (
+                            <View key={group.name}>
+                                <Text style={{
+                                    fontSize: 18,
+                                    color: Theme.gray,
+                                    fontWeight: 'bold',
+                                    padding: 10
+                                }}>{group.name}</Text>
+                                <View style={{ backgroundColor: Theme.white, borderRadius: 10 }}>
+                                    {group.items.map((item: any, index: any) => {
+                                        return (<TouchableOpacity onPress={() => {
                                             this.toggleFavorite(group.name + index)
                                         }}>
                                             <View style={{
                                                 height: 40,
                                                 margin: 10,
                                                 flexDirection: 'row',
-                                                borderBottomWidth: group.items.length - 1 > index  ? 1 : 0,
+                                                borderBottomWidth: group.items.length - 1 > index ? 1 : 0,
                                                 borderBottomColor: Theme.lightgray
                                             }}>
                                                 <Text style={{
@@ -148,14 +147,14 @@ class Tab extends Component<TabProps, any> {
                                                     height: 32,
                                                     resizeMode: 'stretch',
                                                 }}
-                                                       source={this.state.favorites.includes(group.name + index) ? require('../../assets/checked.png') : require('../../assets/unchecked.png')}/>
+                                                    source={this.state.favorites.includes(group.name + index) ? require('../../assets/checked.png') : require('../../assets/unchecked.png')} />
                                             </View>
                                         </TouchableOpacity>
-                                    );
-                                })}
-                            </View>
-                        </View>)
-                })}
+                                        );
+                                    })}
+                                </View>
+                            </View>)
+                    })}
                 </View>
             </ScrollView>
         );
@@ -185,13 +184,13 @@ export default class BuyList extends Component<{ navigation: any }, NamesState> 
             index: 0,
             favorites: [],
             routes: [
-                {key: 'child', title: 'Dieťa'},
-                {key: 'mother', title: 'Matka'},
+                { key: 'child', title: 'Dieťa' },
+                { key: 'mother', title: 'Matka' },
             ],
         };
     }
 
-    _handleIndexChange = (index: number) => this.setState({index});
+    _handleIndexChange = (index: number) => this.setState({ index });
 
     _renderTabBar = (props: any) => {
         const inputRange = props.navigationState.routes.map((x: Route, i: number) => i);
@@ -213,8 +212,8 @@ export default class BuyList extends Component<{ navigation: any }, NamesState> 
                                 borderBottomWidth: 1,
                                 borderBottomColor: this.state.index == i ? Theme.pink : Theme.gray
                             }]}
-                            onPress={() => this.setState({index: i})}>
-                            <Animated.Text style={{opacity}}>{route.title}</Animated.Text>
+                            onPress={() => this.setState({ index: i })}>
+                            <Animated.Text style={{ opacity }}>{route.title}</Animated.Text>
                         </TouchableOpacity>
                     );
                 })}
@@ -224,10 +223,10 @@ export default class BuyList extends Component<{ navigation: any }, NamesState> 
 
     _renderScene = SceneMap({
         child: () => {
-            return (<Tab key={'child'} items={data.child}/>);
+            return (<Tab key={'child'} items={data.child} />);
         },
         mother: () => {
-            return (<Tab key={'mother'} items={data.mother}/>);
+            return (<Tab key={'mother'} items={data.mother} />);
         },
     });
 
@@ -235,8 +234,6 @@ export default class BuyList extends Component<{ navigation: any }, NamesState> 
 
         return (
             <View style={[ThemeStyles.applicationBackground, ThemeStyles.container]}>
-
-                <GoBack onPress={() => this.props.navigation.navigate('MenuMe')} label={'Nákupný zoznam'} style={{}}/>
                 <View style={styles.container}>
                     <TabView
                         navigationState={this.state}
