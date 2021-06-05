@@ -17,6 +17,10 @@ export default function AuthStack() {
                 name={AuthStackConfig.REGISTRATION_SCREEN.name}
                 component={AuthStackConfig.REGISTRATION_SCREEN.component}
             />
+            <Auth.Screen
+                name={AuthStackConfig.START_REGISTRATION_SCREEN.name}
+                component={AuthStackConfig.START_REGISTRATION_SCREEN.component}
+            />
         </Auth.Navigator>
     )
 }

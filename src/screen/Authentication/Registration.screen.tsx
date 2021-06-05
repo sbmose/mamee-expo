@@ -9,6 +9,7 @@ import {
 import { Theme, ThemeStyles } from '../../themes/default';
 import MainButton from '../../components/MainButton';
 import SvgIcon from '../../components/SvgIcons';
+import { AuthStackConfig } from '../../navigation/Navigation.config';
 
 export default function RegistrationScreen({ navigation }: any) {
 
@@ -32,7 +33,7 @@ export default function RegistrationScreen({ navigation }: any) {
                         <MainButton
                             label="Poďme na to"
                             style={styles.buttonContainer}
-                            onPress={null} />
+                            onPress={() => navigation.navigate(AuthStackConfig.START_REGISTRATION_SCREEN.name)} />
                         <MainButton
                             label="Registrovať sa cez Google účet"
                             style={styles.buttonContainer}
