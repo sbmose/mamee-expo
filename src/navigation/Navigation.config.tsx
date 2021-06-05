@@ -34,6 +34,7 @@ import DetailChildPhoto from '../screen/DetailChildPhoto';
 import Dashboard from '../screen/Dashboard';
 import Gallery from '../screen/Gallery';
 import LoginScreen from '../screen/Authentication/Login.screen';
+import RegistrationScreen from '../screen/Authentication/Registration.screen';
 
 export const RootStackConfig = {
     APP_STACK: {
@@ -71,6 +72,10 @@ export const AuthStackConfig = {
     LOGIN_SCREEN: {
         name: "LoginScreen",
         component: LoginScreen
+    },
+    REGISTRATION_SCREEN: {
+        name: "RegistrationScreen",
+        component: RegistrationScreen
     }
 }
 

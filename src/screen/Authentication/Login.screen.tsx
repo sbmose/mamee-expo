@@ -13,6 +13,7 @@ import TransparentButton from '../../components/TransparentButton';
 import { useSelector, useDispatch } from 'react-redux';
 import { loginByEmail } from '../../store/actions/ProfileActions';
 import { useForm, Controller } from 'react-hook-form';
+import { AuthStackConfig } from '../../navigation/Navigation.config';
 
 // Screen Styles
 
@@ -97,7 +98,7 @@ export default function LoginScreen({ navigation }: any) {
                             label="Nemám účet"
                             textColor={Theme.darkGray}
                             style={styles.buttonContainer}
-                            onPress={() => handleCreateAccount()} />
+                            onPress={() => navigation.navigate(AuthStackConfig.REGISTRATION_SCREEN.name)} />
                         <MainButton
                             label="Prihlásiť sa cez Google účet"
                             style={styles.buttonContainer}
