@@ -44,12 +44,17 @@ function RootNavigator() {
         <RootStack.Navigator
             headerMode="none"
             initialRouteName={auth.loggedIn ? RootStackConfig.APP_STACK.name : RootStackConfig.AUTH_STACK.name}>
-            <RootStack.Screen
-                name={RootStackConfig.APP_STACK.name}
-                component={RootStackConfig.APP_STACK.component} />
-            <RootStack.Screen
-                name={RootStackConfig.AUTH_STACK.name}
-                component={RootStackConfig.AUTH_STACK.component} />
+            {auth.loggedIn ? (
+                <RootStack.Screen
+                    name={RootStackConfig.APP_STACK.name}
+                    component={RootStackConfig.APP_STACK.component} />
+            ) : (
+                <RootStack.Screen
+                    name={RootStackConfig.AUTH_STACK.name}
+                    component={RootStackConfig.AUTH_STACK.component} />
+            )}
+
+
         </RootStack.Navigator>
     );
 

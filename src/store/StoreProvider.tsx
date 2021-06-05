@@ -25,7 +25,7 @@ if (__DEV__) {
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ["profile"]
+  whitelist: [/* "profile" */]
 }
 
 const configureStore = () => {

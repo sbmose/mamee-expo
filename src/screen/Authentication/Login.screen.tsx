@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     StyleSheet,
     SafeAreaView,
@@ -12,15 +12,24 @@ import MainButton from '../../components/MainButton';
 import TransparentButton from '../../components/TransparentButton';
 import { useSelector, useDispatch } from 'react-redux';
 import { loginByEmail } from '../../store/actions/ProfileActions';
+import { useForm, Controller } from 'react-hook-form';
 
 // Screen Styles
 
 export default function LoginScreen({ navigation }: any) {
+    const { auth } = useSelector((state: any) => state.profile)
     const dispatch = useDispatch();
+    const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const { handleSubmit, control, errors, setValue } = useForm();
 
-    const handleEmailLogin = async () => {
-        console.log("handleEmailLogin");
-        await dispatch(loginByEmail("mail@mail.com", "heslo"));
+    useEffect(() => {
+        setValue("email", auth.email);
+        setValue("password", auth.password);
+    }, [auth]);
+
+    const onSubmit = (data: any) => {
+        console.log('onSubmit', data, errors);
+        dispatch(loginByEmail(data.email, data.password));
     }
 
     const handleFacebookLogin = () => {
@@ -41,17 +50,49 @@ export default function LoginScreen({ navigation }: any) {
                 <View style={styles.container}>
                     <View>
                         <Text style={styles.header}>Prihlásenie</Text>
-                        <FloatingInput
-                            label="E-mail"
-                            style={styles.input} />
-                        <FloatingInput
-                            label="Heslo"
-                            style={styles.input}
-                            isPassword />
+                        <Controller
+                            name="email"
+                            defaultValue=""
+                            control={control}
+                            rules={{
+                                required: { value: true, message: 'Email je vyžadován' },
+                                pattern: {
+                                    value: EMAIL_REGEX,
+                                    message: 'Špatný formát emailu'
+                                }
+                            }}
+                            render={({ onChange, value }: any) => (
+                                <FloatingInput
+                                    label="E-mail"
+                                    value={value}
+                                    style={styles.input}
+                                    onChangeText={(text: string) => onChange(text)}
+                                    error={errors.email}
+                                    errorText={errors?.email?.message} />
+                            )}
+                        />
+                        <Controller
+                            name="password"
+                            defaultValue=""
+                            control={control}
+                            rules={{
+                                required: { value: true, message: 'Heslo je vyžadováno' }
+                            }}
+                            render={({ onChange, value }: any) => (
+                                <FloatingInput
+                                    label="Heslo"
+                                    value={value}
+                                    style={styles.input}
+                                    isPassword
+                                    onChangeText={(text: string) => onChange(text)}
+                                    error={errors.password}
+                                    errorText={errors?.password?.message} />
+                            )}
+                        />
                         <MainButton
                             label="Pokračovať"
                             style={styles.buttonContainer}
-                            onPress={() => handleEmailLogin()} />
+                            onPress={handleSubmit(onSubmit)} />
                         <TransparentButton
                             label="Nemám účet"
                             textColor={Theme.darkGray}

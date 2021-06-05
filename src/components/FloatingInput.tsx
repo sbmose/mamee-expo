@@ -4,8 +4,7 @@ import { FloatingLabelInput } from 'react-native-floating-label-input';
 import { Theme } from '../themes/default';
 
 export default function FloatingInput(props: any) {
-    const { label, isPassword, bgColor, style } = props;
-    const [typing, setTyping] = useState("");
+    const { label, isPassword, bgColor, style, onChangeText, value } = props;
     const [showPass, setShowPass] = useState(false);
     const [isFocused, setFocused] = useState(false);
 
@@ -22,9 +21,9 @@ export default function FloatingInput(props: any) {
                 isPassword={isPassword}
                 togglePassword={showPass}
                 staticLabel={false}
-                value={typing}
+                value={value}
                 isFocused={isFocused}
-                onChangeText={(value: string) => setTyping(value)}
+                onChangeText={(value: string) => onChangeText(value)}
                 onFocus={() => setFocused(!isFocused)}
                 onBlur={() => setFocused(!isFocused)}
                 customShowPasswordComponent={<TouchableOpacity onPress={(e) => togglePassword(e)}><Text>Ukázať</Text></TouchableOpacity>}
