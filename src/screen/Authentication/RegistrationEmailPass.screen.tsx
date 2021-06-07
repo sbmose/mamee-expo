@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import {
     StyleSheet,
     SafeAreaView,
@@ -9,13 +9,11 @@ import {
 import { Theme, ThemeStyles } from '../../themes/default';
 import FloatingInput from '../../components/FloatingInput';
 import MainButton from '../../components/MainButton';
-import { ListItem, Body, CheckBox } from "native-base";
+import { CheckBox } from "native-base";
 import TransparentButton from '../../components/TransparentButton';
 import { useSelector, useDispatch } from 'react-redux';
-import { loginByEmail } from '../../store/actions/ProfileActions';
 import { useForm, Controller } from 'react-hook-form';
 import { AuthStackConfig } from '../../navigation/Navigation.config';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 // Screen Styles
 
@@ -31,20 +29,6 @@ export default function RegistrationEmailPassScreen({ navigation }: any) {
         console.log('onSubmit', data, errors);
         //dispatch(loginByEmail(data.email, data.password));
     }
-
-    const handleFacebookLogin = () => {
-        console.log("handleFacebookLogin");
-    }
-
-    const handleGoogleLogin = () => {
-        console.log("handleGoogleLogin");
-    }
-
-    const handleCreateAccount = () => {
-        console.log("handleCreateAccount");
-    }
-
-    console.log("Form state", isDirty, isValid);
 
     return (
         <SafeAreaView style={ThemeStyles.safeAreaContainer}>
@@ -133,7 +117,8 @@ export default function RegistrationEmailPassScreen({ navigation }: any) {
                                 <Text>Súhlasím s </Text>
                                 <TransparentButton
                                     label="podmienkami používania aplikácie"
-                                    style={{ paddingVertical: 0, margin: 0, alignItems: "center" }} />
+                                    style={{ paddingVertical: 0, margin: 0, alignItems: "center" }}
+                                    onPress={() => navigation.navigate(AuthStackConfig.CONDITIONS_SCREEN.name)} />
                             </View>
                         </View>
                         <MainButton
