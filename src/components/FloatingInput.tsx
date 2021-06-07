@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Text, TouchableOpacity, View, StyleSheet } from 'react-native';
 import { FloatingLabelInput } from 'react-native-floating-label-input';
 import { Theme } from '../themes/default';
 
 export default function FloatingInput(props: any) {
-    const { label, isPassword, bgColor, style, onChangeText, value } = props;
+    const { label, isPassword, bgColor, style, onChangeText, value, error, errorText } = props;
     const [showPass, setShowPass] = useState(false);
     const [isFocused, setFocused] = useState(false);
 
@@ -14,8 +14,10 @@ export default function FloatingInput(props: any) {
         setShowPass(!showPass);
     }
 
+    console.log("FloatingInput", error, errorText);
+
     return (
-        <View style={style}>
+        <View style={[styles.container, style]}>
             <FloatingLabelInput
                 label={label}
                 isPassword={isPassword}
@@ -56,6 +58,22 @@ export default function FloatingInput(props: any) {
                 }}
                 {...props}
             />
+            {error && <Text style={styles.errorMessage}>{errorText}</Text>}
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        height: 60
+    },
+    errorMessage: {
+        alignSelf: "flex-end",
+        bottom: 10,
+        right: 16,
+        fontSize: 12,
+        paddingHorizontal: 8,
+        color: "red",
+        backgroundColor: Theme.appBg
+    }
+});

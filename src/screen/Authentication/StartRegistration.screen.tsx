@@ -9,6 +9,7 @@ import {
 import { Theme, ThemeStyles } from '../../themes/default';
 import MainButton from '../../components/MainButton';
 import CardItemText from '../../components/CardItemText';
+import { AuthStackConfig } from '../../navigation/Navigation.config';
 
 export default function StartRegistrationScreen({ navigation }: any) {
 
@@ -22,7 +23,7 @@ export default function StartRegistrationScreen({ navigation }: any) {
                 <MainButton
                     label="Začať"
                     style={styles.buttonContainer}
-                    onPress={null} />
+                    onPress={() => navigation.navigate(AuthStackConfig.REGISTRATION_EMAIL_PASS_SCREEN.name)} />
             </View>
         </SafeAreaView>
     );

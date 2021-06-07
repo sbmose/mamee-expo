@@ -36,6 +36,7 @@ import Gallery from '../screen/Gallery';
 import LoginScreen from '../screen/Authentication/Login.screen';
 import RegistrationScreen from '../screen/Authentication/Registration.screen';
 import StartRegistrationScreen from '../screen/Authentication/StartRegistration.screen';
+import RegistrationEmailPassScreen from '../screen/Authentication/RegistrationEmailPass.screen';
 
 export const RootStackConfig = {
     APP_STACK: {
@@ -81,7 +82,11 @@ export const AuthStackConfig = {
     START_REGISTRATION_SCREEN: {
         name: "StartRegistrationScreen",
         component: StartRegistrationScreen
-    }
+    },
+    REGISTRATION_EMAIL_PASS_SCREEN: {
+        name: "RegistrationEmailPassScreen",
+        component: RegistrationEmailPassScreen
+    },
 }
 
 export const MeStackConfig = {

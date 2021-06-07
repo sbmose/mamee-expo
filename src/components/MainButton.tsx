@@ -3,13 +3,14 @@ import { StyleSheet, TouchableOpacity, Text, Image, View } from 'react-native';
 import { Theme } from '../themes/default';
 
 export default function MainButton(props: any) {
-    const { label, style, image, textColor, bgColor, onPress } = props;
+    const { label, style, image, textColor, bgColor, onPress, disabled } = props;
 
     return (
         <TouchableOpacity
             activeOpacity={0.7}
             onPress={onPress}
-            style={[styles.button, style, bgColor && { backgroundColor: bgColor }]} >
+            style={[styles.button, style, bgColor && { backgroundColor: bgColor }, disabled && { backgroundColor: Theme.gray }]}
+            disabled={disabled} >
             {image && (
                 <View style={[styles.imageContainer]}>
                     <Image source={image} resizeMode='contain' style={styles.buttonImage} />
