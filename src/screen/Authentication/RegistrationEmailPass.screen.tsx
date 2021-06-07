@@ -9,25 +9,27 @@ import {
 import { Theme, ThemeStyles } from '../../themes/default';
 import FloatingInput from '../../components/FloatingInput';
 import MainButton from '../../components/MainButton';
+import { ListItem, Body, CheckBox } from "native-base";
 import TransparentButton from '../../components/TransparentButton';
 import { useSelector, useDispatch } from 'react-redux';
 import { loginByEmail } from '../../store/actions/ProfileActions';
 import { useForm, Controller } from 'react-hook-form';
 import { AuthStackConfig } from '../../navigation/Navigation.config';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 // Screen Styles
 
 export default function RegistrationEmailPassScreen({ navigation }: any) {
-    const { auth } = useSelector((state: any) => state.profile)
     const dispatch = useDispatch();
+    const { auth } = useSelector((state: any) => state.profile)
     const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    const { handleSubmit, control, errors, register, watch, setValue, getValues, formState: { isDirty, isValid, isSubmitted } } = useForm({ mode: "onChange" });
+    const { handleSubmit, control, errors, watch, setValue, formState: { isDirty, isValid, isSubmitted } } = useForm({ mode: "onChange", reValidateMode: "onChange" });
     const password = useRef({});
     password.current = watch("password", "");
 
     const onSubmit = (data: any) => {
         console.log('onSubmit', data, errors);
-        dispatch(loginByEmail(data.email, data.password));
+        //dispatch(loginByEmail(data.email, data.password));
     }
 
     const handleFacebookLogin = () => {
@@ -105,18 +107,40 @@ export default function RegistrationEmailPassScreen({ navigation }: any) {
                                 <FloatingInput
                                     label="Zopakuj heslo"
                                     value={value}
-                                    style={styles.input}
                                     isPassword
                                     onChangeText={(text: string) => onChange(text)}
                                     error={errors.passwordRepeat}
                                     errorText={errors?.passwordRepeat?.message} />
                             )}
                         />
+                        <View style={styles.chceckboxContainer}>
+                            <Controller
+                                name="conditions"
+                                defaultValue={false}
+                                control={control}
+                                rules={{
+                                    validate: (value: boolean) => value === true,
+                                }}
+                                render={({ value, field, onChange }: any) => <CheckBox
+                                    checked={value}
+                                    color={Theme.pink}
+                                    style={styles.checkbox}
+                                    onPress={() => onChange(!value)}
+                                    {...field}
+                                />}
+                            />
+                            <View style={styles.transparenButtonContainer}>
+                                <Text>Súhlasím s </Text>
+                                <TransparentButton
+                                    label="podmienkami používania aplikácie"
+                                    style={{ paddingVertical: 0, margin: 0, alignItems: "center" }} />
+                            </View>
+                        </View>
                         <MainButton
                             label="Pokračovať"
                             style={styles.buttonContainer}
                             onPress={handleSubmit(onSubmit)}
-                            disabled={!isDirty || !isValid} />
+                            disabled={!isValid} />
                     </View>
                 </View>
             </ScrollView>
@@ -145,5 +169,24 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         marginBottom: 16
+    },
+    transparenButtonContainer: {
+        flexDirection: "row",
+        justifyContent: "flex-start",
+        alignItems: "center",
+        marginLeft: 16
+    },
+    chceckboxContainer: {
+        flexDirection: "row",
+        justifyContent: "flex-start",
+        alignItems: "center",
+        padding: 0,
+        marginHorizontal: 0,
+        marginBottom: 10
+    },
+    checkbox: {
+        padding: 0,
+        margin: 0,
+        marginRight: 10
     }
 });

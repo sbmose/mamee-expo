@@ -14,8 +14,6 @@ export default function FloatingInput(props: any) {
         setShowPass(!showPass);
     }
 
-    console.log("FloatingInput", error, errorText);
-
     return (
         <View style={[styles.container, style]}>
             <FloatingLabelInput

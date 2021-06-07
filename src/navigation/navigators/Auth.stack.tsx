@@ -8,7 +8,7 @@ export default function AuthStack() {
     return (
         <Auth.Navigator
             headerMode="none"
-            initialRouteName={AuthStackConfig.LOGIN_SCREEN.name}>
+            initialRouteName={AuthStackConfig.REGISTRATION_EMAIL_PASS_SCREEN.name}>
             <Auth.Screen
                 name={AuthStackConfig.LOGIN_SCREEN.name}
                 component={AuthStackConfig.LOGIN_SCREEN.component}
