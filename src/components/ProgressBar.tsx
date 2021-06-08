@@ -17,10 +17,11 @@ export default function ProgressBar({ progress }: any) {
 const styles = StyleSheet.create({
     container: {},
     progressBar: {
-        height: 7,
+        height: 8,
         width: '100%',
         backgroundColor: 'white',
-        borderWidth: 0,
+        borderWidth: 1,
+        borderColor: Theme.lightgray,
         borderRadius: 6
     }
 });

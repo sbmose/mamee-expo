@@ -39,6 +39,22 @@ const ThemeStyles = StyleSheet.create({
         width: Metrics.WIDTH,
         height: Metrics.HEIGHT
     },
+    bigHeader: {
+        fontSize: 32,
+        lineHeight: 42,
+        fontWeight: "600",
+        letterSpacing: 0.5,
+        color: Theme.black,
+        marginBottom: 16
+    },
+    infoTextMedium: {
+        fontSize: 16,
+        lineHeight: 24,
+        fontWeight: "500",
+        letterSpacing: 0.1,
+        color: Theme.darkGray,
+        marginBottom: 16
+    },
     // End
     imageDashboard: {
         height: 150,
