@@ -49,6 +49,13 @@ export default function AuthStack() {
                     headerShown: false
                 }}
             />
+            <Auth.Screen
+                name={AuthStackConfig.ABOUT_ME_SCREEN.name}
+                component={AuthStackConfig.ABOUT_ME_SCREEN.component}
+                options={{
+                    headerShown: false
+                }}
+            />
         </Auth.Navigator>
     )
 }

@@ -30,7 +30,7 @@ export default function EmailVerificationScreen({ navigation }: any) {
             let success: any = await dispatch(verifyEmail(code));
             if (success) {
                 console.log("Code confirmaiton success", code);
-                //snavigation.navigate(AuthStackConfig.EMAIL_CONFIRMATION_SCREEN.name);
+                navigation.navigate(AuthStackConfig.ABOUT_ME_SCREEN.name);
             } else {
                 console.log("Code confirmaiton failed", code);
                 setResendCode(true);
