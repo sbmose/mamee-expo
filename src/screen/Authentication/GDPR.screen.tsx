@@ -2,14 +2,14 @@ import React from 'react';
 import {
     StyleSheet,
     SafeAreaView,
-    ScrollView,
-    Text,
-    View
+    View,
+    ScrollView
 } from 'react-native';
 import { Theme, ThemeStyles } from '../../themes/default';
 import MainButton from '../../components/MainButton';
 import CardItemText from '../../components/CardItemText';
 import { AuthStackConfig } from '../../navigation/Navigation.config';
+import CardExpand from "../../components/CardExpand";
 
 export default function GDPRScreen({ navigation }: any) {
 
@@ -18,10 +18,13 @@ export default function GDPRScreen({ navigation }: any) {
             <View style={styles.container}>
                 <CardItemText
                     image={require('../../../assets/info.png')}
-                    header="Nemáš sa čoho obávať"
-                    text={"Toto je tvoj vlastný denník a do tvojho súkromia nikto neuvidí.\n\nVážime si ho."} />
+                    header="Ochrana osobných údajov"
+                    text={"Potrebujeme tvoj súhlas s tým, že budeme tvoje údaje spracovávať. Na čo ich potrebujeme?\n\nPrečítaj si celé podmienky."} />
+                <CardExpand
+                    header="Kompletné podmienky spracovania údajov"
+                    text={"text text text text"} />
                 <MainButton
-                    label="Začať"
+                    label="Súhlasím"
                     style={styles.buttonContainer}
                     onPress={() => navigation.navigate(AuthStackConfig.REGISTRATION_EMAIL_PASS_SCREEN.name)} />
             </View>

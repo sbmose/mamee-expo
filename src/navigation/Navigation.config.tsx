@@ -118,6 +118,10 @@ export const AuthStackConfig = {
         name: "GDPRScreen",
         component: GDPRScreen,
     },
+    MY_CHILDREN_SCREEN: {
+        name: "GDPRScreen",
+        component: GDPRScreen,
+    },
 }
 
 export const MeStackConfig = {

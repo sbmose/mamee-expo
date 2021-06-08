@@ -19,7 +19,13 @@ export default function PickConditionScreen({ navigation }: any) {
     const handlePickCondition = async (conditionType: any) => {
         setCondition(conditionType);
         let success: any = await dispatch(updateBio({ condition: conditionType }));
-        success && navigation.navigate(AuthStackConfig.LAST_PERIOD_SCREEN.name);
+        if (success) {
+            conditionType === "pregnant" ?
+                navigation.navigate(AuthStackConfig.LAST_PERIOD_SCREEN.name)
+                :
+                navigation.navigate(AuthStackConfig.MY_CHILDREN_SCREEN.name)
+
+        }
     }
 
     return (
