@@ -1,52 +1,67 @@
 
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import { CardItem, Text, Left, Body, Input } from 'native-base';
+import { StyleSheet, Image, View, Text } from 'react-native';
 import { Theme } from '../themes/default';
 
-
-export default function CardItemInput(props: any) {
-    const { label, value } = props;
+export default function CardItemInput({ header, image }: any) {
 
     return (
-        <CardItem style={styles.container}>
-            <Left>
-                <Text style={styles.label}>{label}</Text>
-            </Left>
-            <Body>
-                <Input value={value} />
-            </Body>
-        </CardItem>
+        <View style={styles.container}>
+            <View style={styles.headerContainer}>
+                <View style={styles.iconContainer}>
+                    <Image source={image} style={styles.icon} />
+                </View>
+                <View style={styles.textContainer}>
+                    <Text style={styles.header}>{header}</Text>
+                </View>
+            </View>
+        </View>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        borderBottomWidth: 0,
-        padding: 0,
-        marginHorizontal: 16,
-        borderBottomWidth: 1,
-        borderBottomColor: Theme.lightGrey
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        padding: 16,
+        marginBottom: 16,
+        backgroundColor: Theme.white,
+        borderRadius: 6
+    },
+    headerContainer: {
+        flexDirection: "row",
+        justifyContent: "flex-start",
+        marginBottom: 16
     },
     iconContainer: {
         flexDirection: "column",
         justifyContent: "flex-start",
+        alignItems: "flex-start",
+        marginRight: 16
     },
-    labelContainer: {
+    textContainer: {
         flex: 1,
         flexDirection: "column",
         justifyContent: "flex-start",
+        alignItems: "flex-start"
     },
-    label: {
-        fontSize: 16,
-        color: Theme.darkGray,
-        lineHeight: 24,
-        letterSpacing: 0.2
-    },
-    input: {
-        fontSize: 16,
+    header: {
+        fontSize: 12,
+        fontWeight: "500",
         color: Theme.black,
-        lineHeight: 24,
+        lineHeight: 18,
+        letterSpacing: 0.2,
+        marginBottom: 16
+    },
+    text: {
+        fontSize: 12,
+        fontWeight: "500",
+        color: Theme.darkGray,
+        lineHeight: 18,
         letterSpacing: 0.2
+    },
+    icon: {
+        width: 32,
+        height: 32
     }
 });

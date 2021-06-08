@@ -6,7 +6,8 @@ import {
 
 const initialState = {
     auth: {
-        loggedIn: false
+        loggedIn: false,
+        email: "test.test@mail.com"
     }
 };
 

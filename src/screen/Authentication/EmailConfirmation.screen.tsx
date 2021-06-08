@@ -2,24 +2,30 @@ import React from 'react';
 import {
     StyleSheet,
     SafeAreaView,
-    ScrollView,
-    Text,
     View
 } from 'react-native';
 import { Theme, ThemeStyles } from '../../themes/default';
-import MainButton from '../../components/MainButton';
-import CardItemText from '../../components/CardItemText';
 import { AuthStackConfig } from '../../navigation/Navigation.config';
+import CardItemInput from '../../components/CardItemInput';
+import { useSelector } from 'react-redux';
 
 export default function EmailConfirmationScreen({ navigation }: any) {
+    const anonymEmail = useSelector((state: any) => {
+        let email = state.profile.auth.email;
+        let prefix = email.split("@")[0];
+        let sufix = email.split("@")[1];
+
+        prefix = prefix.charAt(0) + "*".repeat(prefix.length - 1);
+        return prefix + "@" + sufix;
+    })
 
     return (
         <SafeAreaView style={ThemeStyles.safeAreaContainer}>
             <View style={styles.container}>
-                <CardItemText
+                <CardItemInput
                     image={require('../../../assets/info.png')}
-                    header="Nemáš sa čoho obávať"
-                    text={"Toto je tvoj vlastný denník a do tvojho súkromia nikto neuvidí.\n\nVážime si ho."} />
+                    header={"Na e-mailovú adresu " + anonymEmail + " sme ti poslali overovací kód."}
+                />
 
             </View>
         </SafeAreaView>
