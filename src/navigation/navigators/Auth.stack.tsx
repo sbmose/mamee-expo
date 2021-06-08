@@ -8,7 +8,7 @@ const Auth = createStackNavigator();
 export default function AuthStack() {
     return (
         <Auth.Navigator
-            initialRouteName={AuthStackConfig.EMAIL_CONFIRMATION_SCREEN.name}>
+            initialRouteName={AuthStackConfig.EMAIL_VERIFICATION_SCREEN.name}>
             <Auth.Screen
                 name={AuthStackConfig.LOGIN_SCREEN.name}
                 component={AuthStackConfig.LOGIN_SCREEN.component}
@@ -43,8 +43,8 @@ export default function AuthStack() {
                 options={({ route, navigation }: any) => getHeaderOptions(AuthStackConfig.CONDITIONS_SCREEN.title)}
             />
             <Auth.Screen
-                name={AuthStackConfig.EMAIL_CONFIRMATION_SCREEN.name}
-                component={AuthStackConfig.EMAIL_CONFIRMATION_SCREEN.component}
+                name={AuthStackConfig.EMAIL_VERIFICATION_SCREEN.name}
+                component={AuthStackConfig.EMAIL_VERIFICATION_SCREEN.component}
                 options={{
                     headerShown: false
                 }}

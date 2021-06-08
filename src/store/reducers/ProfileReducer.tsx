@@ -1,7 +1,8 @@
 import {
     LOG_IN,
     UPDATE_SETTINGS,
-    REGISTER_BY_EMAIL
+    REGISTER_BY_EMAIL,
+    VERIFY_EMAIL
 } from "../actions/actionTypes";
 
 const initialState = {
@@ -22,6 +23,14 @@ function ProfileReducer(state = initialState, action: any) {
             return {
                 ...state,
                 auth: action.payload
+            }
+        case VERIFY_EMAIL:
+            return {
+                ...state,
+                auth: {
+                    ...state.auth,
+                    emailVerified: true
+                }
             }
         case UPDATE_SETTINGS:
             return {

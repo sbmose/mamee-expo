@@ -2,8 +2,10 @@
 import React from 'react';
 import { StyleSheet, Image, View, Text } from 'react-native';
 import { Theme } from '../themes/default';
+import FloatingInput from './FloatingInput';
 
-export default function CardItemInput({ header, image }: any) {
+export default function CardItemInput(props: any) {
+    const { header, image, inputBgColor, onChangeText, value } = props;
 
     return (
         <View style={styles.container}>
@@ -14,6 +16,13 @@ export default function CardItemInput({ header, image }: any) {
                 <View style={styles.textContainer}>
                     <Text style={styles.header}>{header}</Text>
                 </View>
+            </View>
+            <View>
+                <FloatingInput
+                    label="Zadaj kód"
+                    bgColor={inputBgColor}
+                    value={value}
+                    onChangeText={onChangeText} />
             </View>
         </View>
     );

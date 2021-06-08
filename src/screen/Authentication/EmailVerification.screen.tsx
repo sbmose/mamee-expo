@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     StyleSheet,
     SafeAreaView,
@@ -7,9 +7,12 @@ import {
 import { Theme, ThemeStyles } from '../../themes/default';
 import { AuthStackConfig } from '../../navigation/Navigation.config';
 import CardItemInput from '../../components/CardItemInput';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { verifyEmail } from '../../store/actions/ProfileActions';
 
-export default function EmailConfirmationScreen({ navigation }: any) {
+export default function EmailVerificationScreen({ navigation }: any) {
+    const dispatch = useDispatch();
+    const [confirmCode, setConfirmCode] = useState("")
     const anonymEmail = useSelector((state: any) => {
         let email = state.profile.auth.email;
         let prefix = email.split("@")[0];
@@ -19,12 +22,24 @@ export default function EmailConfirmationScreen({ navigation }: any) {
         return prefix + "@" + sufix;
     })
 
+    const handleConfirmCode = async (code: string) => {
+        setConfirmCode(code);
+        if (code.length === 6) {
+            let success: any = await dispatch(verifyEmail(code));
+            console.log("Code confirmaiton", code, success);
+            //success && navigation.navigate(AuthStackConfig.EMAIL_CONFIRMATION_SCREEN.name);
+        }
+    }
+
     return (
         <SafeAreaView style={ThemeStyles.safeAreaContainer}>
             <View style={styles.container}>
                 <CardItemInput
                     image={require('../../../assets/info.png')}
                     header={"Na e-mailovú adresu " + anonymEmail + " sme ti poslali overovací kód."}
+                    inputBgColor={Theme.white}
+                    value={confirmCode}
+                    onChangeText={(code: string) => handleConfirmCode(code)}
                 />
 
             </View>

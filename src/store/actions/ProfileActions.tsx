@@ -1,7 +1,8 @@
 
 import {
     LOG_IN,
-    REGISTER_BY_EMAIL
+    REGISTER_BY_EMAIL,
+    VERIFY_EMAIL
 } from './actionTypes';
 
 export const loginByEmail = (email: string, password: string) => {
@@ -31,6 +32,16 @@ export const registerByEmail = (email: string, password: string) => {
                 loggedIn: false,
                 type: "email"
             }
+        });
+
+        return true;
+    }
+}
+
+export const verifyEmail = (code: string) => {
+    return async (dispatch: any) => {
+        await dispatch({
+            type: VERIFY_EMAIL
         });
 
         return true;

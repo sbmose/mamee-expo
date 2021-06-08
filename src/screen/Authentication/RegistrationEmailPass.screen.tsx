@@ -29,7 +29,7 @@ export default function RegistrationEmailPassScreen({ navigation }: any) {
     const onSubmit = async (data: any) => {
         let success: any = await dispatch(registerByEmail(data.email, data.password));
         console.log('onSubmit', data, errors, success);
-        success && navigation.navigate(AuthStackConfig.EMAIL_CONFIRMATION_SCREEN.name);
+        success && navigation.navigate(AuthStackConfig.EMAIL_VERIFICATION_SCREEN.name);
     }
 
     return (
