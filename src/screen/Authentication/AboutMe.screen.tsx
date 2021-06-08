@@ -16,7 +16,7 @@ import moment from 'moment';
 
 
 export default function AboutMeScreen({ navigation }: any) {
-    const { handleSubmit, control, errors, setValue, getValues, formState: { isValid, isDirty } } = useForm({ mode: "onChange", reValidateMode: "onChange" });
+    const { handleSubmit, control, errors, setValue, getValues, formState: { isValid } } = useForm({ mode: "onChange", reValidateMode: "onChange" });
     const [showDatePicker, setShowDatePicker] = useState(false);
     const dispatch = useDispatch();
 
@@ -28,10 +28,7 @@ export default function AboutMeScreen({ navigation }: any) {
 
     const handleChangeDate = (date: any) => {
         setValue("dateOfBirth", moment(date).format("D/M/YYYY"), { shouldValidate: true });
-        console.log("date", date, moment(getValues("dateOfBirth"), "D/M/YYYY").toDate());
     }
-
-    console.log("Initial date", isValid)
 
     return (
         <SafeAreaView style={ThemeStyles.safeAreaContainer}>
@@ -74,7 +71,8 @@ export default function AboutMeScreen({ navigation }: any) {
                             error={errors.dateOfBirth}
                             errorText={errors?.dateOfBirth?.message}
                             onFocus={() => setShowDatePicker(true)}
-                            onBlur={() => setShowDatePicker(false)} />
+                            onBlur={() => setShowDatePicker(false)}
+                            forceFocused={showDatePicker} />
                     )}
                 />
                 <MainButton

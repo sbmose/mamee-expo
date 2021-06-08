@@ -4,12 +4,11 @@ import { FloatingLabelInput } from 'react-native-floating-label-input';
 import { Theme } from '../themes/default';
 
 export default function FloatingInput(props: any) {
-    const { label, isPassword, bgColor, style, onChangeText, value, error, errorText, onFocus, onBlur } = props;
+    const { label, isPassword, bgColor, style, onChangeText, value, error, errorText, onFocus, onBlur, forceFocused } = props;
     const [showPass, setShowPass] = useState(false);
     const [isFocused, setFocused] = useState(false);
 
     const togglePassword = (evt: any) => {
-        console.log("pass", evt);
         evt.preventDefault();
         setShowPass(!showPass);
     }
@@ -22,22 +21,22 @@ export default function FloatingInput(props: any) {
                 togglePassword={showPass}
                 staticLabel={false}
                 value={value}
-                isFocused={isFocused}
+                isFocused={forceFocused || isFocused}
                 onChangeText={(value: string) => onChangeText(value)}
                 onFocus={() => {
-                    onFocus;
                     setFocused(!isFocused);
+                    onFocus;
                 }}
                 onBlur={() => {
-                    onBlur;
                     setFocused(!isFocused);
+                    onBlur;
                 }}
                 customShowPasswordComponent={<TouchableOpacity onPress={(e) => togglePassword(e)}><Text>Ukázať</Text></TouchableOpacity>}
                 customHidePasswordComponent={<TouchableOpacity onPress={(e) => togglePassword(e)}><Text>Skryť</Text></TouchableOpacity>}
                 containerStyles={{
                     borderWidth: 1,
                     backgroundColor: bgColor || Theme.appBg,
-                    borderColor: isFocused ? Theme.pink : Theme.gray,
+                    borderColor: isFocused || forceFocused ? Theme.pink : Theme.gray,
                     borderRadius: 6,
                     paddingHorizontal: 16,
                     paddingVertical: 16
@@ -58,7 +57,7 @@ export default function FloatingInput(props: any) {
                     fontSizeBlurred: 14,
                     fontSizeFocused: 12,
                     colorBlurred: Theme.gray,
-                    colorFocused: isFocused ? Theme.pink : Theme.gray,
+                    colorFocused: isFocused || forceFocused ? Theme.pink : Theme.gray,
                 }}
                 {...props}
             />
