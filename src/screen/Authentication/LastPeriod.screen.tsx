@@ -6,7 +6,7 @@ import {
     View,
     Text
 } from 'react-native';
-import { Theme, ThemeStyles } from '../../themes/default';
+import { ThemeStyles } from '../../themes/default';
 import { useDispatch } from 'react-redux';
 import MainButton from '../../components/MainButton';
 import ProgressBar from '../../components/ProgressBar';
@@ -19,69 +19,80 @@ import { AuthStackConfig } from '../../navigation/Navigation.config';
 export default function LastPeriodScreen({ navigation }: any) {
     const { handleSubmit, control, errors, setValue, getValues, formState: { isValid } } = useForm({ mode: "onChange", reValidateMode: "onChange" });
     const [showDatePicker, setShowDatePicker] = useState(false);
+    const [datePickerType, setDatePickerType]: any = useState(undefined);
     const dispatch = useDispatch();
 
     const onSubmit = async (data: any) => {
         let success: any = await dispatch(updateBio(data));
-        console.log('onSubmit', data, success);
-        success && navigation.navigate(AuthStackConfig.PICK_CONDITION_SCREEN.name);
+        success && navigation.navigate(AuthStackConfig.GDPR_SCREEN.name);
     }
 
     const handleChangeDate = (date: any) => {
-        setValue("dateOfBirth", moment(date).format("D/M/YYYY"), { shouldValidate: true });
+        datePickerType && setValue(datePickerType, moment(date).format("D/M/YYYY"), { shouldValidate: true });
     }
 
     return (
         <SafeAreaView style={ThemeStyles.safeAreaContainer}>
             <View style={styles.container}>
-                <Text style={ThemeStyles.bigHeader}>Údaje o tebe</Text>
-                <Text style={[ThemeStyles.infoTextMedium, { marginBottom: 30 }]}>
-                    <Text style={{ color: Theme.pink }}>Gratulujeme!</Text>
-                    <Text> Vďaka tomu, že nám o sebe povieš viac, vieme lepšie prispôsobiť obsah aplikácie pre osobnejší a na mieru ušitý zážitok.</Text>
-                </Text>
+                <Text style={ThemeStyles.bigHeader}>Dátum poslednej menštruácie</Text>
                 <Controller
-                    name="name"
+                    name="startOfLastPeriod"
                     defaultValue=""
                     control={control}
                     rules={{
-                        required: { value: true, message: "Meno je vyžadované" }
+                        required: { value: true, message: "Dátum je vyžadovaný" }
                     }}
                     render={({ onChange, value }: any) => (
                         <FloatingInput
-                            label="Meno"
+                            label="Dátum začiatku"
                             value={value}
                             style={styles.input}
                             onChangeText={(text: string) => onChange(text)}
-                            error={errors.name}
-                            errorText={errors?.name?.message} />
+                            error={errors.startOfLastPeriod}
+                            errorText={errors?.startOfLastPeriod?.message}
+                            onFocus={() => {
+                                setDatePickerType("startOfLastPeriod");
+                                setShowDatePicker(true);
+                            }}
+                            onBlur={() => {
+                                setDatePickerType(undefined);
+                                setShowDatePicker(false);
+                            }}
+                            forceFocused={datePickerType === "startOfLastPeriod"} />
                     )}
                 />
                 <Controller
-                    name="dateOfBirth"
+                    name="endOfLastPeriod"
                     defaultValue=""
                     control={control}
                     rules={{
-                        required: { value: true, message: "Dátum je vyžadován" }
+                        required: { value: true, message: "Dátum je vyžadovaný" }
                     }}
                     render={({ onChange, value }: any) => (
                         <FloatingInput
-                            label="Dátum narodenia"
+                            label="Dátum konca"
                             value={value}
                             style={styles.input}
                             onChangeText={null}
-                            error={errors.dateOfBirth}
-                            errorText={errors?.dateOfBirth?.message}
-                            onFocus={() => setShowDatePicker(true)}
-                            onBlur={() => setShowDatePicker(false)}
-                            forceFocused={showDatePicker} />
+                            error={errors.endOfLastPeriod}
+                            errorText={errors?.endOfLastPeriod?.message}
+                            onFocus={() => {
+                                setDatePickerType("endOfLastPeriod");
+                                setShowDatePicker(true);
+                            }}
+                            onBlur={() => {
+                                setDatePickerType(undefined);
+                                setShowDatePicker(false);
+                            }}
+                            forceFocused={datePickerType === "endOfLastPeriod"} />
                     )}
                 />
                 <MainButton
-                    label="Pokračovať"
+                    label="Registrovať"
                     style={styles.buttonContainer}
                     onPress={handleSubmit(onSubmit)}
                     disabled={!isValid} />
-                <ProgressBar progress={25} />
+                <ProgressBar progress={100} />
                 {showDatePicker && <DateTimePicker
                     style={styles.datepicker}
                     testID="dateTimePicker"
@@ -89,7 +100,7 @@ export default function LastPeriodScreen({ navigation }: any) {
                     minimumDate={new Date(1950, 0, 1)}
                     locale="sk-SK"
                     neutralButtonLabel="clear"
-                    value={getValues("dateOfBirth") ? moment(getValues("dateOfBirth"), "D/M/YYYY").toDate() : new Date()}
+                    value={(datePickerType && getValues(datePickerType)) ? moment(getValues(datePickerType), "D/M/YYYY").toDate() : new Date()}
                     mode={"date"}
                     is24Hour={true}
                     display="spinner"

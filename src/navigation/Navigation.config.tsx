@@ -42,6 +42,7 @@ import EmailVerificationScreen from '../screen/Authentication/EmailVerification.
 import AboutMeScreen from '../screen/Authentication/AboutMe.screen';
 import PickConditionScreen from '../screen/Authentication/PickCondition.screen';
 import LastPeriodScreen from '../screen/Authentication/LastPeriod.screen';
+import GDPRScreen from '../screen/Authentication/GDPR.screen';
 
 export const RootStackConfig = {
     APP_STACK: {
@@ -112,6 +113,10 @@ export const AuthStackConfig = {
     LAST_PERIOD_SCREEN: {
         name: "LastPeriodScreen",
         component: LastPeriodScreen,
+    },
+    GDPR_SCREEN: {
+        name: "GDPRScreen",
+        component: GDPRScreen,
     },
 }
 
