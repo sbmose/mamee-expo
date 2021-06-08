@@ -63,6 +63,13 @@ export default function AuthStack() {
                     headerShown: false
                 }}
             />
+            <Auth.Screen
+                name={AuthStackConfig.LAST_PERIOD_SCREEN.name}
+                component={AuthStackConfig.LAST_PERIOD_SCREEN.component}
+                options={{
+                    headerShown: false
+                }}
+            />
         </Auth.Navigator>
     )
 }

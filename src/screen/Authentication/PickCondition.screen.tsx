@@ -18,9 +18,8 @@ export default function PickConditionScreen({ navigation }: any) {
 
     const handlePickCondition = async (conditionType: any) => {
         setCondition(conditionType);
-        let success: any = await dispatch(updateBio({ condition: condition }));
-        console.log('onSubmit', conditionType, success);
-        success && navigation.navigate(AuthStackConfig.PICK_CONDITION_SCREEN.name);
+        let success: any = await dispatch(updateBio({ condition: conditionType }));
+        success && navigation.navigate(AuthStackConfig.LAST_PERIOD_SCREEN.name);
     }
 
     return (

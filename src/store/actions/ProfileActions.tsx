@@ -51,6 +51,7 @@ export const verifyEmail = (code: string) => {
 
 export const updateBio = (data: any) => {
     return async (dispatch: any) => {
+        console.log("Update bio", data);
         await dispatch({
             type: UPDATE_BIO,
             payload: data

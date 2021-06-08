@@ -41,6 +41,7 @@ import ConditionsScreen from '../screen/Authentication/Conditions.screen';
 import EmailVerificationScreen from '../screen/Authentication/EmailVerification.screen';
 import AboutMeScreen from '../screen/Authentication/AboutMe.screen';
 import PickConditionScreen from '../screen/Authentication/PickCondition.screen';
+import LastPeriodScreen from '../screen/Authentication/LastPeriod.screen';
 
 export const RootStackConfig = {
     APP_STACK: {
@@ -107,6 +108,10 @@ export const AuthStackConfig = {
     PICK_CONDITION_SCREEN: {
         name: "PickConditionScreen",
         component: PickConditionScreen,
+    },
+    LAST_PERIOD_SCREEN: {
+        name: "LastPeriodScreen",
+        component: LastPeriodScreen,
     },
 }
 
