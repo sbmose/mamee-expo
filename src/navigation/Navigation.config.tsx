@@ -38,6 +38,7 @@ import RegistrationScreen from '../screen/Authentication/Registration.screen';
 import StartRegistrationScreen from '../screen/Authentication/StartRegistration.screen';
 import RegistrationEmailPassScreen from '../screen/Authentication/RegistrationEmailPass.screen';
 import ConditionsScreen from '../screen/Authentication/Conditions.screen';
+import EmailConfirmationScreen from '../screen/Authentication/EmailConfirmation.screen';
 
 export const RootStackConfig = {
     APP_STACK: {
@@ -92,6 +93,10 @@ export const AuthStackConfig = {
         name: "ConditionsScreen",
         title: "Podmienky používania aplikácie",
         component: ConditionsScreen,
+    },
+    EMAIL_CONFIRMATION_SCREEN: {
+        name: "EmailConfirmationScreen",
+        component: EmailConfirmationScreen,
     },
 }
 

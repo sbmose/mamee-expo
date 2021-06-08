@@ -1,5 +1,8 @@
 
-import { LOG_IN, UPDATE_SETTINGS } from './actionTypes';
+import {
+    LOG_IN,
+    REGISTER_BY_EMAIL
+} from './actionTypes';
 
 export const loginByEmail = (email: string, password: string) => {
     return async (dispatch: any) => {
@@ -9,6 +12,23 @@ export const loginByEmail = (email: string, password: string) => {
                 email: email,
                 password: password,
                 loggedIn: true,
+                type: "email"
+            }
+        });
+
+        return true;
+    }
+}
+
+export const registerByEmail = (email: string, password: string) => {
+    return async (dispatch: any) => {
+        await dispatch({
+            type: REGISTER_BY_EMAIL,
+            payload: {
+                email: email,
+                password: password,
+                emailVerified: false,
+                loggedIn: false,
                 type: "email"
             }
         });

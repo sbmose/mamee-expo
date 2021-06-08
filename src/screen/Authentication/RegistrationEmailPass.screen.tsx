@@ -14,6 +14,7 @@ import TransparentButton from '../../components/TransparentButton';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, Controller } from 'react-hook-form';
 import { AuthStackConfig } from '../../navigation/Navigation.config';
+import { registerByEmail } from '../../store/actions/ProfileActions';
 
 // Screen Styles
 
@@ -25,9 +26,10 @@ export default function RegistrationEmailPassScreen({ navigation }: any) {
     const password = useRef({});
     password.current = watch("password", "");
 
-    const onSubmit = (data: any) => {
-        console.log('onSubmit', data, errors);
-        //dispatch(loginByEmail(data.email, data.password));
+    const onSubmit = async (data: any) => {
+        let success: any = await dispatch(registerByEmail(data.email, data.password));
+        console.log('onSubmit', data, errors, success);
+        success && navigation.navigate(AuthStackConfig.EMAIL_CONFIRMATION_SCREEN.name);
     }
 
     return (
