@@ -9,10 +9,12 @@ import { AuthStackConfig } from '../../navigation/Navigation.config';
 import CardItemInput from '../../components/CardItemInput';
 import { useSelector, useDispatch } from 'react-redux';
 import { verifyEmail } from '../../store/actions/ProfileActions';
+import MainButton from '../../components/MainButton';
 
 export default function EmailVerificationScreen({ navigation }: any) {
     const dispatch = useDispatch();
-    const [confirmCode, setConfirmCode] = useState("")
+    const [verificationCode, setVerificationCode] = useState("");
+    const [resendCode, setResendCode] = useState(false);
     const anonymEmail = useSelector((state: any) => {
         let email = state.profile.auth.email;
         let prefix = email.split("@")[0];
@@ -22,13 +24,24 @@ export default function EmailVerificationScreen({ navigation }: any) {
         return prefix + "@" + sufix;
     })
 
-    const handleConfirmCode = async (code: string) => {
-        setConfirmCode(code);
+    const handleVerifyCode = async (code: string) => {
+        setVerificationCode(code);
         if (code.length === 6) {
             let success: any = await dispatch(verifyEmail(code));
-            console.log("Code confirmaiton", code, success);
-            //success && navigation.navigate(AuthStackConfig.EMAIL_CONFIRMATION_SCREEN.name);
+            if (success) {
+                console.log("Code confirmaiton success", code);
+                //snavigation.navigate(AuthStackConfig.EMAIL_CONFIRMATION_SCREEN.name);
+            } else {
+                console.log("Code confirmaiton failed", code);
+                setResendCode(true);
+            }
         }
+    }
+
+    const handleResendCode = async () => {
+        console.log("send new verification code");
+        setVerificationCode("");
+        setResendCode(false);
     }
 
     return (
@@ -36,12 +49,17 @@ export default function EmailVerificationScreen({ navigation }: any) {
             <View style={styles.container}>
                 <CardItemInput
                     image={require('../../../assets/info.png')}
-                    header={"Na e-mailovú adresu " + anonymEmail + " sme ti poslali overovací kód."}
+                    header={resendCode ? "Ľutujeme, zadaný kód je nesprávny." : "Na e-mailovú adresu " + anonymEmail + " sme ti poslali overovací kód."}
                     inputBgColor={Theme.white}
-                    value={confirmCode}
-                    onChangeText={(code: string) => handleConfirmCode(code)}
+                    value={verificationCode}
+                    onChangeText={(code: string) => handleVerifyCode(code)}
                 />
-
+                {resendCode && (
+                    <MainButton
+                        label="Odoslať nový kód"
+                        style={styles.buttonContainer}
+                        onPress={handleResendCode} />
+                )}
             </View>
         </SafeAreaView>
     );
@@ -54,23 +72,6 @@ const styles = StyleSheet.create({
         padding: 16,
         flexDirection: "column",
         justifyContent: "center",
-    },
-    header: {
-        fontSize: 32,
-        fontWeight: "600",
-        letterSpacing: 0.5,
-        lineHeight: 42,
-        color: Theme.black,
-        marginBottom: 30
-    },
-    imageContainer: {
-        width: "100%",
-        marginBottom: 30,
-        flexDirection: "row",
-        justifyContent: "flex-end"
-    },
-    input: {
-        marginBottom: 16
     },
     buttonContainer: {
         marginBottom: 16
