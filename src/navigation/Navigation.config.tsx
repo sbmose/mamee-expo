@@ -40,6 +40,7 @@ import RegistrationEmailPassScreen from '../screen/Authentication/RegistrationEm
 import ConditionsScreen from '../screen/Authentication/Conditions.screen';
 import EmailVerificationScreen from '../screen/Authentication/EmailVerification.screen';
 import AboutMeScreen from '../screen/Authentication/AboutMe.screen';
+import PickConditionScreen from '../screen/Authentication/PickCondition.screen';
 
 export const RootStackConfig = {
     APP_STACK: {
@@ -102,6 +103,10 @@ export const AuthStackConfig = {
     ABOUT_ME_SCREEN: {
         name: "AboutMeScreen",
         component: AboutMeScreen,
+    },
+    PICK_CONDITION_SCREEN: {
+        name: "PickConditionScreen",
+        component: PickConditionScreen,
     },
 }
 

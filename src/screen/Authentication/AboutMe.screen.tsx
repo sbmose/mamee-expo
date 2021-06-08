@@ -16,7 +16,6 @@ import moment from 'moment';
 import { updateBio } from '../../store/actions/ProfileActions';
 import { AuthStackConfig } from '../../navigation/Navigation.config';
 
-
 export default function AboutMeScreen({ navigation }: any) {
     const { handleSubmit, control, errors, setValue, getValues, formState: { isValid } } = useForm({ mode: "onChange", reValidateMode: "onChange" });
     const [showDatePicker, setShowDatePicker] = useState(false);
@@ -25,7 +24,7 @@ export default function AboutMeScreen({ navigation }: any) {
     const onSubmit = async (data: any) => {
         let success: any = await dispatch(updateBio(data));
         console.log('onSubmit', data, success);
-        //success && navigation.navigate(AuthStackConfig.EMAIL_VERIFICATION_SCREEN.name);
+        success && navigation.navigate(AuthStackConfig.PICK_CONDITION_SCREEN.name);
     }
 
     const handleChangeDate = (date: any) => {
