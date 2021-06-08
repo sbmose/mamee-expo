@@ -2,7 +2,8 @@
 import {
     LOG_IN,
     REGISTER_BY_EMAIL,
-    VERIFY_EMAIL
+    VERIFY_EMAIL,
+    UPDATE_BIO
 } from './actionTypes';
 
 export const loginByEmail = (email: string, password: string) => {
@@ -48,7 +49,13 @@ export const verifyEmail = (code: string) => {
     }
 }
 
-export const updateSettings = () => {
+export const updateBio = (data: any) => {
     return async (dispatch: any) => {
+        await dispatch({
+            type: UPDATE_BIO,
+            payload: data
+        });
+
+        return true;
     }
 }

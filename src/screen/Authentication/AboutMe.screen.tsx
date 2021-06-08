@@ -13,6 +13,8 @@ import ProgressBar from '../../components/ProgressBar';
 import FloatingInput from '../../components/FloatingInput';
 import { Controller, useForm } from 'react-hook-form';
 import moment from 'moment';
+import { updateBio } from '../../store/actions/ProfileActions';
+import { AuthStackConfig } from '../../navigation/Navigation.config';
 
 
 export default function AboutMeScreen({ navigation }: any) {
@@ -21,8 +23,8 @@ export default function AboutMeScreen({ navigation }: any) {
     const dispatch = useDispatch();
 
     const onSubmit = async (data: any) => {
-        //let success: any = await dispatch(registerByEmail(data.email, data.password));
-        console.log('onSubmit', data, errors);
+        let success: any = await dispatch(updateBio(data));
+        console.log('onSubmit', data, success);
         //success && navigation.navigate(AuthStackConfig.EMAIL_VERIFICATION_SCREEN.name);
     }
 
