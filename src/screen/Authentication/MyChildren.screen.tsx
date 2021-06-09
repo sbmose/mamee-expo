@@ -11,6 +11,7 @@ import MainButton from '../../components/MainButton';
 import ProgressBar from '../../components/ProgressBar';
 import { AuthStackConfig } from '../../navigation/Navigation.config';
 import TransparentButton from '../../components/TransparentButton';
+import CardItemText from '../../components/CardItemText';
 
 export default function MyChildrenScreen({ navigation }: any) {
     const { children } = useSelector((state: any) => state.profile.bio)
@@ -19,6 +20,14 @@ export default function MyChildrenScreen({ navigation }: any) {
         <SafeAreaView style={ThemeStyles.safeAreaContainer}>
             <View style={styles.container}>
                 <Text style={ThemeStyles.bigHeader}>Údaje o deťoch</Text>
+                <View>
+                    {children.map((item: any) => (
+                        <CardItemText
+                            key={item.name}
+                            image={require('../../../assets/babykruh.png')}
+                            header={item.name} />
+                    ))}
+                </View>
                 <TransparentButton
                     label="Pridať ďalšie dieťa"
                     textColor={Theme.green}
