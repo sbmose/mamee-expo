@@ -12,7 +12,7 @@ export default function CardItemText({ header, text, image }: any) {
             </View>
             <View style={styles.iconContainer}>
                 <Text style={styles.header}>{header}</Text>
-                <Text style={styles.text}>{text}</Text>
+                {text && <Text style={styles.text}>{text}</Text>}
             </View>
         </View>
     );
@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         justifyContent: "flex-start",
         alignItems: "flex-start",
+        alignContent: "center",
         marginRight: 16
     },
     textContainer: {
@@ -45,14 +46,16 @@ const styles = StyleSheet.create({
         color: Theme.black,
         lineHeight: 20,
         letterSpacing: 0.2,
-        marginBottom: 16
+        paddingTop: 8
+
     },
     text: {
         fontSize: 12,
         fontWeight: "500",
         color: Theme.darkGray,
         lineHeight: 18,
-        letterSpacing: 0.2
+        letterSpacing: 0.2,
+        marginTop: 16
     },
     icon: {
         width: 32,

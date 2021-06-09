@@ -26,7 +26,7 @@ export default function GDPRScreen({ navigation }: any) {
                 <MainButton
                     label="Súhlasím"
                     style={styles.buttonContainer}
-                    onPress={() => navigation.navigate(AuthStackConfig.REGISTRATION_EMAIL_PASS_SCREEN.name)} />
+                    onPress={() => navigation.navigate(AuthStackConfig.LOGIN_METHOD_SCREEN.name)} />
             </View>
         </SafeAreaView>
     );

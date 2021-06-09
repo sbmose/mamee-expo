@@ -43,6 +43,8 @@ import AboutMeScreen from '../screen/Authentication/AboutMe.screen';
 import PickConditionScreen from '../screen/Authentication/PickCondition.screen';
 import LastPeriodScreen from '../screen/Authentication/LastPeriod.screen';
 import GDPRScreen from '../screen/Authentication/GDPR.screen';
+import LoginMethodScreen from '../screen/Authentication/LoginMethod.screen';
+import CreatePinScreen from '../screen/Authentication/CreatePin.screen';
 
 export const RootStackConfig = {
     APP_STACK: {
@@ -121,6 +123,14 @@ export const AuthStackConfig = {
     MY_CHILDREN_SCREEN: {
         name: "GDPRScreen",
         component: GDPRScreen,
+    },
+    LOGIN_METHOD_SCREEN: {
+        name: "LoginMethodScreen",
+        component: LoginMethodScreen,
+    },
+    CREATE_PIN_SCREEN: {
+        name: "CreatePinScreen",
+        component: CreatePinScreen,
     },
 }
 

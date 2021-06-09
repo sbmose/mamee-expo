@@ -77,6 +77,20 @@ export default function AuthStack() {
                     headerShown: false
                 }}
             />
+            <Auth.Screen
+                name={AuthStackConfig.LOGIN_METHOD_SCREEN.name}
+                component={AuthStackConfig.LOGIN_METHOD_SCREEN.component}
+                options={{
+                    headerShown: false
+                }}
+            />
+            <Auth.Screen
+                name={AuthStackConfig.CREATE_PIN_SCREEN.name}
+                component={AuthStackConfig.CREATE_PIN_SCREEN.component}
+                options={{
+                    headerShown: false
+                }}
+            />
         </Auth.Navigator>
     )
 }

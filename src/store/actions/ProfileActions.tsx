@@ -3,7 +3,8 @@ import {
     LOG_IN,
     REGISTER_BY_EMAIL,
     VERIFY_EMAIL,
-    UPDATE_BIO
+    UPDATE_BIO,
+    UPDATE_AUTH
 } from './actionTypes';
 
 export const loginByEmail = (email: string, password: string) => {
@@ -54,6 +55,18 @@ export const updateBio = (data: any) => {
         console.log("Update bio", data);
         await dispatch({
             type: UPDATE_BIO,
+            payload: data
+        });
+
+        return true;
+    }
+}
+
+export const updateAuth = (data: any) => {
+    return async (dispatch: any) => {
+        console.log("Update bio", data);
+        await dispatch({
+            type: UPDATE_AUTH,
             payload: data
         });
 
