@@ -10,7 +10,7 @@ const Auth = createStackNavigator();
 export default function AuthStack() {
     return (
         <Auth.Navigator
-            initialRouteName={AuthStackConfig.LOGIN_METHOD_SCREEN.name}>
+            initialRouteName={AuthStackConfig.PICK_CONDITION_SCREEN.name}>
             <Auth.Screen
                 name={AuthStackConfig.LOGIN_SCREEN.name}
                 component={AuthStackConfig.LOGIN_SCREEN.component}
@@ -75,6 +75,20 @@ export default function AuthStack() {
             <Auth.Screen
                 name={AuthStackConfig.GDPR_SCREEN.name}
                 component={AuthStackConfig.GDPR_SCREEN.component}
+                options={{
+                    headerShown: false
+                }}
+            />
+            <Auth.Screen
+                name={AuthStackConfig.ADD_CHILD.name}
+                component={AuthStackConfig.ADD_CHILD.component}
+                options={{
+                    headerShown: false
+                }}
+            />
+            <Auth.Screen
+                name={AuthStackConfig.MY_CHILDREN_SCREEN.name}
+                component={AuthStackConfig.MY_CHILDREN_SCREEN.component}
                 options={{
                     headerShown: false
                 }}

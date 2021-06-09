@@ -23,7 +23,7 @@ export default function PickConditionScreen({ navigation }: any) {
             conditionType === "pregnant" ?
                 navigation.navigate(AuthStackConfig.LAST_PERIOD_SCREEN.name)
                 :
-                navigation.navigate(AuthStackConfig.MY_CHILDREN_SCREEN.name)
+                navigation.navigate(AuthStackConfig.ADD_CHILD.name)
 
         }
     }

@@ -5,11 +5,12 @@ import { Theme } from '../themes/default';
 import { Ionicons as Icon } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native';
 
-export default function RadioButton({ checked, label, onPress }: any) {
+export default function RadioButton(props: any) {
+    const { checked, label, onPress, style } = props;
 
     return (
         <TouchableOpacity
-            style={styles.container}
+            style={[styles.container, style]}
             activeOpacity={0.7}
             onPress={onPress}>
             <Icon

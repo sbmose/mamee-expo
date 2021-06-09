@@ -6,14 +6,14 @@ import {
 } from "native-base";
 
 export default function TransparentButton(props: any) {
-    const { label, style, textColor, onPress } = props;
+    const { label, style, textColor, textStyle, onPress } = props;
 
     return (
         <Button
             style={[styles.button, style]}
             transparent
             onPress={onPress}>
-            <Text style={[styles.text, textColor && { color: textColor }]}>{label}</Text>
+            <Text style={[styles.text, textStyle, textColor && { color: textColor }]}>{label}</Text>
         </Button>
     );
 }

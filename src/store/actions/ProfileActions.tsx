@@ -5,7 +5,8 @@ import {
     VERIFY_EMAIL,
     UPDATE_BIO,
     UPDATE_AUTH,
-    FINISH_REGISTRATION
+    FINISH_REGISTRATION,
+    ADD_CHILD
 } from './actionTypes';
 
 export const loginByEmail = (email: string, password: string) => {
@@ -80,6 +81,18 @@ export const finishRegistration = () => {
         console.log("Finish registration");
         await dispatch({
             type: FINISH_REGISTRATION
+        });
+
+        return true;
+    }
+}
+
+export const addChild = (data: any) => {
+    return async (dispatch: any) => {
+        console.log("addChild", data);
+        await dispatch({
+            type: ADD_CHILD,
+            payload: data
         });
 
         return true;

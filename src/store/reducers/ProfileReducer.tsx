@@ -4,15 +4,18 @@ import {
     REGISTER_BY_EMAIL,
     VERIFY_EMAIL,
     UPDATE_AUTH,
-    FINISH_REGISTRATION
+    FINISH_REGISTRATION,
+    ADD_CHILD
 } from "../actions/actionTypes";
 
-const initialState = {
+const initialState: any = {
     auth: {
         loggedIn: false,
         email: "test.test@mail.com"
     },
-    bio: {}
+    bio: {
+        children: []
+    }
 };
 
 function ProfileReducer(state = initialState, action: any) {
@@ -58,6 +61,12 @@ function ProfileReducer(state = initialState, action: any) {
                     ...state.auth,
                     loggedIn: true
                 }
+            }
+        case ADD_CHILD:
+            state.bio.children.push(action.payload);
+
+            return {
+                ...state
             }
         default:
             return state;
