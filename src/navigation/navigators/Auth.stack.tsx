@@ -8,7 +8,7 @@ const Auth = createStackNavigator();
 export default function AuthStack() {
     return (
         <Auth.Navigator
-            initialRouteName={AuthStackConfig.GDPR_SCREEN.name}>
+            initialRouteName={AuthStackConfig.GRATULATION_SCREEN.name}>
             <Auth.Screen
                 name={AuthStackConfig.LOGIN_SCREEN.name}
                 component={AuthStackConfig.LOGIN_SCREEN.component}
@@ -87,6 +87,13 @@ export default function AuthStack() {
             <Auth.Screen
                 name={AuthStackConfig.CREATE_PIN_SCREEN.name}
                 component={AuthStackConfig.CREATE_PIN_SCREEN.component}
+                options={{
+                    headerShown: false
+                }}
+            />
+            <Auth.Screen
+                name={AuthStackConfig.GRATULATION_SCREEN.name}
+                component={AuthStackConfig.GRATULATION_SCREEN.component}
                 options={{
                     headerShown: false
                 }}

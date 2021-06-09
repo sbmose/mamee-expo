@@ -45,6 +45,7 @@ import LastPeriodScreen from '../screen/Authentication/LastPeriod.screen';
 import GDPRScreen from '../screen/Authentication/GDPR.screen';
 import LoginMethodScreen from '../screen/Authentication/LoginMethod.screen';
 import CreatePinScreen from '../screen/Authentication/CreatePin.screen';
+import GratulationScreen from '../screen/Authentication/Gratulation.screen';
 
 export const RootStackConfig = {
     APP_STACK: {
@@ -131,6 +132,10 @@ export const AuthStackConfig = {
     CREATE_PIN_SCREEN: {
         name: "CreatePinScreen",
         component: CreatePinScreen,
+    },
+    GRATULATION_SCREEN: {
+        name: "GratulationScreen",
+        component: GratulationScreen,
     },
 }
 

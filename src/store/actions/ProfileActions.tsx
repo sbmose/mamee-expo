@@ -4,7 +4,8 @@ import {
     REGISTER_BY_EMAIL,
     VERIFY_EMAIL,
     UPDATE_BIO,
-    UPDATE_AUTH
+    UPDATE_AUTH,
+    FINISH_REGISTRATION
 } from './actionTypes';
 
 export const loginByEmail = (email: string, password: string) => {
@@ -68,6 +69,17 @@ export const updateAuth = (data: any) => {
         await dispatch({
             type: UPDATE_AUTH,
             payload: data
+        });
+
+        return true;
+    }
+}
+
+export const finishRegistration = () => {
+    return async (dispatch: any) => {
+        console.log("Finish registration");
+        await dispatch({
+            type: FINISH_REGISTRATION
         });
 
         return true;

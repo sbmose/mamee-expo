@@ -4,7 +4,7 @@ import { FloatingLabelInput } from 'react-native-floating-label-input';
 import { Theme } from '../themes/default';
 
 export default function FloatingInput(props: any) {
-    const { label, isPassword, bgColor, style, onChangeText, value, error, errorText, onFocus, onBlur, forceFocused } = props;
+    const { label, isPassword, bgColor, style, onChangeText, value, error, errorText, onFocus, onBlur, forceFocused, keyboardType } = props;
     const [showPass, setShowPass] = useState(false);
     const [isFocused, setFocused] = useState(false);
 
@@ -17,6 +17,7 @@ export default function FloatingInput(props: any) {
         <View style={[styles.container, style]}>
             <FloatingLabelInput
                 label={label}
+                keyboardType={keyboardType}
                 isPassword={isPassword}
                 togglePassword={showPass}
                 staticLabel={false}

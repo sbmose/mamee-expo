@@ -1,101 +1,107 @@
-import React, { useState } from 'react';
-import DateTimePicker from '@react-native-community/datetimepicker';
+import React, { useRef } from 'react';
 import {
     StyleSheet,
     SafeAreaView,
-    View,
-    Text
+    View
 } from 'react-native';
 import { Theme, ThemeStyles } from '../../themes/default';
 import { useDispatch } from 'react-redux';
 import MainButton from '../../components/MainButton';
-import ProgressBar from '../../components/ProgressBar';
 import FloatingInput from '../../components/FloatingInput';
 import { Controller, useForm } from 'react-hook-form';
-import moment from 'moment';
-import { updateBio } from '../../store/actions/ProfileActions';
+import { updateAuth } from '../../store/actions/ProfileActions';
+import CardItemText from '../../components/CardItemText';
 import { AuthStackConfig } from '../../navigation/Navigation.config';
 
 export default function CreatePinScreen({ navigation }: any) {
-    const { handleSubmit, control, errors, setValue, getValues, formState: { isValid } } = useForm({ mode: "onChange", reValidateMode: "onChange" });
-    const [showDatePicker, setShowDatePicker] = useState(false);
+    const { handleSubmit, control, errors, watch, formState: { isValid, isDirty } } = useForm({ mode: "onChange", reValidateMode: "onChange" });
+    const PIN_PATTERN = /^-?[0-9]\d*\.?\d*$/;
+    const pin = useRef({});
+    pin.current = watch("pin", "");
     const dispatch = useDispatch();
 
     const onSubmit = async (data: any) => {
-        let success: any = await dispatch(updateBio(data));
+        let success: any = await dispatch(updateAuth({ pin: data.pin }));
         console.log('onSubmit', data, success);
-        success && navigation.navigate(AuthStackConfig.PICK_CONDITION_SCREEN.name);
-    }
-
-    const handleChangeDate = (date: any) => {
-        setValue("dateOfBirth", moment(date).format("D/M/YYYY"), { shouldValidate: true });
+        success && navigation.navigate(AuthStackConfig.GRATULATION_SCREEN.name);
     }
 
     return (
         <SafeAreaView style={ThemeStyles.safeAreaContainer}>
             <View style={styles.container}>
-                <Text style={ThemeStyles.bigHeader}>Údaje o tebe</Text>
-                <Text style={[ThemeStyles.infoTextMedium, { marginBottom: 30 }]}>
-                    <Text style={{ color: Theme.pink }}>Gratulujeme!</Text>
-                    <Text> Vďaka tomu, že nám o sebe povieš viac, vieme lepšie prispôsobiť obsah aplikácie pre osobnejší a na mieru ušitý zážitok.</Text>
-                </Text>
-                <Controller
-                    name="name"
-                    defaultValue=""
-                    control={control}
-                    rules={{
-                        required: { value: true, message: "Meno je vyžadované" }
-                    }}
-                    render={({ onChange, value }: any) => (
-                        <FloatingInput
-                            label="Meno"
-                            value={value}
-                            style={styles.input}
-                            onChangeText={(text: string) => onChange(text)}
-                            error={errors.name}
-                            errorText={errors?.name?.message} />
-                    )}
-                />
-                <Controller
-                    name="dateOfBirth"
-                    defaultValue=""
-                    control={control}
-                    rules={{
-                        required: { value: true, message: "Dátum je vyžadován" }
-                    }}
-                    render={({ onChange, value }: any) => (
-                        <FloatingInput
-                            label="Dátum narodenia"
-                            value={value}
-                            style={styles.input}
-                            onChangeText={null}
-                            error={errors.dateOfBirth}
-                            errorText={errors?.dateOfBirth?.message}
-                            onFocus={() => setShowDatePicker(true)}
-                            onBlur={() => setShowDatePicker(false)}
-                            forceFocused={showDatePicker} />
-                    )}
-                />
+                <CardItemText
+                    image={require('../../../assets/info.png')}
+                    header="Zadaj 4 miestny PIN" />
+                <View style={styles.inputsContainer}>
+                    <Controller
+                        name="pin"
+                        defaultValue=""
+                        control={control}
+                        rules={{
+                            required: { value: true, message: "PIN je je vyžadovaný" },
+                            pattern: {
+                                value: PIN_PATTERN,
+                                message: 'Iba 4 čísla'
+                            },
+                            minLength: {
+                                value: 4,
+                                message: "Iba 4 čísla"
+                            },
+                            maxLength: {
+                                value: 4,
+                                message: "Iba 4 čísla"
+                            }
+                        }}
+                        render={({ onChange, value }: any) => (
+                            <FloatingInput
+                                label="Zadaj PIN"
+                                value={value}
+                                isPassword
+                                keyboardType="numeric"
+                                bgColor={Theme.white}
+                                style={styles.input}
+                                onChangeText={(text: string) => onChange(text)}
+                                error={errors.pin}
+                                errorText={errors?.pin?.message} />
+                        )}
+                    />
+                    <Controller
+                        name="pin_repeat"
+                        defaultValue=""
+                        control={control}
+                        rules={{
+                            required: { value: true, message: "PIN je je vyžadovaný" },
+                            minLength: {
+                                value: 4,
+                                message: "Iba 4 čísla"
+                            },
+                            maxLength: {
+                                value: 4,
+                                message: "Iba 4 čísla"
+                            },
+                            pattern: {
+                                value: PIN_PATTERN,
+                                message: 'Iba 4 čísla'
+                            },
+                            validate: value => value === pin.current || "PIN sa nezhoduje"
+                        }}
+                        render={({ onChange, value }: any) => (
+                            <FloatingInput
+                                label="Overiť pin"
+                                value={value}
+                                isPassword
+                                keyboardType="numeric"
+                                bgColor={Theme.white}
+                                onChangeText={(text: string) => onChange(text)}
+                                error={errors.pin_repeat}
+                                errorText={errors?.pin_repeat?.message} />
+                        )}
+                    />
+                </View>
                 <MainButton
-                    label="Pokračovať"
-                    style={styles.buttonContainer}
+                    label="Potvrdiť"
                     onPress={handleSubmit(onSubmit)}
-                    disabled={!isValid} />
-                <ProgressBar progress={25} />
-                {showDatePicker && <DateTimePicker
-                    style={styles.datepicker}
-                    testID="dateTimePicker"
-                    maximumDate={new Date()}
-                    minimumDate={new Date(1950, 0, 1)}
-                    locale="sk-SK"
-                    neutralButtonLabel="clear"
-                    value={getValues("dateOfBirth") ? moment(getValues("dateOfBirth"), "D/M/YYYY").toDate() : new Date()}
-                    mode={"date"}
-                    is24Hour={true}
-                    display="spinner"
-                    onChange={(event, date) => handleChangeDate(date)}
-                />}
-
+                    disabled={!isDirty || !isValid} />
             </View>
         </SafeAreaView>
     );
@@ -107,20 +113,25 @@ const styles = StyleSheet.create({
         width: "100%",
         padding: 16,
         flexDirection: "column",
-        justifyContent: "flex-end",
-        paddingBottom: 0
+        justifyContent: "center",
     },
-    buttonContainer: {
-        marginBottom: 20
+    header: {
+        fontSize: 32,
+        fontWeight: "600",
+        letterSpacing: 0.5,
+        lineHeight: 42,
+        color: Theme.black,
+        marginBottom: 30
     },
-    infoTextContainer: {
-        flexDirection: "row",
-        justifyContent: "flex-start"
+    inputsContainer: {
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        padding: 16,
+        marginBottom: 16,
+        backgroundColor: Theme.white,
+        borderRadius: 6
     },
     input: {
         marginBottom: 16
-    },
-    datepicker: {
-        bottom: 0
     }
 });
