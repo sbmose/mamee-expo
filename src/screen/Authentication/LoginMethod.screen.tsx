@@ -19,7 +19,11 @@ export default function LoginMethodScreen({ navigation }: any) {
 
     const handleNext = async () => {
         let success: any = await dispatch(updateAuth({ loginMethod: loginMethod }));
-        success && navigation.navigate(AuthStackConfig.CREATE_PIN_SCREEN.name);
+        if (success && loginMethod === "PIN") {
+            navigation.navigate(AuthStackConfig.CREATE_PIN_SCREEN.name);
+        } else {
+            navigation.navigate(AuthStackConfig.GRATULATION_SCREEN.name);
+        }
     }
 
     return (
@@ -29,9 +33,21 @@ export default function LoginMethodScreen({ navigation }: any) {
                     image={require('../../../assets/info.png')}
                     header="Vyber si, ako sa chceš prihlasovať" />
                 <View style={styles.radionButtonsContainer}>
-                    <RadioButton label="4 miestny PIN" checked={loginMethod === "PIN"} onPress={() => setLoginMethod("PIN")} />
-                    <RadioButton label="Odtlačok prsta / tvárou" checked={loginMethod === "ID"} onPress={() => setLoginMethod("ID")} />
-                    <RadioButton label="Bez overovania" checked={loginMethod === "NONE"} onPress={() => setLoginMethod("NONE")} />
+                    <RadioButton
+                        label="4 miestny PIN"
+                        checked={loginMethod === "PIN"}
+                        onPress={() => setLoginMethod("PIN")} />
+                    <RadioButton
+                        label="Odtlačok prsta / tvárou"
+                        checked={loginMethod === "ID"}
+                        onPress={() => {
+                            setLoginMethod("ID");
+                            navigation.navigate(AuthStackConfig.ENABLE_BIOMETRIC_SCREEN.name);
+                        }} />
+                    <RadioButton
+                        label="Bez overovania"
+                        checked={loginMethod === "NONE"}
+                        onPress={() => setLoginMethod("NONE")} />
                 </View>
                 <MainButton
                     label="Ďalej"

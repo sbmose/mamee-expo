@@ -46,6 +46,7 @@ import GDPRScreen from '../screen/Authentication/GDPR.screen';
 import LoginMethodScreen from '../screen/Authentication/LoginMethod.screen';
 import CreatePinScreen from '../screen/Authentication/CreatePin.screen';
 import GratulationScreen from '../screen/Authentication/Gratulation.screen';
+import EnableBiometricScreen from '../screen/Authentication/EnableBiometric.screen';
 
 export const RootStackConfig = {
     APP_STACK: {
@@ -136,6 +137,10 @@ export const AuthStackConfig = {
     GRATULATION_SCREEN: {
         name: "GratulationScreen",
         component: GratulationScreen,
+    },
+    ENABLE_BIOMETRIC_SCREEN: {
+        name: "EnableBiometricScreen",
+        component: EnableBiometricScreen,
     },
 }
 

@@ -2,13 +2,15 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { AuthStackConfig } from '../Navigation.config';
 import { getHeaderOptions } from '../headerOptions';
+import { HeaderButton } from '../../components/HeaderButton';
+import { Theme } from "../../themes/default";
 
 const Auth = createStackNavigator();
 
 export default function AuthStack() {
     return (
         <Auth.Navigator
-            initialRouteName={AuthStackConfig.GRATULATION_SCREEN.name}>
+            initialRouteName={AuthStackConfig.LOGIN_METHOD_SCREEN.name}>
             <Auth.Screen
                 name={AuthStackConfig.LOGIN_SCREEN.name}
                 component={AuthStackConfig.LOGIN_SCREEN.component}
@@ -96,6 +98,17 @@ export default function AuthStack() {
                 component={AuthStackConfig.GRATULATION_SCREEN.component}
                 options={{
                     headerShown: false
+                }}
+            />
+            <Auth.Screen
+                name={AuthStackConfig.ENABLE_BIOMETRIC_SCREEN.name}
+                component={AuthStackConfig.ENABLE_BIOMETRIC_SCREEN.component}
+                options={{
+                    headerLeft: () => (<HeaderButton iconName="chevron-back" color={Theme.pink} />),
+                    headerTitle: "",
+                    headerStyle: {
+                        backgroundColor: Theme.appBg
+                    }
                 }}
             />
         </Auth.Navigator>
