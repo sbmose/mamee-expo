@@ -2,9 +2,10 @@ import React, { useRef } from 'react';
 import {
     StyleSheet,
     SafeAreaView,
-    ScrollView,
+    KeyboardAvoidingView,
     Text,
-    View
+    View,
+    Platform
 } from 'react-native';
 import { Theme, ThemeStyles } from '../../themes/default';
 import FloatingInput from '../../components/FloatingInput';
@@ -33,10 +34,15 @@ export default function RegistrationEmailPassScreen({ navigation }: any) {
 
     return (
         <SafeAreaView style={ThemeStyles.safeAreaContainer}>
-            <ScrollView style={[ThemeStyles.scrollContainer]}>
+            <KeyboardAvoidingView
+                behavior={Platform.OS == 'ios' ? 'padding' : null}
+                scrollEnabled={false}
+                resetScrollToCoords={{ x: 0, y: 0 }}
+                style={{ flex: 1 }}
+                enabled>
                 <View style={styles.container}>
                     <View>
-                        <Text style={styles.header}>Prihlásenie</Text>
+                        <Text style={styles.header}>Základné údaje</Text>
                         <Controller
                             name="email"
                             defaultValue=""
@@ -129,7 +135,7 @@ export default function RegistrationEmailPassScreen({ navigation }: any) {
                             disabled={!isValid} />
                     </View>
                 </View>
-            </ScrollView>
+            </KeyboardAvoidingView>
         </SafeAreaView>
     );
 }

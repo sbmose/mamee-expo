@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
     StyleSheet,
     SafeAreaView,
     ScrollView,
     Text,
-    View
+    View,
+    KeyboardAvoidingView,
+    Platform
 } from 'react-native';
 import { Theme, ThemeStyles } from '../../themes/default';
 import FloatingInput from '../../components/FloatingInput';
@@ -42,7 +44,13 @@ export default function LoginScreen({ navigation }: any) {
 
     return (
         <SafeAreaView style={ThemeStyles.safeAreaContainer}>
-            <ScrollView style={[ThemeStyles.scrollContainer]}>
+            <KeyboardAvoidingView
+                behavior={Platform.OS == 'ios' ? 'padding' : null}
+                scrollEnabled={false}
+                keyboardVerticalOffset={-165}
+                resetScrollToCoords={{ x: 0, y: 0 }}
+                enabled
+                style={styles.keyboard}>
                 <View style={styles.container}>
                     <View>
                         <Text style={styles.header}>Prihlásenie</Text>
@@ -111,7 +119,7 @@ export default function LoginScreen({ navigation }: any) {
                             onPress={() => handleFacebookLogin()} />
                     </View>
                 </View>
-            </ScrollView>
+            </KeyboardAvoidingView>
         </SafeAreaView>
     );
 }
@@ -137,5 +145,8 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         marginBottom: 16
+    },
+    keyboard: {
+        flex: 1
     }
 });

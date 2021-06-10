@@ -39,12 +39,9 @@ function ProfileReducer(state = initialState, action: any) {
                 auth: action.payload
             }
         case VERIFY_EMAIL:
+            state.auth.emailVerified = true;
             return {
-                ...state,
-                auth: {
-                    ...state.auth,
-                    emailVerified: true
-                }
+                ...state
             }
         case UPDATE_AUTH:
             return {
