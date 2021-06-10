@@ -17,8 +17,12 @@ import { ListItemSeparator } from '../components/ListItemSeparator';
 import ListItemText from '../components/ListItemText';
 import ListItemSimple from '../components/ListItemSimple';
 import { MeStackConfig } from '../navigation/Navigation.config';
+import TransparentButton from '../components/TransparentButton';
+import { useDispatch } from 'react-redux';
+import { logOut } from '../store/actions/ProfileActions';
 
 export default function ProfileScreen({ navigation }: any) {
+    const dispatch = useDispatch();
 
     return (
         <SafeAreaView style={ThemeStyles.safeAreaContainer}>
@@ -29,10 +33,12 @@ export default function ProfileScreen({ navigation }: any) {
                     <Text style={styles.profileInfo}>Tehotná, 3. trimester</Text>
                     <Text style={styles.profileEmailandPass}>janka.novakove@email.com</Text>
                     <Text style={styles.profileEmailandPass}>***********</Text>
-                    <Button style={styles.changePassBtn} transparent
-                        onPress={() => navigation.navigate(MeStackConfig.CHANGE_PASSWORD_SCREEN.name)}>
-                        <Text style={styles.changePassBtnText}>Zmeniť heslo</Text>
-                    </Button>
+                    <TransparentButton
+                        label="Zmeniť heslo"
+                        onPress={() => navigation.navigate(MeStackConfig.CHANGE_PASSWORD_SCREEN.name)} />
+                    <TransparentButton
+                        label="Odhlásiť"
+                        onPress={() => dispatch(logOut())} />
                 </View>
                 <View style={styles.settingsContainer}>
                     <Text style={styles.listHeader}>Tehotenstvo</Text>

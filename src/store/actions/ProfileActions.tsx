@@ -6,7 +6,8 @@ import {
     UPDATE_BIO,
     UPDATE_AUTH,
     FINISH_REGISTRATION,
-    ADD_CHILD
+    ADD_CHILD,
+    LOG_OUT
 } from './actionTypes';
 
 export const loginByEmail = (email: string, password: string) => {
@@ -19,6 +20,16 @@ export const loginByEmail = (email: string, password: string) => {
                 loggedIn: true,
                 type: "email"
             }
+        });
+
+        return true;
+    }
+}
+
+export const logOut = () => {
+    return async (dispatch: any) => {
+        await dispatch({
+            type: LOG_OUT
         });
 
         return true;

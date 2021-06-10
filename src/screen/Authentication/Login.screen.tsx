@@ -10,25 +10,22 @@ import { Theme, ThemeStyles } from '../../themes/default';
 import FloatingInput from '../../components/FloatingInput';
 import MainButton from '../../components/MainButton';
 import TransparentButton from '../../components/TransparentButton';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { loginByEmail } from '../../store/actions/ProfileActions';
 import { useForm, Controller } from 'react-hook-form';
 import { AuthStackConfig } from '../../navigation/Navigation.config';
 
 export default function LoginScreen({ navigation }: any) {
-    const { auth } = useSelector((state: any) => state.profile)
+    //const { auth } = useSelector((state: any) => state.profile)
     const dispatch = useDispatch();
     const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const { handleSubmit, control, errors, setValue, formState: { isValid } } = useForm({ mode: "onChange", reValidateMode: "onChange" });
 
-    useEffect(() => {
-        setValue("email", auth.email);
-        setValue("password", auth.password);
-    }, [auth]);
-
     const onSubmit = (data: any) => {
         console.log('onSubmit', data, errors);
         dispatch(loginByEmail(data.email, data.password));
+        setValue("email", "");
+        setValue("password", "");
     }
 
     const handleFacebookLogin = () => {

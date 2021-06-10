@@ -5,7 +5,8 @@ import {
     VERIFY_EMAIL,
     UPDATE_AUTH,
     FINISH_REGISTRATION,
-    ADD_CHILD
+    ADD_CHILD,
+    LOG_OUT
 } from "../actions/actionTypes";
 
 const initialState: any = {
@@ -22,7 +23,15 @@ function ProfileReducer(state = initialState, action: any) {
         case LOG_IN:
             return {
                 ...state,
-                auth: action.payload
+                auth: {
+                    ...state.auth,
+                    ...action.payload
+                }
+            }
+        case LOG_OUT:
+            state.auth.loggedIn = false;
+            return {
+                ...state
             }
         case REGISTER_BY_EMAIL:
             return {
