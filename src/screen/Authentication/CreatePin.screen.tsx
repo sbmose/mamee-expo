@@ -2,7 +2,9 @@ import React, { useRef } from 'react';
 import {
     StyleSheet,
     SafeAreaView,
-    View
+    View,
+    KeyboardAvoidingView,
+    Platform
 } from 'react-native';
 import { Theme, ThemeStyles } from '../../themes/default';
 import { useDispatch } from 'react-redux';
@@ -28,81 +30,88 @@ export default function CreatePinScreen({ navigation }: any) {
 
     return (
         <SafeAreaView style={ThemeStyles.safeAreaContainer}>
-            <View style={styles.container}>
-                <CardItemText
-                    image={require('../../../assets/info.png')}
-                    header="Zadaj 4 miestny PIN" />
-                <View style={styles.inputsContainer}>
-                    <Controller
-                        name="pin"
-                        defaultValue=""
-                        control={control}
-                        rules={{
-                            required: { value: true, message: "PIN je je vyžadovaný" },
-                            pattern: {
-                                value: PIN_PATTERN,
-                                message: 'Iba 4 čísla'
-                            },
-                            minLength: {
-                                value: 4,
-                                message: "Iba 4 čísla"
-                            },
-                            maxLength: {
-                                value: 4,
-                                message: "Iba 4 čísla"
-                            }
-                        }}
-                        render={({ onChange, value }: any) => (
-                            <FloatingInput
-                                label="Zadaj PIN"
-                                value={value}
-                                isPassword
-                                keyboardType="numeric"
-                                bgColor={Theme.white}
-                                style={styles.input}
-                                onChangeText={(text: string) => onChange(text)}
-                                error={errors.pin}
-                                errorText={errors?.pin?.message} />
-                        )}
-                    />
-                    <Controller
-                        name="pin_repeat"
-                        defaultValue=""
-                        control={control}
-                        rules={{
-                            required: { value: true, message: "PIN je je vyžadovaný" },
-                            minLength: {
-                                value: 4,
-                                message: "Iba 4 čísla"
-                            },
-                            maxLength: {
-                                value: 4,
-                                message: "Iba 4 čísla"
-                            },
-                            pattern: {
-                                value: PIN_PATTERN,
-                                message: 'Iba 4 čísla'
-                            },
-                            validate: value => value === pin.current || "PIN sa nezhoduje"
-                        }}
-                        render={({ onChange, value }: any) => (
-                            <FloatingInput
-                                label="Overiť pin"
-                                value={value}
-                                isPassword
-                                keyboardType="numeric"
-                                bgColor={Theme.white}
-                                onChangeText={(text: string) => onChange(text)}
-                                error={errors.pin_repeat}
-                                errorText={errors?.pin_repeat?.message} />
-                        )}
-                    />
+            <KeyboardAvoidingView
+                behavior={Platform.OS == 'ios' ? 'padding' : null}
+                scrollEnabled={false}
+                resetScrollToCoords={{ x: 0, y: 0 }}
+                style={{ flex: 1 }}
+                enabled>
+                <View style={styles.container}>
+                    <CardItemText
+                        image={require('../../../assets/info.png')}
+                        header="Zadaj 4 miestny PIN" />
+                    <View style={styles.inputsContainer}>
+                        <Controller
+                            name="pin"
+                            defaultValue=""
+                            control={control}
+                            rules={{
+                                required: { value: true, message: "PIN je je vyžadovaný" },
+                                pattern: {
+                                    value: PIN_PATTERN,
+                                    message: 'Iba 4 čísla'
+                                },
+                                minLength: {
+                                    value: 4,
+                                    message: "Iba 4 čísla"
+                                },
+                                maxLength: {
+                                    value: 4,
+                                    message: "Iba 4 čísla"
+                                }
+                            }}
+                            render={({ onChange, value }: any) => (
+                                <FloatingInput
+                                    label="Zadaj PIN"
+                                    value={value}
+                                    isPassword
+                                    keyboardType="numeric"
+                                    bgColor={Theme.white}
+                                    style={styles.input}
+                                    onChangeText={(text: string) => onChange(text)}
+                                    error={errors.pin}
+                                    errorText={errors?.pin?.message} />
+                            )}
+                        />
+                        <Controller
+                            name="pin_repeat"
+                            defaultValue=""
+                            control={control}
+                            rules={{
+                                required: { value: true, message: "PIN je je vyžadovaný" },
+                                minLength: {
+                                    value: 4,
+                                    message: "Iba 4 čísla"
+                                },
+                                maxLength: {
+                                    value: 4,
+                                    message: "Iba 4 čísla"
+                                },
+                                pattern: {
+                                    value: PIN_PATTERN,
+                                    message: 'Iba 4 čísla'
+                                },
+                                validate: value => value === pin.current || "PIN sa nezhoduje"
+                            }}
+                            render={({ onChange, value }: any) => (
+                                <FloatingInput
+                                    label="Overiť pin"
+                                    value={value}
+                                    isPassword
+                                    keyboardType="numeric"
+                                    bgColor={Theme.white}
+                                    onChangeText={(text: string) => onChange(text)}
+                                    error={errors.pin_repeat}
+                                    errorText={errors?.pin_repeat?.message} />
+                            )}
+                        />
+                    </View>
+                    <MainButton
+                        label="Potvrdiť"
+                        onPress={handleSubmit(onSubmit)}
+                        disabled={!isDirty || !isValid} />
                 </View>
-                <MainButton
-                    label="Potvrdiť"
-                    onPress={handleSubmit(onSubmit)}
-                    disabled={!isDirty || !isValid} />
-            </View>
+            </KeyboardAvoidingView>
         </SafeAreaView>
     );
 }
