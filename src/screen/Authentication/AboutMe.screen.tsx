@@ -4,7 +4,10 @@ import {
     StyleSheet,
     SafeAreaView,
     View,
-    Text
+    Text,
+    KeyboardAvoidingView,
+    Platform,
+    Keyboard
 } from 'react-native';
 import { Theme, ThemeStyles } from '../../themes/default';
 import { useDispatch } from 'react-redux';
@@ -15,6 +18,7 @@ import { Controller, useForm } from 'react-hook-form';
 import moment from 'moment';
 import { updateBio } from '../../store/actions/ProfileActions';
 import { AuthStackConfig } from '../../navigation/Navigation.config';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 export default function AboutMeScreen({ navigation }: any) {
     const { handleSubmit, control, errors, setValue, getValues, formState: { isValid } } = useForm({ mode: "onChange", reValidateMode: "onChange" });
@@ -33,70 +37,78 @@ export default function AboutMeScreen({ navigation }: any) {
 
     return (
         <SafeAreaView style={ThemeStyles.safeAreaContainer}>
-            <View style={styles.container}>
-                <Text style={ThemeStyles.bigHeader}>Údaje o tebe</Text>
-                <Text style={[ThemeStyles.infoTextMedium, { marginBottom: 30 }]}>
-                    <Text style={{ color: Theme.pink }}>Gratulujeme!</Text>
-                    <Text> Vďaka tomu, že nám o sebe povieš viac, vieme lepšie prispôsobiť obsah aplikácie pre osobnejší a na mieru ušitý zážitok.</Text>
-                </Text>
-                <Controller
-                    name="name"
-                    defaultValue=""
-                    control={control}
-                    rules={{
-                        required: { value: true, message: "Meno je vyžadované" }
-                    }}
-                    render={({ onChange, value }: any) => (
-                        <FloatingInput
-                            label="Meno"
-                            value={value}
-                            style={styles.input}
-                            onChangeText={(text: string) => onChange(text)}
-                            error={errors.name}
-                            errorText={errors?.name?.message} />
-                    )}
-                />
-                <Controller
-                    name="dateOfBirth"
-                    defaultValue=""
-                    control={control}
-                    rules={{
-                        required: { value: true, message: "Dátum je vyžadován" }
-                    }}
-                    render={({ onChange, value }: any) => (
-                        <FloatingInput
-                            label="Dátum narodenia"
-                            value={value}
-                            style={styles.input}
-                            onChangeText={null}
-                            error={errors.dateOfBirth}
-                            errorText={errors?.dateOfBirth?.message}
-                            onFocus={() => setShowDatePicker(true)}
-                            onBlur={() => setShowDatePicker(false)}
-                            forceFocused={showDatePicker} />
-                    )}
-                />
-                <MainButton
-                    label="Pokračovať"
-                    style={styles.buttonContainer}
-                    onPress={handleSubmit(onSubmit)}
-                    disabled={!isValid} />
-                <ProgressBar progress={25} />
-                {showDatePicker && <DateTimePicker
-                    style={styles.datepicker}
-                    testID="dateTimePicker"
-                    maximumDate={new Date()}
-                    minimumDate={new Date(1950, 0, 1)}
-                    locale="sk-SK"
-                    neutralButtonLabel="clear"
-                    value={getValues("dateOfBirth") ? moment(getValues("dateOfBirth"), "D/M/YYYY").toDate() : new Date()}
-                    mode={"date"}
-                    is24Hour={true}
-                    display="spinner"
-                    onChange={(event, date) => handleChangeDate(date)}
-                />}
+            <KeyboardAvoidingView
+                behavior={Platform.OS == 'ios' ? 'padding' : null}
+                scrollEnabled={false}
+                resetScrollToCoords={{ x: 0, y: 0 }}
+                style={{ flex: 1 }}
+                enabled>
+                <View style={styles.container}>
+                    <Text style={ThemeStyles.bigHeader}>Údaje o tebe</Text>
+                    <Text style={[ThemeStyles.infoTextMedium, { marginBottom: 30 }]}>
+                        <Text style={{ color: Theme.pink }}>Gratulujeme!</Text>
+                        <Text> Vďaka tomu, že nám o sebe povieš viac, vieme lepšie prispôsobiť obsah aplikácie pre osobnejší a na mieru ušitý zážitok.</Text>
+                    </Text>
+                    <Controller
+                        name="name"
+                        defaultValue=""
+                        control={control}
+                        rules={{
+                            required: { value: true, message: "Meno je vyžadované" }
+                        }}
+                        render={({ onChange, value }: any) => (
+                            <FloatingInput
+                                label="Meno"
+                                value={value}
+                                style={styles.input}
+                                onChangeText={(text: string) => onChange(text)}
+                                error={errors.name}
+                                errorText={errors?.name?.message} />
+                        )}
+                    />
+                    <Controller
+                        name="dateOfBirth"
+                        defaultValue=""
+                        control={control}
+                        rules={{
+                            required: { value: true, message: "Dátum je vyžadován" }
+                        }}
+                        render={({ onChange, value }: any) => (
+                            <FloatingInput
+                                label="Dátum narodenia"
+                                keyboardType={null}
+                                value={value}
+                                style={styles.input}
+                                onChangeText={null}
+                                error={errors.dateOfBirth}
+                                errorText={errors?.dateOfBirth?.message}
+                                onFocus={() => setShowDatePicker(true)}
+                                onBlur={() => setShowDatePicker(false)}
+                                forceFocused={showDatePicker} />
+                        )}
+                    />
+                    <MainButton
+                        label="Pokračovať"
+                        style={styles.buttonContainer}
+                        onPress={handleSubmit(onSubmit)}
+                        disabled={!isValid} />
+                    <ProgressBar progress={25} />
+                    {showDatePicker && <DateTimePicker
+                        style={styles.datepicker}
+                        testID="dateTimePicker"
+                        maximumDate={new Date()}
+                        minimumDate={new Date(1950, 0, 1)}
+                        locale="sk-SK"
+                        neutralButtonLabel="clear"
+                        value={getValues("dateOfBirth") ? moment(getValues("dateOfBirth"), "D/M/YYYY").toDate() : new Date()}
+                        mode={"date"}
+                        is24Hour={true}
+                        display="spinner"
+                        onChange={(event, date) => handleChangeDate(date)}
+                    />}
 
-            </View>
+                </View>
+            </KeyboardAvoidingView>
         </SafeAreaView>
     );
 }
@@ -107,8 +119,7 @@ const styles = StyleSheet.create({
         width: "100%",
         padding: 16,
         flexDirection: "column",
-        justifyContent: "flex-end",
-        paddingBottom: 0
+        justifyContent: "flex-end"
     },
     buttonContainer: {
         marginBottom: 20
