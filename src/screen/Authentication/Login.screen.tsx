@@ -15,13 +15,11 @@ import { loginByEmail } from '../../store/actions/ProfileActions';
 import { useForm, Controller } from 'react-hook-form';
 import { AuthStackConfig } from '../../navigation/Navigation.config';
 
-// Screen Styles
-
 export default function LoginScreen({ navigation }: any) {
     const { auth } = useSelector((state: any) => state.profile)
     const dispatch = useDispatch();
     const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    const { handleSubmit, control, errors, setValue } = useForm();
+    const { handleSubmit, control, errors, setValue, formState: { isValid } } = useForm({ mode: "onChange", reValidateMode: "onChange" });
 
     useEffect(() => {
         setValue("email", auth.email);
@@ -93,7 +91,8 @@ export default function LoginScreen({ navigation }: any) {
                         <MainButton
                             label="Pokračovať"
                             style={styles.buttonContainer}
-                            onPress={handleSubmit(onSubmit)} />
+                            onPress={handleSubmit(onSubmit)}
+                            disabled={!isValid} />
                         <TransparentButton
                             label="Nemám účet"
                             textColor={Theme.darkGray}

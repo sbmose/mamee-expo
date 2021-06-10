@@ -10,7 +10,7 @@ const Auth = createStackNavigator();
 export default function AuthStack() {
     return (
         <Auth.Navigator
-            initialRouteName={AuthStackConfig.PICK_CONDITION_SCREEN.name}>
+            initialRouteName={AuthStackConfig.LOGIN_SCREEN.name}>
             <Auth.Screen
                 name={AuthStackConfig.LOGIN_SCREEN.name}
                 component={AuthStackConfig.LOGIN_SCREEN.component}

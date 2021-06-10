@@ -11,7 +11,6 @@ import {
 const initialState: any = {
     auth: {
         loggedIn: false,
-        email: "test.test@mail.com"
     },
     bio: {
         children: []

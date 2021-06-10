@@ -11,7 +11,7 @@ import FloatingInput from '../../components/FloatingInput';
 import MainButton from '../../components/MainButton';
 import { CheckBox } from "native-base";
 import TransparentButton from '../../components/TransparentButton';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useForm, Controller } from 'react-hook-form';
 import { AuthStackConfig } from '../../navigation/Navigation.config';
 import { registerByEmail } from '../../store/actions/ProfileActions';
@@ -20,9 +20,8 @@ import { registerByEmail } from '../../store/actions/ProfileActions';
 
 export default function RegistrationEmailPassScreen({ navigation }: any) {
     const dispatch = useDispatch();
-    const { auth } = useSelector((state: any) => state.profile)
     const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    const { handleSubmit, control, errors, watch, setValue, formState: { isDirty, isValid, isSubmitted } } = useForm({ mode: "onChange", reValidateMode: "onChange" });
+    const { handleSubmit, control, errors, watch, formState: { isValid } } = useForm({ mode: "onChange", reValidateMode: "onChange" });
     const password = useRef({});
     password.current = watch("password", "");
 
