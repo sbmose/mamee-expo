@@ -6,8 +6,7 @@ import {
     View,
     Text,
     KeyboardAvoidingView,
-    Platform,
-    Keyboard
+    Platform
 } from 'react-native';
 import { Theme, ThemeStyles } from '../../themes/default';
 import { useDispatch } from 'react-redux';
@@ -18,7 +17,6 @@ import { Controller, useForm } from 'react-hook-form';
 import moment from 'moment';
 import { updateBio } from '../../store/actions/ProfileActions';
 import { AuthStackConfig } from '../../navigation/Navigation.config';
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 export default function AboutMeScreen({ navigation }: any) {
     const { handleSubmit, control, errors, setValue, getValues, formState: { isValid } } = useForm({ mode: "onChange", reValidateMode: "onChange" });

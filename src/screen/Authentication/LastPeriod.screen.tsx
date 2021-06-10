@@ -4,7 +4,9 @@ import {
     StyleSheet,
     SafeAreaView,
     View,
-    Text
+    Text,
+    KeyboardAvoidingView,
+    Platform
 } from 'react-native';
 import { ThemeStyles } from '../../themes/default';
 import { useDispatch } from 'react-redux';
@@ -33,81 +35,89 @@ export default function LastPeriodScreen({ navigation }: any) {
 
     return (
         <SafeAreaView style={ThemeStyles.safeAreaContainer}>
-            <View style={styles.container}>
-                <Text style={ThemeStyles.bigHeader}>Dátum poslednej menštruácie</Text>
-                <Controller
-                    name="startOfLastPeriod"
-                    defaultValue=""
-                    control={control}
-                    rules={{
-                        required: { value: true, message: "Dátum je vyžadovaný" }
-                    }}
-                    render={({ onChange, value }: any) => (
-                        <FloatingInput
-                            label="Dátum začiatku"
-                            value={value}
-                            style={styles.input}
-                            onChangeText={(text: string) => onChange(text)}
-                            error={errors.startOfLastPeriod}
-                            errorText={errors?.startOfLastPeriod?.message}
-                            onFocus={() => {
-                                setDatePickerType("startOfLastPeriod");
-                                setShowDatePicker(true);
-                            }}
-                            onBlur={() => {
-                                setDatePickerType(undefined);
-                                setShowDatePicker(false);
-                            }}
-                            forceFocused={datePickerType === "startOfLastPeriod"} />
-                    )}
-                />
-                <Controller
-                    name="endOfLastPeriod"
-                    defaultValue=""
-                    control={control}
-                    rules={{
-                        required: { value: true, message: "Dátum je vyžadovaný" }
-                    }}
-                    render={({ onChange, value }: any) => (
-                        <FloatingInput
-                            label="Dátum konca"
-                            value={value}
-                            style={styles.input}
-                            onChangeText={null}
-                            error={errors.endOfLastPeriod}
-                            errorText={errors?.endOfLastPeriod?.message}
-                            onFocus={() => {
-                                setDatePickerType("endOfLastPeriod");
-                                setShowDatePicker(true);
-                            }}
-                            onBlur={() => {
-                                setDatePickerType(undefined);
-                                setShowDatePicker(false);
-                            }}
-                            forceFocused={datePickerType === "endOfLastPeriod"} />
-                    )}
-                />
-                <MainButton
-                    label="Registrovať"
-                    style={styles.buttonContainer}
-                    onPress={handleSubmit(onSubmit)}
-                    disabled={!isValid} />
-                <ProgressBar progress={100} />
-                {showDatePicker && <DateTimePicker
-                    style={styles.datepicker}
-                    testID="dateTimePicker"
-                    maximumDate={new Date()}
-                    minimumDate={new Date(1950, 0, 1)}
-                    locale="sk-SK"
-                    neutralButtonLabel="clear"
-                    value={(datePickerType && getValues(datePickerType)) ? moment(getValues(datePickerType), "D/M/YYYY").toDate() : new Date()}
-                    mode={"date"}
-                    is24Hour={true}
-                    display="spinner"
-                    onChange={(event, date) => handleChangeDate(date)}
-                />}
+            <KeyboardAvoidingView
+                behavior={Platform.OS == 'ios' ? 'padding' : null}
+                scrollEnabled={false}
+                resetScrollToCoords={{ x: 0, y: 0 }}
+                style={{ flex: 1 }}
+                enabled>
+                <View style={styles.container}>
+                    <Text style={ThemeStyles.bigHeader}>Dátum poslednej menštruácie</Text>
+                    <Controller
+                        name="startOfLastPeriod"
+                        defaultValue=""
+                        control={control}
+                        rules={{
+                            required: { value: true, message: "Dátum je vyžadovaný" }
+                        }}
+                        render={({ onChange, value }: any) => (
+                            <FloatingInput
+                                label="Dátum začiatku"
+                                keyboardType={'none'}
+                                value={value}
+                                style={styles.input}
+                                onChangeText={(text: string) => onChange(text)}
+                                error={errors.startOfLastPeriod}
+                                errorText={errors?.startOfLastPeriod?.message}
+                                onFocus={() => {
+                                    setDatePickerType("startOfLastPeriod");
+                                    setShowDatePicker(true);
+                                }}
+                                onBlur={() => {
+                                    setDatePickerType(undefined);
+                                    setShowDatePicker(false);
+                                }}
+                                forceFocused={datePickerType === "startOfLastPeriod"} />
+                        )}
+                    />
+                    <Controller
+                        name="endOfLastPeriod"
+                        defaultValue=""
+                        control={control}
+                        rules={{
+                            required: { value: true, message: "Dátum je vyžadovaný" }
+                        }}
+                        render={({ onChange, value }: any) => (
+                            <FloatingInput
+                                label="Dátum konca"
+                                value={value}
+                                style={styles.input}
+                                onChangeText={null}
+                                error={errors.endOfLastPeriod}
+                                errorText={errors?.endOfLastPeriod?.message}
+                                onFocus={() => {
+                                    setDatePickerType("endOfLastPeriod");
+                                    setShowDatePicker(true);
+                                }}
+                                onBlur={() => {
+                                    setDatePickerType(undefined);
+                                    setShowDatePicker(false);
+                                }}
+                                forceFocused={datePickerType === "endOfLastPeriod"} />
+                        )}
+                    />
+                    <MainButton
+                        label="Registrovať"
+                        style={styles.buttonContainer}
+                        onPress={handleSubmit(onSubmit)}
+                        disabled={!isValid} />
+                    <ProgressBar progress={100} />
+                    {showDatePicker && <DateTimePicker
+                        style={styles.datepicker}
+                        testID="dateTimePicker"
+                        maximumDate={new Date()}
+                        minimumDate={new Date(1950, 0, 1)}
+                        locale="sk-SK"
+                        neutralButtonLabel="clear"
+                        value={(datePickerType && getValues(datePickerType)) ? moment(getValues(datePickerType), "D/M/YYYY").toDate() : new Date()}
+                        mode={"date"}
+                        is24Hour={true}
+                        display="spinner"
+                        onChange={(event, date) => handleChangeDate(date)}
+                    />}
 
-            </View>
+                </View>
+            </KeyboardAvoidingView>
         </SafeAreaView>
     );
 }

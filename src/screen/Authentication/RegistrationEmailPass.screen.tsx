@@ -58,6 +58,7 @@ export default function RegistrationEmailPassScreen({ navigation }: any) {
                                 <FloatingInput
                                     label="E-mail"
                                     value={value}
+                                    keyboardType="email-address"
                                     style={styles.input}
                                     onChangeText={(text: string) => onChange(text)}
                                     error={errors.email}

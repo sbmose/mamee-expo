@@ -18,6 +18,7 @@ export default function FloatingInput(props: any) {
             <FloatingLabelInput
                 label={label}
                 keyboardType={keyboardType}
+                /* editable={false} */
                 isPassword={isPassword}
                 togglePassword={showPass}
                 staticLabel={false}
