@@ -7,11 +7,11 @@ import { Ionicons as Icon } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { Theme } from '../themes/default';
 
-export function HeaderButton({ iconName, color }: any) {
+export function HeaderButton({ iconName, color, onPress }: any) {
     const navigation: any = useNavigation();
 
     function handlePress() {
-        navigation.goBack();
+        onPress ? onPress() : navigation.goBack();
     }
 
 
@@ -22,7 +22,7 @@ export function HeaderButton({ iconName, color }: any) {
             <Icon
                 size={28}
                 name={iconName}
-                color={color}
+                color={color || Theme.pink}
             />
         </TouchableOpacity>
     );

@@ -41,7 +41,12 @@ export default function MeStack() {
             <Stack.Screen
                 name={MeStackConfig.CALENDAR_SCREEN.name}
                 component={MeStackConfig.CALENDAR_SCREEN.component}
-                options={({ route, navigation }: any) => getHeaderOptions(MeStackConfig.CALENDAR_SCREEN.title)}
+                options={{
+                    ...getHeaderOptions(MeStackConfig.CALENDAR_SCREEN.title),
+                    headerRight: () => (<HeaderButton
+                        iconName="add"
+                        onPress={() => console.log("Add button press")} />)
+                }}
             />
             <Stack.Screen
                 name={MeStackConfig.HEALTH_INFO_SCREEN.name}
