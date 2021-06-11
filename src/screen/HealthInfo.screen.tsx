@@ -9,6 +9,8 @@ import { Card } from "native-base";
 import { Theme, ThemeStyles } from '../themes/default';
 import CardItemInput from '../components/CardItemInput';
 import CardItemButton from '../components/CardItemButton';
+import ListItemText from '../components/ListItemText';
+import ListItemInput from '../components/ListItemInput';
 // Screen Styles
 
 export default function HealthInfo({ navigation }: any) {
@@ -112,26 +114,26 @@ export default function HealthInfo({ navigation }: any) {
                 <Text style={styles.listHeader}>Všeobecné</Text>
                 <Card style={styles.card}>
                     {mockData.common.map((item) => (
-                        <CardItemInput key={item.value} label={item.label} value={item.value} />
+                        <ListItemInput key={item.value} label={item.label} value={item.value} />
                     )
                     )}
                 </Card>
                 <Text style={styles.listHeader}>Predcházajůce gravidity</Text>
                 <Card style={styles.card}>
                     {mockData.previousGravidity.map((item) => (
-                        <CardItemInput key={item.value} label={item.label} value={item.value} />
+                        <ListItemInput key={item.value} label={item.label} value={item.value} />
                     ))}
                 </Card>
                 <Text style={styles.listHeader}>Lekárske záznamy</Text>
                 <Card style={styles.card}>
                     {mockData.medicalRecords.map((item) => (
-                        <CardItemButton key={item.label} label={item.label} />
+                        <ListItemInput key={item.label} label={item.label} />
                     ))}
                 </Card>
                 <Text style={styles.listHeader}>Tehotenstvo</Text>
                 <Card style={styles.card}>
                     {mockData.pregnancy.map((item) => (
-                        <CardItemInput key={item.value} label={item.label} value={item.value} />
+                        <ListItemInput key={item.value} label={item.label} value={item.value} />
                     ))}
                 </Card>
             </ScrollView>

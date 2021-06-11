@@ -2,14 +2,16 @@ import React, { useState } from 'react';
 import {
     StyleSheet,
     SafeAreaView,
-    View
+    View,
+    Image,
+    Text
 } from 'react-native';
 import { Theme, ThemeStyles } from '../../themes/default';
 import { AuthStackConfig } from '../../navigation/Navigation.config';
-import CardItemInput from '../../components/CardItemInput';
 import { useSelector, useDispatch } from 'react-redux';
 import { verifyEmail } from '../../store/actions/ProfileActions';
 import MainButton from '../../components/MainButton';
+import FloatingInput from '../../components/FloatingInput';
 
 export default function EmailVerificationScreen({ navigation }: any) {
     const dispatch = useDispatch();
@@ -47,13 +49,23 @@ export default function EmailVerificationScreen({ navigation }: any) {
     return (
         <SafeAreaView style={ThemeStyles.safeAreaContainer}>
             <View style={styles.container}>
-                <CardItemInput
-                    image={require('../../../assets/info.png')}
-                    header={resendCode ? "Ľutujeme, zadaný kód je nesprávny." : "Na e-mailovú adresu " + anonymEmail + " sme ti poslali overovací kód."}
-                    inputBgColor={Theme.white}
-                    value={verificationCode}
-                    onChangeText={(code: string) => handleVerifyCode(code)}
-                />
+                <View style={styles.cardContainer}>
+                    <View style={styles.headerContainer}>
+                        <View style={styles.iconContainer}>
+                            <Image source={require('../../../assets/info.png')} style={styles.icon} />
+                        </View>
+                        <View style={styles.textContainer}>
+                            <Text style={styles.header}>{resendCode ? "Ľutujeme, zadaný kód je nesprávny." : "Na e-mailovú adresu " + anonymEmail + " sme ti poslali overovací kód."}</Text>
+                        </View>
+                    </View>
+                    <View>
+                        <FloatingInput
+                            label="Zadaj kód"
+                            bgColor={Theme.white}
+                            value={verificationCode}
+                            onChangeText={(code: string) => handleVerifyCode(code)} />
+                    </View>
+                </View>
                 {resendCode && (
                     <MainButton
                         label="Odoslať nový kód"
@@ -75,5 +87,49 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         marginBottom: 16
+    },
+    cardContainer: {
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        padding: 16,
+        marginBottom: 16,
+        backgroundColor: Theme.white,
+        borderRadius: 6
+    },
+    headerContainer: {
+        flexDirection: "row",
+        justifyContent: "flex-start",
+        marginBottom: 16
+    },
+    iconContainer: {
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        alignItems: "flex-start",
+        marginRight: 16
+    },
+    textContainer: {
+        flex: 1,
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        alignItems: "flex-start"
+    },
+    header: {
+        fontSize: 12,
+        fontWeight: "500",
+        color: Theme.black,
+        lineHeight: 18,
+        letterSpacing: 0.2,
+        marginBottom: 16
+    },
+    text: {
+        fontSize: 12,
+        fontWeight: "500",
+        color: Theme.darkGray,
+        lineHeight: 18,
+        letterSpacing: 0.2
+    },
+    icon: {
+        width: 32,
+        height: 32
     }
 });
