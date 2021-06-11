@@ -1,10 +1,9 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import { GlobalNavigationOptions } from '../GlobalNavigationOptions';
+import { globalNavigationOptions, getHeaderOptions } from '../GlobalNavigationOptions';
 import { HeaderBigTitle } from '../../components/HeaderBigTitle';
 import { DashboardStackConfig } from '../Navigation.config';
 import { HeaderProfileImage } from '../../components/HeaderProfileImage';
-import { getHeaderOptions } from '../headerOptions';
 
 const Stack = createStackNavigator();
 
@@ -15,7 +14,7 @@ export default function DashboardStack() {
                 name={DashboardStackConfig.DASHBOARD_SCREEN.name}
                 component={DashboardStackConfig.DASHBOARD_SCREEN.component}
                 options={{
-                    ...GlobalNavigationOptions,
+                    ...globalNavigationOptions,
                     headerLeft: () => (<HeaderBigTitle title="Ahoj, Janka" />),
                     headerTitle: "",
                     headerRight: () => (<HeaderProfileImage photo={null} />)

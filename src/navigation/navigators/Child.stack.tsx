@@ -1,10 +1,9 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import { GlobalNavigationOptions } from '../GlobalNavigationOptions';
+import { globalNavigationOptions, getHeaderOptions } from '../GlobalNavigationOptions';
 import { ChildStackConfig } from "../Navigation.config";
 import { HeaderBigTitle } from '../../components/HeaderBigTitle';
 import { HeaderProfileImage } from '../../components/HeaderProfileImage';
-import { getHeaderOptions } from '../headerOptions';
 
 const Stack = createStackNavigator();
 
@@ -15,7 +14,7 @@ export default function ChildStack() {
                 name={ChildStackConfig.CHILD_MENU_SCREEN.name}
                 component={ChildStackConfig.CHILD_MENU_SCREEN.component}
                 options={{
-                    ...GlobalNavigationOptions,
+                    ...globalNavigationOptions,
                     headerLeft: () => (<HeaderBigTitle title="Dieťa" />),
                     headerTitle: "",
                     headerRight: () => (<HeaderProfileImage photo={null} />)

@@ -1,11 +1,9 @@
 // @ts-ignore
 import React from 'react';
 import { ScrollView, View } from 'react-native';
-
-import { ThemeStyles } from "../themes/default";
-import MenuButton from "../components/MenuButton";
-import MeBar from "../components/MeBar";
-import { MeStackConfig } from '../navigation/Navigation.config';
+import { ThemeStyles } from "../../themes/default";
+import MenuButton from "../../components/MenuButton";
+import { MeStackConfig } from '../../navigation/Navigation.config';
 
 
 export default function ProfileScreen({ navigation }: any) {

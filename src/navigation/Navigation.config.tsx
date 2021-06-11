@@ -5,7 +5,7 @@ import DashboardStack from './navigators/Dashboard.stack';
 import MeStack from './navigators/Me.stack';
 import ChildStack from './navigators/Child.stack';
 // Screens
-import Me from "../screen/Me";
+import Me from "../screen/Me/Me.screen";
 import Child from "../screen/Child";
 import Administration from "../screen/Administration";
 import Loss from "../screen/Loss";
@@ -16,7 +16,7 @@ import Bag from "../screen/Bag";
 import Plan from "../screen/Plan";
 import PSMCalendar from "../screen/PSMCalendar";
 import Photos from "../screen/Photos";
-import Calendar from "../screen/Calendar";
+import Calendar from "../screen/Calendar.screen";
 import Weight from "../screen/Weight";
 import DetailPhoto from "../screen/DetailPhoto";
 import BagPartner from "../screen/BagPartner";
@@ -49,6 +49,9 @@ import GratulationScreen from '../screen/Authentication/Gratulation.screen';
 import EnableBiometricScreen from '../screen/Authentication/EnableBiometric.screen';
 import AddChildScreen from '../screen/Authentication/AddChild.screen';
 import MyChildrenScreen from '../screen/Authentication/MyChildren.screen';
+import EventsCalendarScreen from '../screen/Me/EventsCalendar.screen';
+import MensesCalendarScreen from '../screen/Me/MensesCalendar.screen';
+import CalendarStack from './navigators/Calendar.stack';
 
 export const RootStackConfig = {
     APP_STACK: {
@@ -150,6 +153,19 @@ export const AuthStackConfig = {
     },
 }
 
+export const CalendarTabStack = {
+    EVENTS_CALENDAR_SCREEN: {
+        name: "EventsCalendarScreen",
+        title: "Udalosti",
+        component: EventsCalendarScreen,
+    },
+    MENSES_CALENDAR_SCREEN: {
+        name: "MensesCalendarScreen",
+        title: "Menštruácia",
+        component: MensesCalendarScreen
+    }
+}
+
 export const MeStackConfig = {
     PROFILE_SCREEN: {
         name: "ProfileScreen",
@@ -169,7 +185,7 @@ export const MeStackConfig = {
         name: "CalendarScreen",
         title: "Kalendár",
         icon: require('../../assets/kalendarkruh.png'),
-        component: Calendar,
+        component: CalendarStack,
         menu: true
     },
     PHOTOS_SCREEN: {

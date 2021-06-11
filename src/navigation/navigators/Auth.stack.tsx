@@ -1,7 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { AuthStackConfig } from '../Navigation.config';
-import { getHeaderOptions } from '../headerOptions';
+import { getHeaderOptions } from '../GlobalNavigationOptions';
 import { HeaderButton } from '../../components/HeaderButton';
 import { Theme } from "../../themes/default";
 

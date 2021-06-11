@@ -7,9 +7,6 @@ import {
 } from 'react-native';
 import { Card } from "native-base";
 import { Theme, ThemeStyles } from '../themes/default';
-import CardItemInput from '../components/CardItemInput';
-import CardItemButton from '../components/CardItemButton';
-import ListItemText from '../components/ListItemText';
 import ListItemInput from '../components/ListItemInput';
 // Screen Styles
 

@@ -1,13 +1,11 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import { getHeaderOptions } from '../headerOptions';
 import { MeStackConfig } from '../Navigation.config';
-import { GlobalNavigationOptions } from '../GlobalNavigationOptions';
+import { globalNavigationOptions, getHeaderOptions } from '../GlobalNavigationOptions';
 import { Theme } from "../../themes/default";
 import { HeaderButton } from '../../components/HeaderButton';
 import { HeaderBigTitle } from '../../components/HeaderBigTitle';
 import { HeaderProfileImage } from '../../components/HeaderProfileImage';
-
 
 const Stack = createStackNavigator();
 
@@ -19,7 +17,7 @@ export default function MeStack() {
                 name={MeStackConfig.ME_MENU_SCREEN.name}
                 component={MeStackConfig.ME_MENU_SCREEN.component}
                 options={{
-                    ...GlobalNavigationOptions,
+                    ...globalNavigationOptions,
                     headerLeft: () => (<HeaderBigTitle title="Ja" />),
                     headerTitle: "",
                     headerRight: () => (<HeaderProfileImage photo={null} />)
@@ -34,7 +32,7 @@ export default function MeStack() {
                 name={MeStackConfig.PROFILE_SCREEN.name}
                 component={MeStackConfig.PROFILE_SCREEN.component}
                 options={{
-                    ...GlobalNavigationOptions,
+                    ...globalNavigationOptions,
                     headerLeft: null,
                     headerTitle: "",
                     headerRight: () => (<HeaderButton iconName="close-circle" color={Theme.gray} />)

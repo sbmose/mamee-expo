@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import TabBarIcons from '../../components/TabBarIcons';
-import { GlobalNavigationOptions } from '../GlobalNavigationOptions';
+import { globalNavigationOptions } from '../GlobalNavigationOptions';
 import { AppTabsConfig } from '../Navigation.config';
 
 const BottomTab = createBottomTabNavigator();
@@ -14,7 +14,7 @@ export default function AppStack() {
             initialRouteName={AppTabsConfig.DASHBOARD_STACK.name}
             tabBarOptions={{
 
-                ...GlobalNavigationOptions
+                ...globalNavigationOptions
             }}>
             <BottomTab.Screen
                 name={AppTabsConfig.DASHBOARD_STACK.name}
