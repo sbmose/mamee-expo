@@ -2,7 +2,7 @@ import React from 'react';
 import { Theme } from "../themes/default";
 import { HeaderButton } from '../components/HeaderButton';
 
-export const globalNavigationOptions = {
+export const globalNavigationOptions: any = {
   headerStyle: {
     backgroundColor: Theme.appBg
   },
@@ -15,6 +15,23 @@ export const globalNavigationOptions = {
   activeBackgroundColor: Theme.pink,
   inactiveBackgroundColor: Theme.gray,
 };
+
+export const topTabBarOptions: any = {
+  activeTintColor: Theme.black,
+  indicatorStyle: {
+    backgroundColor: Theme.pink,
+  },
+  header: {
+    backgroundColor: Theme.pink
+  },
+  labelStyle: {
+    fontSize: 18,
+    fontWeight: "600",
+    textTransform: 'none',
+    borderColor: Theme.pink
+  },
+  style: { backgroundColor: Theme.appBg },
+}
 
 export function getHeaderOptions(screenName: any) {
 
