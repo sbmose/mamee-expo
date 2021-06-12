@@ -43,7 +43,7 @@ export default function MeStack() {
                 name={MeStackConfig.CALENDAR_SCREEN.name}
                 component={MeStackConfig.CALENDAR_SCREEN.component}
                 options={({ route, navigation }: any) => {
-                    const index = route.state.index;
+                    const index = route?.state?.index;
 
                     return {
                         ...getHeaderOptions(MeStackConfig.CALENDAR_SCREEN.title),

@@ -1,38 +1,34 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import { CardItem, Text, Left, Body, Input } from 'native-base';
+import { StyleSheet, View } from 'react-native';
+import { CardItem, Text, Input } from 'native-base';
 import { Theme } from '../themes/default';
 
 export default function ListItemInput(props: any) {
-    const { label, value } = props;
+    const { label, noBorder, bgColor, style, onChangeText, value, error, errorText, onFocus, onBlur, forceFocused, keyboardType } = props;
 
     return (
-        <CardItem style={styles.container}>
-            <Left>
+        <View style={[styles.container, noBorder && { borderBottomWidth: 0 }]}>
+            <View style={styles.leftContainer}>
                 <Text style={styles.label}>{label}</Text>
-            </Left>
-            <Body>
-                <Input value={value} />
-            </Body>
-        </CardItem>
+            </View>
+            <View style={styles.rightContainer}>
+                <Input style={styles.input} value={value} />
+            </View>
+        </View>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        padding: 0,
-        marginHorizontal: 16,
+        paddingVertical: 16,
         borderBottomWidth: 1,
         borderBottomColor: Theme.lightGrey
     },
-    iconContainer: {
-        flexDirection: "column",
-        justifyContent: "flex-start",
+    leftContainer: {
+
     },
-    labelContainer: {
-        flex: 1,
-        flexDirection: "column",
-        justifyContent: "flex-start",
+    rightContainer: {
+
     },
     label: {
         fontSize: 16,
