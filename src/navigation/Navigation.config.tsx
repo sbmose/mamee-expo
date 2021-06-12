@@ -50,8 +50,10 @@ import EnableBiometricScreen from '../screen/Authentication/EnableBiometric.scre
 import AddChildScreen from '../screen/Authentication/AddChild.screen';
 import MyChildrenScreen from '../screen/Authentication/MyChildren.screen';
 import EventsCalendarScreen from '../screen/Me/EventsCalendar.screen';
-import MensesCalendarScreen from '../screen/Me/MensesCalendar.screen';
+import PeriodCalendarScreen from '../screen/Me/PeriodCalendar.screen';
 import CalendarStack from './navigators/Calendar.stack';
+import AddNewEventScreen from '../screen/Me/AddNewEvent.screen';
+import CalculatePeriodScreen from '../screen/Me/CalculatePeriod.screen';
 
 export const RootStackConfig = {
     APP_STACK: {
@@ -160,9 +162,9 @@ export const CalendarTabStack = {
         component: EventsCalendarScreen,
     },
     MENSES_CALENDAR_SCREEN: {
-        name: "MensesCalendarScreen",
+        name: "PeriodCalendarScreen",
         title: "Menštruácia",
-        component: MensesCalendarScreen
+        component: PeriodCalendarScreen
     }
 }
 
@@ -314,6 +316,18 @@ export const MeStackConfig = {
         component: BagPartner,
         menu: false
     },
+    ADD_NEW_EVENT_SCREEN: {
+        name: "AddNewEventScreen",
+        title: "Nová udalosť",
+        component: AddNewEventScreen,
+        menu: false
+    },
+    CALCULATE_PERIOD_SCREEN: {
+        name: "CalculatePeriodScreen",
+        title: "Výpočet cyklu",
+        component: CalculatePeriodScreen,
+        menu: false
+    },
 }
 
 export const ChildStackConfig = {
@@ -358,7 +372,7 @@ export const ChildStackConfig = {
         icon: null,
         component: DetailChildPhoto,
         menu: false
-    },
+    }
 }
 
 export const DashboardStackConfig = {

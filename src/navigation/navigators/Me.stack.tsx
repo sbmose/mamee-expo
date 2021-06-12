@@ -6,6 +6,7 @@ import { Theme } from "../../themes/default";
 import { HeaderButton } from '../../components/HeaderButton';
 import { HeaderBigTitle } from '../../components/HeaderBigTitle';
 import { HeaderProfileImage } from '../../components/HeaderProfileImage';
+import { HeaderButtonText } from '../../components/HeaderButtonText';
 
 const Stack = createStackNavigator();
 
@@ -41,11 +42,41 @@ export default function MeStack() {
             <Stack.Screen
                 name={MeStackConfig.CALENDAR_SCREEN.name}
                 component={MeStackConfig.CALENDAR_SCREEN.component}
-                options={{
-                    ...getHeaderOptions(MeStackConfig.CALENDAR_SCREEN.title),
-                    headerRight: () => (<HeaderButton
-                        iconName="add"
-                        onPress={() => console.log("Add button press")} />)
+                options={({ route, navigation }: any) => {
+                    const index = route.state.index;
+
+                    return {
+                        ...getHeaderOptions(MeStackConfig.CALENDAR_SCREEN.title),
+                        headerRight: () => (<HeaderButton
+                            iconName={index ? "calendar" : "add"}
+                            onPress={() => index ?
+                                navigation.navigate(MeStackConfig.CALCULATE_PERIOD_SCREEN.name)
+                                :
+                                navigation.navigate(MeStackConfig.ADD_NEW_EVENT_SCREEN.name)
+                            } />)
+                    }
+                }}
+            />
+            <Stack.Screen
+                name={MeStackConfig.ADD_NEW_EVENT_SCREEN.name}
+                component={MeStackConfig.ADD_NEW_EVENT_SCREEN.component}
+                options={({ route, navigation }: any) => {
+                    return {
+                        ...getHeaderOptions(MeStackConfig.ADD_NEW_EVENT_SCREEN.title),
+                        headerLeft: () => (<HeaderButtonText label="Zrušiť" />),
+                        headerRight: () => (<HeaderButtonText label="Hotovo" onPress={() => console.log("AddEvent")} />)
+                    }
+                }}
+            />
+            <Stack.Screen
+                name={MeStackConfig.CALCULATE_PERIOD_SCREEN.name}
+                component={MeStackConfig.CALCULATE_PERIOD_SCREEN.component}
+                options={({ route, navigation }: any) => {
+                    return {
+                        ...getHeaderOptions(MeStackConfig.CALCULATE_PERIOD_SCREEN.title),
+                        headerLeft: () => (<HeaderButtonText label="Zrušiť" />),
+                        headerRight: () => (<HeaderButtonText label="Vypočítať" onPress={() => console.log("Calculate cyclus")} />)
+                    }
                 }}
             />
             <Stack.Screen

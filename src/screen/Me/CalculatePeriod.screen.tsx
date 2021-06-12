@@ -1,14 +1,9 @@
+// @ts-ignore
 import React from 'react';
-import {
-    StyleSheet,
-    SafeAreaView,
-    View
-} from 'react-native';
-import { ThemeStyles } from '../../themes/default';
+import { SafeAreaView, View, StyleSheet } from 'react-native';
+import { ThemeStyles } from "../../themes/default";
 
-export default function MensesCalendarScreen({ navigation }: any) {
-
-
+export default function CalculatePeriodScreen({ navigation }: any) {
 
     return (
         <SafeAreaView style={ThemeStyles.safeAreaContainer}>
@@ -25,6 +20,6 @@ const styles = StyleSheet.create({
         width: "100%",
         padding: 16,
         flexDirection: "column",
-        justifyContent: "flex-end",
+        justifyContent: "flex-start"
     },
-});
+})
