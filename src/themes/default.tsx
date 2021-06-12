@@ -47,6 +47,14 @@ const ThemeStyles = StyleSheet.create({
         color: Theme.black,
         marginBottom: 16
     },
+    mediumHeader: {
+        fontSize: 24,
+        lineHeight: 28,
+        fontWeight: "600",
+        letterSpacing: 0.1,
+        color: Theme.black,
+        marginBottom: 16
+    },
     infoTextMedium: {
         fontSize: 16,
         lineHeight: 24,
@@ -54,6 +62,14 @@ const ThemeStyles = StyleSheet.create({
         letterSpacing: 0.1,
         color: Theme.darkGray,
         marginBottom: 16
+    },
+    cardContainer: {
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        padding: 16,
+        marginBottom: 16,
+        backgroundColor: Theme.white,
+        borderRadius: 6
     },
     // End
     imageDashboard: {
