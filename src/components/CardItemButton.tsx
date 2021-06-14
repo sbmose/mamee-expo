@@ -1,46 +1,46 @@
 
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import { CardItem, Text, Left, Body, Button } from 'native-base';
+import { StyleSheet, View } from 'react-native';
+import { Text, Button } from 'native-base';
 import { Theme } from '../themes/default';
 import { useNavigation } from '@react-navigation/native';
-import { MeStackConfig } from '../navigation/Navigation.config';
 
 
-export default function CardItemButton({ label }: any) {
-    const navigation = useNavigation()
+export default function CardItemButton(props: any) {
+    const { label, onPress, noBorder } = props;
 
     return (
-        <CardItem style={styles.container}>
-            <Left>
+        <View style={[styles.container, noBorder && { borderBottomWidth: 0 }]}>
+            <View style={styles.leftContainer}>
                 <Text style={styles.label}>{label}</Text>
-            </Left>
-            <Body>
+            </View>
+            <View style={styles.rightContainer}>
                 <Button style={styles.detailButton} transparent
-                    onPress={() => navigation.navigate(MeStackConfig.HEALTH_INFO_SCREEN.name, { label: label, data: null })}>
+                    onPress={onPress}>
                     <Text style={styles.buttonText}>Detail</Text>
                 </Button>
-            </Body>
-        </CardItem>
+            </View>
+        </View>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        borderBottomWidth: 0,
-        padding: 0,
-        marginHorizontal: 16,
+        paddingVertical: 16,
         borderBottomWidth: 1,
-        borderBottomColor: Theme.lightGrey
+        borderBottomColor: Theme.lightGrey,
+        flexDirection: "row",
+        justifyContent: "space-between"
     },
-    iconContainer: {
+    leftContainer: {
+        flex: 2,
         flexDirection: "column",
-        justifyContent: "flex-start",
+        justifyContent: "center"
     },
-    labelContainer: {
+    rightContainer: {
         flex: 1,
         flexDirection: "column",
-        justifyContent: "flex-start",
+        justifyContent: "center"
     },
     label: {
         fontSize: 16,
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         letterSpacing: 0.2
     },
     detailButton: {
-        alignSelf: "center",
+        alignSelf: "flex-end",
     },
     buttonText: {
         fontSize: 16,

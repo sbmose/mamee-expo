@@ -208,7 +208,7 @@ export const MeStackConfig = {
         title: "PSM kalendár",
         icon: require('../../assets/kalendarkruh.png'),
         component: PSMCalendar,
-        menu: true
+        menu: false
     },
     BIRTH_PLAN_SCREEN: {
         name: "BirthPlanScreen",

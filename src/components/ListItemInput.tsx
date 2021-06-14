@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { CardItem, Text, Input } from 'native-base';
+import { Text, Input } from 'native-base';
 import { Theme } from '../themes/default';
 
 export default function ListItemInput(props: any) {
     const { label, bgColor, style, onChangeText, value, error, errorText, onFocus, onBlur, forceFocused, keyboardType, noBorder } = props;
-    const [showPass, setShowPass] = useState(false);
     const [isFocused, setFocused] = useState(false);
 
     return (
@@ -43,9 +42,13 @@ const styles = StyleSheet.create({
     },
     leftContainer: {
         flex: 1,
+        flexDirection: "column",
+        justifyContent: "center"
     },
     rightContainer: {
-        flex: 1
+        flex: 1,
+        flexDirection: "column",
+        justifyContent: "center"
     },
     label: {
         fontSize: 16,
@@ -57,7 +60,6 @@ const styles = StyleSheet.create({
         width: "100%",
         fontSize: 16,
         color: Theme.black,
-        lineHeight: 24,
-        letterSpacing: 0.2
+        letterSpacing: 0.2,
     }
 });

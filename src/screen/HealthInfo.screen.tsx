@@ -3,11 +3,12 @@ import {
     StyleSheet,
     SafeAreaView,
     ScrollView,
-    Text
+    Text,
+    View
 } from 'react-native';
-import { Card } from "native-base";
 import { Theme, ThemeStyles } from '../themes/default';
 import ListItemInput from '../components/ListItemInput';
+import CardItemButton from '../components/CardItemButton';
 // Screen Styles
 
 export default function HealthInfo({ navigation }: any) {
@@ -109,30 +110,30 @@ export default function HealthInfo({ navigation }: any) {
         <SafeAreaView style={ThemeStyles.safeAreaContainer}>
             <ScrollView style={[ThemeStyles.scrollContainer, styles.container]}>
                 <Text style={styles.listHeader}>Všeobecné</Text>
-                <Card style={styles.card}>
+                <View style={[ThemeStyles.cardContainer, styles.cardContainer]}>
                     {mockData.common.map((item) => (
                         <ListItemInput key={item.value} label={item.label} value={item.value} />
                     )
                     )}
-                </Card>
+                </View>
                 <Text style={styles.listHeader}>Predcházajůce gravidity</Text>
-                <Card style={styles.card}>
+                <View style={[ThemeStyles.cardContainer, styles.cardContainer]}>
                     {mockData.previousGravidity.map((item) => (
                         <ListItemInput key={item.value} label={item.label} value={item.value} />
                     ))}
-                </Card>
+                </View>
                 <Text style={styles.listHeader}>Lekárske záznamy</Text>
-                <Card style={styles.card}>
+                <View style={[ThemeStyles.cardContainer, styles.cardContainer]}>
                     {mockData.medicalRecords.map((item) => (
-                        <ListItemInput key={item.label} label={item.label} />
+                        <CardItemButton key={item.label} label={item.label} />
                     ))}
-                </Card>
+                </View>
                 <Text style={styles.listHeader}>Tehotenstvo</Text>
-                <Card style={styles.card}>
+                <View style={[ThemeStyles.cardContainer, styles.cardContainer]}>
                     {mockData.pregnancy.map((item) => (
                         <ListItemInput key={item.value} label={item.label} value={item.value} />
                     ))}
-                </Card>
+                </View>
             </ScrollView>
         </SafeAreaView>
     );
@@ -141,6 +142,9 @@ export default function HealthInfo({ navigation }: any) {
 const styles = StyleSheet.create({
     container: {
         paddingHorizontal: 16
+    },
+    cardContainer: {
+        paddingVertical: 0
     },
     listHeader: {
         fontSize: 12,
