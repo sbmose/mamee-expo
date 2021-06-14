@@ -125,6 +125,16 @@ export default function MeStack() {
                 options={({ route, navigation }: any) => getHeaderOptions(MeStackConfig.BAG_SCREEN.title)}
             />
             <Stack.Screen
+                name={MeStackConfig.BAG_DETAIL_LIST_SCREEN.name}
+                component={MeStackConfig.BAG_DETAIL_LIST_SCREEN.component}
+                initialParams={({ route }: any) => route.params}
+                options={({ route }: any) => {
+                    return {
+                        ...getHeaderOptions(route.params.title)
+                    }
+                }}
+            />
+            <Stack.Screen
                 name={MeStackConfig.BUY_LIST_SCREEN.name}
                 component={MeStackConfig.BUY_LIST_SCREEN.component}
                 options={({ route, navigation }: any) => getHeaderOptions(MeStackConfig.BUY_LIST_SCREEN.title)}

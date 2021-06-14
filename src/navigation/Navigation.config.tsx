@@ -52,6 +52,8 @@ import AddNewEventScreen from '../screen/Me/AddNewEvent.screen';
 import CalculatePeriodScreen from '../screen/Me/CalculatePeriod.screen';
 import BirthPlanScreen from '../screen/Me/BirthPlan.screen';
 import BagScreen from '../screen/Me/Bag.screen';
+import BagListScreen from '../screen/Me/BagList.screen';
+import BagDetailStack from './navigators/BagDetail.stack';
 
 export const RootStackConfig = {
     APP_STACK: {
@@ -166,6 +168,17 @@ export const CalendarTabStack = {
     }
 }
 
+export const BagDetailTabStack = {
+    BAG_LIST_TAB_ONE_SCREEN: {
+        name: "BagListTabOneScreen",
+        component: BagListScreen
+    },
+    BAG_LIST_TAB_TWO_SCREEN: {
+        name: "BagListTabTwoScreen",
+        component: BagListScreen
+    },
+}
+
 export const MeStackConfig = {
     PROFILE_SCREEN: {
         name: "ProfileScreen",
@@ -222,6 +235,11 @@ export const MeStackConfig = {
         icon: require('../../assets/kalendarkruh.png'),
         component: BagScreen,
         menu: true
+    },
+    BAG_DETAIL_LIST_SCREEN: {
+        name: "BagDetailListScreen",
+        component: BagDetailStack,
+        menu: false
     },
     BUY_LIST_SCREEN: {
         name: "BuyListScreen",
