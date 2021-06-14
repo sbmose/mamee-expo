@@ -1,20 +1,24 @@
 
 import React from 'react';
-import { StyleSheet, Image, View, Text } from 'react-native';
+import { StyleSheet, Image, View, Text, TouchableOpacity } from 'react-native';
 import { Theme } from '../themes/default';
+import TabBarIcons from './TabBarIcons';
 
-export default function CardItemText({ header, text, image }: any) {
+export default function CardItemText({ header, text, image, iconName, color, onPress }: any) {
 
     return (
-        <View style={styles.container}>
+        <TouchableOpacity
+            activeOpacity={0.7}
+            style={[styles.container]}
+            onPress={onPress}>
             <View style={styles.iconContainer}>
-                <Image source={image} style={styles.icon} />
+                {image && <Image source={image} style={styles.icon} />}
+                {iconName && <TabBarIcons name={iconName} color={color || Theme.pink} width={25} height={25} />}
             </View>
-            <View style={styles.iconContainer}>
+            <View style={styles.textContainer}>
                 <Text style={styles.header}>{header}</Text>
-                {text && <Text style={styles.text}>{text}</Text>}
             </View>
-        </View>
+        </TouchableOpacity>
     );
 }
 
@@ -37,7 +41,7 @@ const styles = StyleSheet.create({
     textContainer: {
         flex: 1,
         flexDirection: "column",
-        justifyContent: "flex-start",
+        justifyContent: "center",
         alignItems: "flex-start"
     },
     header: {
@@ -46,16 +50,7 @@ const styles = StyleSheet.create({
         color: Theme.black,
         lineHeight: 20,
         letterSpacing: 0.2,
-        paddingTop: 8
 
-    },
-    text: {
-        fontSize: 12,
-        fontWeight: "500",
-        color: Theme.darkGray,
-        lineHeight: 18,
-        letterSpacing: 0.2,
-        marginTop: 16
     },
     icon: {
         width: 32,

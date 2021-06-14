@@ -12,8 +12,6 @@ import Loss from "../screen/Loss";
 import Hospitals from "../screen/Hospitals";
 import Names from "../screen/Names";
 import BuyList from "../screen/BuyList";
-import Bag from "../screen/Bag";
-import PSMCalendar from "../screen/PSMCalendar";
 import Photos from "../screen/Photos";
 import Weight from "../screen/Weight";
 import DetailPhoto from "../screen/DetailPhoto";
@@ -53,6 +51,7 @@ import CalendarStack from './navigators/Calendar.stack';
 import AddNewEventScreen from '../screen/Me/AddNewEvent.screen';
 import CalculatePeriodScreen from '../screen/Me/CalculatePeriod.screen';
 import BirthPlanScreen from '../screen/Me/BirthPlan.screen';
+import BagScreen from '../screen/Me/Bag.screen';
 
 export const RootStackConfig = {
     APP_STACK: {
@@ -221,7 +220,7 @@ export const MeStackConfig = {
         name: "BagScreen",
         title: "Taška do pôrodnice",
         icon: require('../../assets/kalendarkruh.png'),
-        component: Bag,
+        component: BagScreen,
         menu: true
     },
     BUY_LIST_SCREEN: {
