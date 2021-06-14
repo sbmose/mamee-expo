@@ -2,9 +2,11 @@ import { combineReducers } from 'redux';
 
 // Reducers
 import ProfileReducer from './ProfileReducer';
+import UIReducer from './UIReducer';
 
 let rootReducer: any = {
-    profile: ProfileReducer
+    profile: ProfileReducer,
+    ui: UIReducer
 };
 
 
