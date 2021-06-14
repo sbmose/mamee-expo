@@ -80,6 +80,19 @@ export default function MeStack() {
                 }}
             />
             <Stack.Screen
+                name={MeStackConfig.BIRTH_PLAN_SCREEN.name}
+                component={MeStackConfig.BIRTH_PLAN_SCREEN.component}
+                options={({ route, navigation }: any) => {
+                    return {
+                        ...getHeaderOptions(MeStackConfig.BIRTH_PLAN_SCREEN.title),
+                        headerRight: () => (<HeaderButton
+                            iconName="camera"
+                            onPress={() => console.log("Add Photo")}
+                        />)
+                    }
+                }}
+            />
+            <Stack.Screen
                 name={MeStackConfig.HEALTH_INFO_SCREEN.name}
                 component={MeStackConfig.HEALTH_INFO_SCREEN.component}
                 options={({ route, navigation }: any) => getHeaderOptions(MeStackConfig.HEALTH_INFO_SCREEN.title)}

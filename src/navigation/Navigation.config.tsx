@@ -13,10 +13,8 @@ import Hospitals from "../screen/Hospitals";
 import Names from "../screen/Names";
 import BuyList from "../screen/BuyList";
 import Bag from "../screen/Bag";
-import Plan from "../screen/Plan";
 import PSMCalendar from "../screen/PSMCalendar";
 import Photos from "../screen/Photos";
-import Calendar from "../screen/Calendar.screen";
 import Weight from "../screen/Weight";
 import DetailPhoto from "../screen/DetailPhoto";
 import BagPartner from "../screen/BagPartner";
@@ -54,6 +52,7 @@ import PeriodCalendarScreen from '../screen/Me/PeriodCalendar.screen';
 import CalendarStack from './navigators/Calendar.stack';
 import AddNewEventScreen from '../screen/Me/AddNewEvent.screen';
 import CalculatePeriodScreen from '../screen/Me/CalculatePeriod.screen';
+import BirthPlanScreen from '../screen/Me/BirthPlan.screen';
 
 export const RootStackConfig = {
     APP_STACK: {
@@ -211,11 +210,11 @@ export const MeStackConfig = {
         component: PSMCalendar,
         menu: true
     },
-    PLAN_SCREEN: {
-        name: "PlanScreen",
+    BIRTH_PLAN_SCREEN: {
+        name: "BirthPlanScreen",
         title: "Pôrodný plán",
         icon: require('../../assets/porodnyplankruh.png'),
-        component: Plan,
+        component: BirthPlanScreen,
         menu: true
     },
     BAG_SCREEN: {
@@ -327,7 +326,7 @@ export const MeStackConfig = {
         title: "Výpočet cyklu",
         component: CalculatePeriodScreen,
         menu: false
-    },
+    }
 }
 
 export const ChildStackConfig = {

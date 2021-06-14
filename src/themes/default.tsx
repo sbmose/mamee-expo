@@ -63,6 +63,13 @@ const ThemeStyles = StyleSheet.create({
         color: Theme.darkGray,
         marginBottom: 16
     },
+    infoTextSmall: {
+        color: Theme.darkGray,
+        fontWeight: "500",
+        fontSize: 14,
+        letterSpacing: 0.2,
+        marginBottom: 16
+    },
     cardContainer: {
         flexDirection: "column",
         justifyContent: "flex-start",
