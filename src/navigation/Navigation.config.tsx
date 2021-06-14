@@ -160,7 +160,7 @@ export const CalendarTabStack = {
         title: "Udalosti",
         component: EventsCalendarScreen,
     },
-    MENSES_CALENDAR_SCREEN: {
+    PERIOD_CALENDAR_SCREEN: {
         name: "PeriodCalendarScreen",
         title: "Menštruácia",
         component: PeriodCalendarScreen
@@ -204,11 +204,11 @@ export const MeStackConfig = {
         menu: true
     },
     PMS_CALENDAR_SCREEN: {
-        name: "PmsCalendarScreen",
+        name: "PMSCalendarScreen",
         title: "PSM kalendár",
         icon: require('../../assets/kalendarkruh.png'),
-        component: PSMCalendar,
-        menu: false
+        component: PeriodCalendarScreen,
+        menu: true
     },
     BIRTH_PLAN_SCREEN: {
         name: "BirthPlanScreen",

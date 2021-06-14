@@ -110,7 +110,14 @@ export default function MeStack() {
             <Stack.Screen
                 name={MeStackConfig.PMS_CALENDAR_SCREEN.name}
                 component={MeStackConfig.PMS_CALENDAR_SCREEN.component}
-                options={({ route, navigation }: any) => getHeaderOptions(MeStackConfig.PMS_CALENDAR_SCREEN.title)}
+                options={({ route, navigation }: any) => {
+                    return {
+                        ...getHeaderOptions(MeStackConfig.PMS_CALENDAR_SCREEN.title),
+                        headerRight: () => (<HeaderButton
+                            iconName="calendar"
+                            onPress={() => navigation.navigate(MeStackConfig.CALCULATE_PERIOD_SCREEN.name)} />)
+                    }
+                }}
             />
             <Stack.Screen
                 name={MeStackConfig.BAG_SCREEN.name}

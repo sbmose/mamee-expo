@@ -17,10 +17,10 @@ export default function CalendarStack() {
                 }}
             />
             <Tab.Screen
-                name={CalendarTabStack.MENSES_CALENDAR_SCREEN.name}
-                component={CalendarTabStack.MENSES_CALENDAR_SCREEN.component}
+                name={CalendarTabStack.PERIOD_CALENDAR_SCREEN.name}
+                component={CalendarTabStack.PERIOD_CALENDAR_SCREEN.component}
                 options={{
-                    title: CalendarTabStack.MENSES_CALENDAR_SCREEN.title,
+                    title: CalendarTabStack.PERIOD_CALENDAR_SCREEN.title,
                 }}
             />
         </Tab.Navigator>

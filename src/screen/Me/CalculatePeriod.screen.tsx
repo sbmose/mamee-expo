@@ -31,7 +31,7 @@ export default function CalculatePeriodScreen({ navigation }: any) {
                     />
                     <Controller
                         name="duration"
-                        defaultValue="text"
+                        defaultValue=""
                         control={control}
                         rules={{
                             required: { value: true, message: "Meno je vyžadované" }
