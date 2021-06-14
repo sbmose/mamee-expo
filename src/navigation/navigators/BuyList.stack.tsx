@@ -13,12 +13,12 @@ export default function BuyListStack() {
             <Tab.Screen
                 name={BuyListTabStack.BUY_LIST_TAB_ONE_SCREEN.name}
                 component={BuyListTabStack.BUY_LIST_TAB_ONE_SCREEN.component}
-                options={{ title: "Dieťa" }}
+                options={{ title: BuyListTabStack.BUY_LIST_TAB_ONE_SCREEN.title }}
             />
             <Tab.Screen
                 name={BuyListTabStack.BUY_LIST_TAB_TWO_SCREEN.name}
                 component={BuyListTabStack.BUY_LIST_TAB_TWO_SCREEN.component}
-                options={{ title: "Matka" }}
+                options={{ title: BuyListTabStack.BUY_LIST_TAB_TWO_SCREEN.title }}
             />
         </Tab.Navigator>
     )

@@ -9,7 +9,7 @@ import Child from "../screen/Child";
 import Administration from "../screen/Administration";
 import Loss from "../screen/Loss";
 import Hospitals from "../screen/Hospitals";
-import Names from "../screen/Names";
+import Names from "../screen/Names.screen";
 import Photos from "../screen/Photos";
 import Weight from "../screen/Weight";
 import DetailPhoto from "../screen/DetailPhoto";
@@ -54,6 +54,8 @@ import BagListScreen from '../screen/Me/BagList.screen';
 import BagDetailStack from './navigators/BagDetail.stack';
 import MeMenuScreen from '../screen/Me/MeMenu.screen';
 import BuyListStack from './navigators/BuyList.stack';
+import HospitalsListScreen from '../screen/Me/HospitalsList.screen';
+import HospitalsListStack from './navigators/HospitalsList.stack';
 
 export const RootStackConfig = {
     APP_STACK: {
@@ -182,12 +184,32 @@ export const BagDetailTabStack = {
 export const BuyListTabStack = {
     BUY_LIST_TAB_ONE_SCREEN: {
         name: "BuyListTabOneScreen",
+        title: "Dieťa",
         component: BagListScreen
     },
     BUY_LIST_TAB_TWO_SCREEN: {
         name: "BuyListTabTwoScreen",
+        title: "Matka",
         component: BagListScreen
     }
+}
+
+export const HospitalsListTabStack = {
+    HOSPITALS_LIST_TAB_ONE_SCREEN: {
+        name: "HospitalsListTabOneScreen",
+        title: "Kraje",
+        component: HospitalsListScreen
+    },
+    HOSPITALS_LIST_TAB_TWO_SCREEN: {
+        name: "HospitalsListTabTwoScreen",
+        title: "Najbližšie",
+        component: HospitalsListScreen
+    },
+    HOSPITALS_LIST_TAB_THREE_SCREEN: {
+        name: "HospitalsListTabThreeScreen",
+        title: "Obľúbené",
+        component: HospitalsListScreen
+    },
 }
 
 export const MeStackConfig = {
@@ -267,10 +289,10 @@ export const MeStackConfig = {
         menu: true
     },
     HOSPITALS_SCREEN: {
-        name: "HospitalsScreen",
+        name: "HospitalsListStack",
         title: "Zoznam pôrodníc",
         icon: require('../../assets/zoznamporodnickruh.png'),
-        component: Hospitals,
+        component: HospitalsListStack,
         menu: true
     },
     LOSS_SCREEN: {
