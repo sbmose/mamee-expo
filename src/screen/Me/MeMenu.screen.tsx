@@ -6,7 +6,7 @@ import MenuButton from "../../components/MenuButton";
 import { MeStackConfig } from '../../navigation/Navigation.config';
 
 
-export default function ProfileScreen({ navigation }: any) {
+export default function MeMenuScreen({ navigation }: any) {
 
     return (
         <View style={ThemeStyles.applicationBackground}>

@@ -5,13 +5,11 @@ import DashboardStack from './navigators/Dashboard.stack';
 import MeStack from './navigators/Me.stack';
 import ChildStack from './navigators/Child.stack';
 // Screens
-import Me from "../screen/Me/Me.screen";
 import Child from "../screen/Child";
 import Administration from "../screen/Administration";
 import Loss from "../screen/Loss";
 import Hospitals from "../screen/Hospitals";
 import Names from "../screen/Names";
-import BuyList from "../screen/BuyList";
 import Photos from "../screen/Photos";
 import Weight from "../screen/Weight";
 import DetailPhoto from "../screen/DetailPhoto";
@@ -54,6 +52,8 @@ import BirthPlanScreen from '../screen/Me/BirthPlan.screen';
 import BagScreen from '../screen/Me/Bag.screen';
 import BagListScreen from '../screen/Me/BagList.screen';
 import BagDetailStack from './navigators/BagDetail.stack';
+import MeMenuScreen from '../screen/Me/MeMenu.screen';
+import BuyListStack from './navigators/BuyList.stack';
 
 export const RootStackConfig = {
     APP_STACK: {
@@ -176,7 +176,18 @@ export const BagDetailTabStack = {
     BAG_LIST_TAB_TWO_SCREEN: {
         name: "BagListTabTwoScreen",
         component: BagListScreen
+    }
+}
+
+export const BuyListTabStack = {
+    BUY_LIST_TAB_ONE_SCREEN: {
+        name: "BuyListTabOneScreen",
+        component: BagListScreen
     },
+    BUY_LIST_TAB_TWO_SCREEN: {
+        name: "BuyListTabTwoScreen",
+        component: BagListScreen
+    }
 }
 
 export const MeStackConfig = {
@@ -245,7 +256,7 @@ export const MeStackConfig = {
         name: "BuyListScreen",
         title: "Nákupný zoznam",
         icon: require('../../assets/nakupnyzoznamkruh.png'),
-        component: BuyList,
+        component: BuyListStack,
         menu: true
     },
     NAMES_SCREEN: {
@@ -301,7 +312,7 @@ export const MeStackConfig = {
         name: "MeMenuScreen",
         title: "Ja",
         icon: null,
-        component: Me,
+        component: MeMenuScreen,
         menu: false
     },
     DETAIL_PHOTO_SCREEN: {
