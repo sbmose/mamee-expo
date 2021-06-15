@@ -56,6 +56,8 @@ import MeMenuScreen from '../screen/Me/MeMenu.screen';
 import BuyListStack from './navigators/BuyList.stack';
 import HospitalsListScreen from '../screen/Me/HospitalsList.screen';
 import HospitalsListStack from './navigators/HospitalsList.stack';
+import NamesListScreen from '../screen/Me/NamesList.screen';
+import NamesListStack from './navigators/NamesList.stack';
 
 export const RootStackConfig = {
     APP_STACK: {
@@ -194,6 +196,19 @@ export const BuyListTabStack = {
     }
 }
 
+export const NamesListTabStack = {
+    NAMES_LIST_TAB_ONE_SCREEN: {
+        name: "NamesListTabOneScreen",
+        title: "Dievčatá",
+        component: NamesListScreen
+    },
+    NAMES_LIST_TAB_TWO_SCREEN: {
+        name: "NamesListTabTwoScreen",
+        title: "Chlapci",
+        component: NamesListScreen
+    }
+}
+
 export const HospitalsListTabStack = {
     HOSPITALS_LIST_TAB_ONE_SCREEN: {
         name: "HospitalsListTabOneScreen",
@@ -285,7 +300,7 @@ export const MeStackConfig = {
         name: "NamesScreen",
         title: "Zoznam mien",
         icon: require('../../assets/zoznammienkruh.png'),
-        component: Names,
+        component: NamesListStack,
         menu: true
     },
     HOSPITALS_SCREEN: {
